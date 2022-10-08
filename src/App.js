@@ -25,6 +25,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CostAnalysis from "./app/pages/costAnalysis"
+import "./App.css"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
