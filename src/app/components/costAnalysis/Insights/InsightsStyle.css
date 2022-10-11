@@ -1,0 +1,61 @@
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 5px
+}
+.insights{
+    height: 250px;
+    font-size: 12px;
+    background-color: #353536;
+    color: #ffffff;
+
+}
+.tablesection{
+    width:90%;
+    height: 200px;
+    overflow: scroll;
+}
+.tablesection::-webkit-scrollbar{
+    display: none;
+    scroll-behavior: smooth;
+}
+.datatable td:first-child {
+    border-bottom: none;
+}
+.datatable td{
+    border-style: dotted;
+    border-color: #ffffff;
+    color: #ffffff;  
+}
+#inprogress{
+    color: #d6c100;
+    height: 18px;
+    width: 18px;
+}
+#open{
+    color: #e63900;
+    height: 18px;
+    width: 18px;
+}
+#suggestions{
+    color: #ffffff;
+    height: 18px;
+    width: 18px;
+    transform: rotate(180deg);
+}
+#msgdata{
+    padding-bottom: 0px;
+    padding-top: 5px;
+    padding-left: 0px;
+}
+#msgicon{
+    padding-bottom: 0px;
+    padding-top: 5px;
+}
+
+.datatable tr:last-child td{
+    border-bottom: none;
+}
