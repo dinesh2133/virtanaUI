@@ -20,8 +20,8 @@ const MonthlyCosts = () =>{
       }));
     return(
         <div className="monthly-cost">
-            <h3>December Cost (Projected)</h3>
-            <h1>$34,545</h1>
+            <h6>December Cost (Projected)</h6>
+            <h3>$34,545</h3>
             <section id="inner-section">
                 <p>Month To Date</p>
                 <span className="span-heading"><strong>$45,600</strong></span>
