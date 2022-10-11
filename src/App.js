@@ -72,20 +72,16 @@ const App = () => {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Cost Analysis" {...a11yProps(0)} />
-          <Tab label="Performance" {...a11yProps(1)} />
-          <Tab label="ROI" {...a11yProps(2)} />
+          <Tab style={{color: 'white'}} label="Cost Analysis" {...a11yProps(0)} />
+          <Tab style={{color: 'white'}} label="Performance" {...a11yProps(1)} />
+          <Tab style={{color: 'white'}} label="ROI" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         <section style={{display: "grid", gridTemplateColumns: "80% 10%"}}>
         <h2>Cost Overview</h2>
-        <h2>someting</h2>
         </section>
-        
-      <div style={{width: '100%', height: "100vh", display : 'grid', gridTemplateColumns: "80% 20%", backgroundColor: 'black'}}>
         <CostAnalysis />
-      </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two

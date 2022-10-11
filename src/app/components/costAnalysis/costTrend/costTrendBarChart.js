@@ -1,5 +1,5 @@
 import React from "react";
-import BarChart from "../../helpers/charts/barChart";
+import BarChart from "../../../helpers/charts/barChart";
 import {options, data} from './config';
 import './costTrend.css'
 
