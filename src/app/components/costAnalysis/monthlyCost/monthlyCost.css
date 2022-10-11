@@ -1,0 +1,36 @@
+.monthly-cost{
+    width: 76%;
+    height: 320px;
+    margin: 15px 0 0 20px;
+    text-align: center;
+    /* grid-row: 1; */
+    /* margin-left: 30px; */
+    background-color: #353536;
+    /* color: white; */
+    padding: 30px; 
+}
+#inner-section{
+    text-align: left;
+    margin-top: 10px;
+}
+#inner-section p {
+    margin-bottom: 10px;
+}
+
+.span-heading{
+    font-size: 1.5rem;
+}
+.float-span{
+    float: right;
+}
+
+.footer-span{
+   display: inline-block;
+   margin-top: 20px;
+   /* display: inline-block; */
+}
+
+.margin-left{
+    margin-left: 20px;
+}
+/* .range-input: */

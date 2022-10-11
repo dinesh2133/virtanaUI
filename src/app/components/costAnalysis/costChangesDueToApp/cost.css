@@ -1,0 +1,18 @@
+.cost-changes{
+    
+    width: 95%;
+    height: 320px;
+    margin: 15px 0 0;
+    text-align: center;
+    /* color: red; */
+    background-color: #353536 !important;
+}
+
+.float-button{
+    float: right;
+    margin-right: 20px;
+    border: none;
+    color: rgb(55, 99, 243);
+    background-color: transparent;
+    font-size: 1.1rem;
+}
