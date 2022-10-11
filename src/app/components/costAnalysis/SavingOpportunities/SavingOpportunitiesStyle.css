@@ -1,0 +1,66 @@
+
+.SavingOpp{
+    background-color: #353536;
+    color: white;
+    height:250px;
+    /* width: 350px; */
+    font-size: 11px;
+}
+#savingicon{
+    height: 60px;
+    width: 60px;
+    transform: rotate(180deg);
+    color: #3e844d;
+    padding-left: 10px;
+}
+.savingdata{
+    margin-top: -50px;
+}
+.totalamount{
+    color: #3e844d;
+    margin-bottom: 0px;
+    margin-top: 25px;
+    font-size: 30px;
+}
+#savingtable{
+    margin-top: -20px;
+    color: white;
+}
+#savingtable td{
+    padding:3px;
+    border-style: dotted;
+
+}
+#savingtable tr:last-child td{
+    border-bottom: none;
+}
+.savingtitle1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.savingtitle2{
+    margin-top: -10px;
+    margin-left: -10px;
+    padding-bottom: 10px;
+}
+#savingchart{
+    height:90px;
+    width: 90%;
+    margin-left: 30px;
+}
+#savingtable button{
+        border: none;
+        background-color: transparent;
+        color: #285786;        
+}
+#sugicon{
+    transform: rotate(180deg);
+    color: white;
+    height: 15px;
+    width: 15px;
+}
+#savingtable button{
+    padding-right: 0px;
+}

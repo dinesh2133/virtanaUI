@@ -1,0 +1,80 @@
+.Optimization{
+   background-color: #353536;
+    height:250px;
+    /* width: 400px; */
+    color: #ffffff;
+    font-size: 12px;
+    display:grid;
+    align-items: center;
+    justify-content:center ;
+}
+.m40{
+    margin-left: 40px;
+}
+.m65{
+    margin-left: 65px;
+}
+.m20{
+    margin-right: 10px;
+    margin-left: -36px;;
+}
+.Heading{
+    margin-top: 10px;;
+}
+.contentcenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Titles{
+    display: grid; 
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    text-align: center;
+}
+.Titles p{
+    margin-bottom:0px;
+}
+.CountofProgress{
+    height: 50;
+    width: 90%;
+    display: grid; 
+    grid-template-columns:33.3% 33.3% 33.3%;
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+}
+.CountofProgress div{
+    margin:0 30px;
+}
+.Open_Progress{
+    color: #e63900;
+}
+
+.In_Progress{
+    color: #d6c100;
+}
+.Resolved{
+    color: #51a95a;
+}
+.TotalSaving{
+    color: #3e844d;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-size: 30px;
+}
+#Saving{
+    transform: rotate(180deg);
+    height: 60px;
+    width: 60px;
+}
+#Inprogressdiv{
+    width: 100px;
+        border-left: 1px solid white;  
+        border-right: 1px solid white;     
+}
+
+.footerline{
+    margin-top: -15px;
+    margin-left: 30px;
+}
