@@ -4,11 +4,11 @@
     color: white;
     height:250px;
     /* width: 350px; */
-    font-size: 11px;
+    font-size: 12px;
 }
 #savingicon{
     height: 60px;
-    width: 60px;
+    width: auto;
     transform: rotate(180deg);
     color: #3e844d;
     padding-left: 10px;
@@ -27,7 +27,7 @@
     color: white;
 }
 #savingtable td{
-    padding:3px;
+    padding:1px;
     border-style: dotted;
 
 }
@@ -41,26 +41,80 @@
     padding: 10px;
 }
 .savingtitle2{
-    margin-top: -10px;
+    margin-top: -4px;
     margin-left: -10px;
     padding-bottom: 10px;
+    font-size: 11.5px;
 }
 #savingchart{
     height:90px;
-    width: 90%;
-    margin-left: 30px;
+    width: 85%;
+    margin-left: 6%;
 }
 #savingtable button{
         border: none;
         background-color: transparent;
-        color: #285786;        
+        color: #54aded;        
 }
 #sugicon{
     transform: rotate(180deg);
     color: white;
     height: 15px;
-    width: 15px;
+    width: auto;
 }
 #savingtable button{
     padding-right: 0px;
 }
+@media only screen and (max-width: 750px) {
+    #savingicon{
+        height: 45px;
+        width: auto;
+        transform: rotate(180deg);
+        color: #3e844d;
+        padding-left: 10px;
+    }
+    .totalamount{
+        font-size: 25px;
+    }
+    #savingtable{
+        margin-top: 2%;
+    }
+    #savingtable td{
+        padding: 0px;
+        font-size: 10.5px;
+    }
+    #sugicon{
+        height:10px;
+        width: auto;
+    }
+    #savingchart{
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    #savingicon{
+        height: 50px;
+        width: auto;
+        transform: rotate(180deg);
+        color: #3e844d;
+        padding-left: 10px;
+    }
+    .totalamount{
+        font-size: 30px;
+    }
+    #savingtable{
+        margin-top: 1%;
+    }
+    #savingtable td{
+        padding: 0px;
+        font-size: 12px;
+    }
+    #sugicon{
+        height:10.5px;
+        width: auto;
+    }
+    #savingchart{
+        width: 90%;
+    }
+}
+

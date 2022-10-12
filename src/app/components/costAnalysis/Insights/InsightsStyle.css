@@ -17,6 +17,7 @@
     width:90%;
     height: 200px;
     overflow: scroll;
+    margin-left:4%;
 }
 .tablesection::-webkit-scrollbar{
     display: none;
@@ -27,7 +28,6 @@
 }
 .datatable td{
     border-style: dotted;
-    border-color: #ffffff;
     color: #ffffff;  
 }
 #inprogress{
