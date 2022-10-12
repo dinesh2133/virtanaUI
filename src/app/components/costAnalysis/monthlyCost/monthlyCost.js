@@ -2,7 +2,8 @@ import React from "react";
 import './monthlyCost.css';
 import { Box, LinearProgress, linearProgressClasses} from "@mui/material";
 import { styled } from '@mui/material/styles';
-
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const MonthlyCosts = () =>{
 
@@ -25,11 +26,11 @@ const MonthlyCosts = () =>{
             <section id="inner-section">
                 <p>Month To Date</p>
                 <span className="span-heading"><strong>$45,600</strong></span>
-                <span className="span-heading float-span">25%</span>
+                <span className="span-heading float-span" style={{color: 'red'}}><ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />25%</span>
 
                 <Box sx={{ flexGrow: 1 }}>
-                <BorderLinearProgress variant="determinate" value={50} />
-                <BorderLinearProgress backgroundColor="red" sx={{
+                <BorderLinearProgress sx={{marginTop: '5px'}} variant="determinate" value={50} />
+                <BorderLinearProgress sx={{
                   '& .MuiLinearProgress-bar':{
                     backgroundColor: '#D3D3D3'
                   }
