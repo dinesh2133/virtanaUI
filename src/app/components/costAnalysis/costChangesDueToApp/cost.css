@@ -2,15 +2,18 @@
     height: 250px;
     text-align: center;
     background-color: #353536 !important;
+    font-size: 13px;
+    overflow: hidden;
 }
 
 .float-button{
     float: right;
     margin-right: 20px;
     border: none;
-    color: rgb(55, 99, 243);
+    color: #285786;
     background-color: transparent;
-    font-size: 1.1rem;
+    font-size: .8rem;
+    outline: none;
 }
 .table-section{
     width: 100%;
@@ -21,13 +24,14 @@
     width: 90%;
     height: 100%;
     text-align: left;
-    margin-left: 40px;
+    margin-left: 5%;
 }
 
 .table-row, td{
     border-bottom: thin dotted grey;
     line-height: 1.2rem;
 }
-::-webkit-scrollbar {
-    display: none;
-  }
+
+.float-button:hover{
+    color: white;
+}

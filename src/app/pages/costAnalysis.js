@@ -13,23 +13,23 @@ const CostAnalysis = () =>{
         <div id="costAnalysisDiv">
         <div className="container-xxl">
             <div className="row">
-                <div className="col-sm-3" style={{padding:'15px 0 0 10px'}}>
+                <div className="col-sm-3" id="monthly-costs" >
                     <MonthlyCosts />
                 </div>
-                <div className="col-sm-5" style={{padding: '0', paddingLeft: '5px'}}>
+                <div className="col-sm-5" id="cost-trend" >
                     <CostTrendBar />
                 </div>
-                <div className="col-sm-4" style={{padding: '15px 10px 0 5px'}}>
+                <div className="col-sm-4" id="saving-opportunities">
                     
                     <SavingOpportunities />
                 </div>
-                <div className="col-sm-4 mt-1" style={{padding: '5px 5px 0 10px'}} >
+                <div className="col-sm-4 mt-1" id="optimization">
                     <Optimization />
                 </div>
-                <div className="col-sm-4 mt-1" style={{padding: '5px 5px 0 0'}}  >
+                <div className="col-sm-4 mt-1" id="insights" >
                     <Insights />
                 </div>
-                <div className="col-sm-4 mt-1" style={{padding: '5px 10px 0 0'}}  >
+                <div className="col-sm-4 mt-1" id="cost-changes" >
                     <CostChanges />
                 </div>
             </div>

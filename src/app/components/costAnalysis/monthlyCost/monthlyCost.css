@@ -9,20 +9,35 @@
     margin-top: 10px;
 }
 #inner-section p {
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
+.monthly-cost p{
+    font-size: 13px;
 
+}
 .float-span{
     float: right;
 }
 
 .footer-span{
-   display: inline-block;
+   display: inline;
    margin-top: 10px;
+   font-size: 11px !important;
    /* display: inline-block; */
 }
 
 .margin-left{
-    margin-left: 20px;
+    margin-left: 5%;
 }
 /* .range-input: */
+.heading-number{
+    font-size: 20px !important;
+    margin-bottom: 0;
+}
+
+/* @media only screen and (max-widht: 400px){
+    .monthly-cost{
+        padding: 10px !important;
+        width: 20%;
+    }
+} */
