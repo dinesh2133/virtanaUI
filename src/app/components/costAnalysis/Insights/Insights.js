@@ -10,15 +10,14 @@ export default class Insights extends Component {
       super()
     
       this.state = {
-         data:[{type:'In-progress',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
-         {type:'Open',msg:"132 New EC2 instances added costing $5459 per month "},
-         {type:'In-progress',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
-         {type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month "},
-         {type:'Open',msg:"132 New EC2 instances added costing $5459 per month "},
-         {type:'In-progress',msg:"132 New EC2 instances added costing $5459 per "},
-         {type:'Open',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
-         {type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month of the last years"}],
-         rdata:''
+         data:[{id:1, type:'In-progress',msg:"132 New E8C2 instances added costing $5459 per month of the last years"},
+         {id:2, type:'Open',msg:"132 New EC2 instances added costing $5459 per month "},
+         {id:3, type:'In-progress',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
+         {id:4, type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month "},
+         {id:5, type:'Open',msg:"132 New EC2 instances added costing $5459 per month "},
+         {id:6, type:'In-progress',msg:"132 New EC2 instances added costing $5459 per "},
+         {id:7, type:'Open',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
+         {id:8, type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month of the last years"}],
       }
     }
     render() {
@@ -34,7 +33,7 @@ export default class Insights extends Component {
                     <table className="table datatable">
                         <tbody>
                         {this.state.data.map((value)=>(
-                                <tr>
+                                <tr key={value.id}>
                                 <td id='msgicon'>{value.type==='In-progress'?<WarningRoundedIcon id='inprogress'/>:null}
                                      {value.type==='Open'?<ErrorIcon id='open'/>:null}
                                      {value.type==='suggestions'?<TungstenSharpIcon id='suggestions'/>:null}

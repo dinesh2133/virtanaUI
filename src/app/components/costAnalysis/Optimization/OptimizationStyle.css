@@ -1,80 +1,176 @@
 .Optimization{
-   background-color: #353536;
+    background-color:#353536;
     height:250px;
-    /* width: 400px; */
     color: #ffffff;
     font-size: 12px;
-    display:grid;
-    align-items: center;
-    justify-content:center ;
-}
-.m40{
-    margin-left: 40px;
-}
-.m65{
-    margin-left: 65px;
-}
-.m20{
-    margin-right: 10px;
-    margin-left: -36px;;
 }
 .Heading{
-    margin-top: 10px;;
+    padding-top: 10px;
 }
-.contentcenter{
+.Optimiz{
+    height:250;
+    width:100%;
+}
+ #tabledata{
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+ }
+ .contentcenter{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.Titles{
-    display: grid; 
-    grid-template-columns: 33.3% 33.3% 33.3%;
-    text-align: center;
-}
-.Titles p{
-    margin-bottom:0px;
-}
-.CountofProgress{
-    height: 50;
-    width: 90%;
-    display: grid; 
-    grid-template-columns:33.3% 33.3% 33.3%;
-    text-align: center;
-    font-size: 25px;
+ }
+ .savingline{
+    margin-top:69px;
+    margin-left: 2%;
+ }
+ .optimiztable{
+    display: flex;
+ }
+#actualdata{
+    padding:0px;
+    font-size: 20px;
     position: relative;
 }
-.CountofProgress div{
-    margin:0 30px;
+#actualdata:nth-child(2){
+    border-left:1.5px solid white;
+    border-right:1.5px solid white;
+
 }
-.Open_Progress{
-    color: #e63900;
+#tabletitle:nth-child(2){
+    padding: 8px 0px;
+}
+#savingvalue:nth-child(2){
+    padding: 8px 0px;
 }
 
-.In_Progress{
-    color: #d6c100;
+#tabletitle{
+    font-style: none;
+    font-weight:0;
 }
-.Resolved{
+#warning{
+    padding-right:2px;
+    color: #e63900;
+    height:25px;
+    width:auto;
+}
+#error{
+    padding-right:2px;
+    color:#d6c100;
+    height:25px;
+    width:auto;
+}
+#check{
+    padding-right:2px;
     color: #51a95a;
-}
-.TotalSaving{
-    color: #3e844d;
-    margin-bottom: 0px;
-    margin-top: 5px;
-    font-size: 30px;
+    height:25px;
+    width:auto;
 }
 #Saving{
+    color:#3e844d;
     transform: rotate(180deg);
-    height: 60px;
-    width: 60px;
+    height: 65px;
+    width: auto;
 }
-#Inprogressdiv{
-    width: 100px;
-        border-left: 1px solid white;  
-        border-right: 1px solid white;     
+.totalSaving{
+    margin-top: -10px;
+    color:#3e844d;
+    font-size: 30px;
 }
-
 .footerline{
-    margin-top: -15px;
-    margin-left: 30px;
+    margin-left: 10%;
+    margin-top: -4%;
 }
+@media only screen and (max-width: 450px) {
+    .totalSaving{
+        font-size: 25px;
+    }
+    #Saving{
+        color:#3e844d;
+        transform: rotate(180deg);
+        height: 45px;
+        width: auto;
+    }
+    #warning{
+        padding-right:2px;
+        color: #e63900;
+        height:15px;
+        width:auto;
+    }
+    #error{
+        padding-right:2px;
+        color:#d6c100;
+        height:15px;
+        width:auto;
+    }
+    #check{
+        padding-right:2px;
+        color: #51a95a;
+        height:15px;
+        width:auto;
+    }
+    #actualdata{
+        padding:0px;
+        font-size: 16px;
+        position: relative;
+    }
+    .savingline{
+        margin-top: 85px;
+        font-size: 8px;
+    }
+    .Heading{
+        margin-bottom: 5px;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    .totalSaving{
+        font-size: 30px;
+    }
+    #Saving{
+        color:#3e844d;
+        transform: rotate(180deg);
+        height: 50px;
+        width: auto;
+    }
+    #warning{
+        padding-right:2px;
+        color: #e63900;
+        height:16px;
+        width:auto;
+    }
+    #error{
+        padding-right:2px;
+        color:#d6c100;
+        height:16px;
+        width:auto;
+    }
+    #check{
+        padding-right:2px;
+        color: #51a95a;
+        height:16px;
+        width:auto;
+    }
+    #actualdata{
+        padding:0px;
+        font-size: 16px;
+        position: relative;
+    }
+    .savingline{
+        margin-top: 75px;
+        font-size: 10px;
+    }
+    .Heading{
+        margin-bottom: 5px;
+    }
+    #savingvalue:nth-child(1){
+        padding: 8px 8px 8px 0px;
+    }
+    .footerline{
+        margin-top:-2%;
+    }
+    #tabledata{
+        margin-top: 5%;
+    }
+  }
