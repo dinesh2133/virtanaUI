@@ -3,6 +3,37 @@
     min-height: 100vh;
     background-color: black;
 }
-/* body{
-    background-color: black;
-} */
+
+
+#monthly-costs{
+
+    padding: 15px 0 0 10px;
+}
+
+#cost-trend{
+    padding: 15px 0 0 2px;
+}
+
+#saving-opportunities{
+    padding: 15px 10px 0 5px;
+}
+#optimization{
+    padding: 5px 0 0 10px;
+}
+#insights{
+    padding: 5px 0 0 5px;
+}
+#cost-changes{
+    padding: 5px 10px 0 5px;
+}
+@media only screen and (max-width: 450px){
+    #monthly-costs{
+        padding: 15px 0 0 3%;
+        width: 97%;
+    }
+    #cost-trend, #cost-changes, #insights, #optimization, #saving-opportunities {
+        padding: 5px 0 0 3%;
+        width: 97%;
+    }
+
+}
