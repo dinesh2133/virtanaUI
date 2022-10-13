@@ -66,7 +66,7 @@ const CostChanges = () =>{
                             tableData.map((row)=>(
                                 <tr className="table-row">
                                     <td>{row.text.length > 35 ? row.text.slice(0,35) + "....." : row.text}</td>
-                                    <td>${row.price}</td>
+                                    <td style={{textAlign: 'right'}}>${row.price}</td>
                                     <td>{row.range === 'up' ? <ArrowUpwardIcon  style={{color: 'red'}} fontSize="small" /> : <ArrowDownwardIcon style={{color:'green'}} fontSize="small" />}</td>
                                 </tr>
                             ))
