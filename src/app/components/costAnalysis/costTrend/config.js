@@ -11,6 +11,8 @@ import {
   } from 'chart.js';
 
 import annotationPlugin from 'chartjs-plugin-annotation';
+import { useState } from 'react';
+import {getCostTrendData} from "../../../apis/costAnalysis.api"
 
 
 ChartJS.register(
@@ -22,6 +24,10 @@ Tooltip,
 Legend,
 annotationPlugin
 );
+
+getCostTrendData();
+let barData = localStorage.getItem("costTrendData");
+
 
 var aws = new Image();
 aws.width = 18;
