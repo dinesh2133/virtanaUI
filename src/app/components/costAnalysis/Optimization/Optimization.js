@@ -10,9 +10,9 @@ export default class Optimization extends Component {
         super(props)
 
         this.state = {
-            arr: [{ id:1, type: 'Open', value: 20, saving: '12,000' },
-            { id:2, type: 'In-Progress', value: 10, saving: '25,000' },
-            { id:3, type: 'Resolved', value: 200, saving: 112 }]
+            arr: [{ id:1, type: 'Open', value: 2000, saving: '12,000' },
+            { id:2, type: 'In-Progress', value: 100, saving: '25,000' },
+            { id:3, type: 'Resolved', value: 2000, saving: 112 }]
         }
     }
     render() {
