@@ -10,9 +10,9 @@ export default class Optimization extends Component {
         super(props)
 
         this.state = {
-            arr: [{ id:1, type: 'Open', value: 2002, saving: 12000 },
-            { id:2, type: 'In-Progress', value: 1200, saving: 25000 },
-            { id:3, type: 'Resolved', value: 2000, saving: 112000 }]
+            arr: [{ id:1, type: 'Open', value: 20, saving: '12,000' },
+            { id:2, type: 'In-Progress', value: 10, saving: '25,000' },
+            { id:3, type: 'Resolved', value: 200, saving: 112 }]
         }
     }
     render() {
@@ -58,7 +58,7 @@ export default class Optimization extends Component {
                         </div>
                         <div className='totalSaving contentcenter '>
                             <TungstenSharpIcon id='Saving' />
-                            <span>$50000000</span>
+                            <span>$50,00,000</span>
                         </div>
                         <div className='contentcenter footerline'>
                             <p>YDT savings identified</p>

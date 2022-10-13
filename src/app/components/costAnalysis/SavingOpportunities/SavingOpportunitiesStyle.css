@@ -65,7 +65,7 @@
 #savingtable button{
     padding-right: 0px;
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 450px) {
     #savingicon{
         height: 45px;
         width: auto;
@@ -91,7 +91,7 @@
         width: 90%;
     }
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 800px) {
     #savingicon{
         height: 50px;
         width: auto;
@@ -107,7 +107,7 @@
     }
     #savingtable td{
         padding: 0px;
-        font-size: 12px;
+        font-size: 10.2px;
     }
     #sugicon{
         height:10.5px;
