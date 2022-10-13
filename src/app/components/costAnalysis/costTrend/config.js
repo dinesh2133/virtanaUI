@@ -23,11 +23,11 @@ Legend,
 annotationPlugin
 );
 
-// var sun = new Image();
-// sun.src = 'https://i.imgur.com/yDYW1I7.png';
+var sun = new Image();
+sun.src = 'https://i.imgur.com/yDYW1I7.png';
 
-// var cloud = new Image();
-// cloud.src = 'https://i.imgur.com/yDYW1I7.png';
+var cloud = new Image();
+cloud.src = '../../../helpers/icons/cloud.png';
 
 
 
@@ -165,7 +165,7 @@ export const data = {
                 borderWidth: element => element.index === 11 ? customBorder : 0,
                 borderColor: customColor,
                 // setLineDash: ([10, 10]),
-                // pointStyle: ''
+                pointStyle: cloud
             },
             {
                 barThickness: 16,
@@ -174,6 +174,7 @@ export const data = {
                 backgroundColor: "#277BC0",
                 borderWidth: element => element.index === 11 ? customBorder : 0,
                 borderColor: customColor,
+                pointStyle: sun
             },
             {
                 barThickness: 16,
