@@ -4,10 +4,18 @@ import { Box, LinearProgress, linearProgressClasses} from "@mui/material";
 import { styled } from '@mui/material/styles';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import {useState, useEffect} from 'react';
+import {getMonthlyCost} from '../.../../../../apis/costAnalysis.api';
 
-const MonthlyCosts = () =>{
-
-
+const MonthlyCosts =() =>{
+    const [monthlyData, setMonthlyData] = useState();
+    useEffect(()=>{
+      const temp = getMonthlyCost();
+      setMonthlyData(temp);
+    },[])
+    useEffect(()=>{
+      console.log(monthlyData);
+    }, [monthlyData])
     const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         height: 20,
         // borderRadius: 0,
