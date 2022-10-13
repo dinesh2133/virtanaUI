@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
-import SavingOpportunitiesStyle from './SavingOpportunitiesStyle.css'
+import  './SavingOpportunitiesStyle.css'
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
-
+import { getsavingopportunities } from '../../../apis/costAnalysis.api';
 export default class SavingOpportunities extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            apidata:''
+            apidata:[],
+    //         data:[{ key: 1, name: "Idle cloud Resourses", amount: "8,000", suggestions: 5 },
+    // { key: 2, name: " Cloud Resizing", amount:' 6,000', suggestions: 1 },
+    // { key: 3, name: "Workload", amount: '7,300', suggestions: 1 },
+    // { key: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
         }
-        
     }
-
     async componentDidMount(){
-            let url="";
-            let data = await fetch(url);
-            let parseddata=await data.json()
-            this.setState([{apidata:parseddata}])
+            let data=await getsavingopportunities()
+            this.setState({apidata:data})
         }
     render() {
         
@@ -37,7 +37,7 @@ export default class SavingOpportunities extends Component {
                     <div id='savingchart'>
                         <table className="table" id='savingtable'>
                             <tbody>
-                                {this.state.data.map((value) => (
+                                {this.state.apidata?.map((value) => (
                                     <tr key={value.key}>
                                         <td>{value.name}</td>
                                         <td>${value.amount}</td>
