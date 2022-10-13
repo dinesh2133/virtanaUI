@@ -28,7 +28,7 @@ sun.src = 'https://i.imgur.com/yDYW1I7.png';
 
 var cloud = new Image();
 cloud.src = '../../../helpers/icons/cloud.png';
-
+ 
 
 
 
