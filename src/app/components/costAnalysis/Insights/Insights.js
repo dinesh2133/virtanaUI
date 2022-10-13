@@ -21,6 +21,7 @@ export default class Insights extends Component {
       }
     }
     render() {
+        
         return (
             <>
                 <section className='insights'>

@@ -56,6 +56,9 @@
         background-color: transparent;
         color: #54aded;        
 }
+#savingtable button:hover{
+    color: white;
+}
 #sugicon{
     transform: rotate(180deg);
     color: white;
@@ -117,4 +120,7 @@
         width: 90%;
     }
 }
-
+/* 
+var no =input_no.toString().split(".");
+no[0]=no[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");
+var result = no.join("."); */
