@@ -7,9 +7,9 @@ export default class SavingOpportunities extends Component {
         super(props)
 
         this.state = {
-            data: [{ key: 1, name: "Idle cloud Resourses", amount: 8000, suggestions: 5 },
-            { key: 2, name: " Cloud Resizing", amount: 6000, suggestions: 1 },
-            { key: 3, name: "Workload", amount: 7300, suggestions: 1 },
+            data: [{ key: 1, name: "Idle cloud Resourses", amount: "8,000", suggestions: 5 },
+            { key: 2, name: " Cloud Resizing", amount:' 6,000', suggestions: 1 },
+            { key: 3, name: "Workload", amount: '7,300', suggestions: 1 },
             { key: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
         }
     }
