@@ -23,13 +23,15 @@ Legend,
 annotationPlugin
 );
 
-var sun = new Image();
-sun.src = 'https://i.imgur.com/yDYW1I7.png';
+var aws = new Image();
+aws.width = 18;
+aws.height = 20;
+aws.src = 'https://i.imgur.com/QPCNtc0.png';
 
-var cloud = new Image();
-cloud.src = '../../../helpers/icons/cloud.png';
-
-
+var azure = new Image();
+azure.width = 18;
+azure.height = 20;
+azure.src = 'https://i.imgur.com/MgK6hti.png';
 
 
 let averageCost = 900;
@@ -165,7 +167,7 @@ export const data = {
                 borderWidth: element => element.index === 11 ? customBorder : 0,
                 borderColor: customColor,
                 // setLineDash: ([10, 10]),
-                pointStyle: cloud
+                pointStyle: aws
             },
             {
                 barThickness: 16,
@@ -174,7 +176,7 @@ export const data = {
                 backgroundColor: "#277BC0",
                 borderWidth: element => element.index === 11 ? customBorder : 0,
                 borderColor: customColor,
-                pointStyle: sun
+                pointStyle: azure
             },
             {
                 barThickness: 16,
@@ -183,7 +185,6 @@ export const data = {
                 borderWidth: 1,
                 borderColor: customColor,
                 borderDash: [2.5],
-
                 backgroundColor: 'transparent',
                 pointStyle: 'rect',
             }
