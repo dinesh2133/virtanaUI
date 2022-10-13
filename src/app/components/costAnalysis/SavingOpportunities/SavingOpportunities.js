@@ -7,13 +7,19 @@ export default class SavingOpportunities extends Component {
         super(props)
 
         this.state = {
-            data: [{ key: 1, name: "Idle cloud Resourses", amount: "8,000", suggestions: 5 },
-            { key: 2, name: " Cloud Resizing", amount:' 6,000', suggestions: 1 },
-            { key: 3, name: "Workload", amount: '7,300', suggestions: 1 },
-            { key: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
+            apidata:''
         }
+        
     }
+
+    async componentDidMount(){
+            let url="";
+            let data = await fetch(url);
+            let parseddata=await data.json()
+            this.setState([{apidata:parseddata}])
+        }
     render() {
+        
         return (
             <>
                 <section className='SavingOpp'>
