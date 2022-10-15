@@ -8,6 +8,7 @@
 }
 .insights{
     height: 250px;
+    padding-top: 10px;
     font-size: 12px;
     background-color: #353536;
     color: #ffffff;
@@ -15,14 +16,20 @@
 }
 .tablesection{
     width:90%;
-    height: 220px;
+    height: 210px;
     overflow: scroll;
     margin-left:4%;
 }
 .tablesection::-webkit-scrollbar{
     display: none;
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
 }
+
+.tablesection {
+    scrollbar-width: none;
+    
+  }
+ 
 .datatable td:first-child {
     border-bottom: none;
 }
@@ -59,3 +66,5 @@
 .datatable tr:last-child td{
     border-bottom: none;
 }
+
+

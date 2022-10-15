@@ -9,9 +9,10 @@
 }
 .Optimiz{
     height:250;
-    width:100%;
+    width:99%;
 }
  #tabledata{
+    margin-right: 2px;
     color: white;
     align-items: center;
     justify-content: center;
@@ -32,7 +33,6 @@
 #actualdata{
     padding:0px;
     font-size: 20px;
-    position: relative;
 }
 #actualdata:nth-child(2){
     border-left:1.5px solid white;
@@ -117,14 +117,67 @@
         position: relative;
     }
     .savingline{
-        margin-top: 85px;
-        font-size: 8px;
+        margin-top: 65px;
+        font-size: 10px;
     }
     .Heading{
         margin-bottom: 5px;
     }
   }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 750px) and (min-width:450px) {
+    .totalSaving{
+        font-size: 25px;
+    }
+    #Saving{
+        color:#3e844d;
+        transform: rotate(180deg);
+        height: 45px;
+        width: auto;
+    }
+    #warning{
+        padding-right:2px;
+        color: #e63900;
+        height:16px;
+        width:auto;
+    }
+    #error{
+        padding-right:2px;
+        color:#d6c100;
+        height:16px;
+        width:auto;
+    }
+    #check{
+        padding-right:2px;
+        color: #51a95a;
+        height:16px;
+        width:auto;
+    }
+    #actualdata{
+        padding:0px;
+        font-size: 15px;
+        position: relative;
+    }
+    .savingline{
+        margin-top: 90px;
+        font-size: 9px;
+    }
+    .Heading{
+        margin-bottom: 5px;
+    }
+    #savingvalue:nth-child(1){
+        padding: 8px 8px 8px 0px;
+    }
+    .footerline{
+        margin-top:-2%;
+    }
+    #tabledata{
+        margin-top: 5%;
+    }
+    .Optimization{
+        font-size: 11px;
+    }
+  }
+  @media only screen and (max-width: 850px) and (min-width:750px) {
     .totalSaving{
         font-size: 30px;
     }
