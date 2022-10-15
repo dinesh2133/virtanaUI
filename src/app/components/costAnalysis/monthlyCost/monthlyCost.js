@@ -1,6 +1,6 @@
 import React from "react";
 import './monthlyCost.css';
-import { Box, LinearProgress, linearProgressClasses} from "@mui/material";
+import { Box, LinearProgress, linearProgressClasses, ModalManager} from "@mui/material";
 import { styled } from '@mui/material/styles';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -9,9 +9,14 @@ import {getMonthlyCost} from '../.../../../../apis/costAnalysis.api';
 
 const MonthlyCosts =() =>{
     const [monthlyData, setMonthlyData] = useState();
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const date = new Date();
+    let month = date.getMonth();
+    month = months[month];
     useEffect(()=>{
-      const temp = getMonthlyCost();
-      setMonthlyData(temp);
+      getMonthlyCost().then((response)=>{
+        setMonthlyData(response);
+      })
     },[])
     useEffect(()=>{
       console.log(monthlyData);
@@ -29,23 +34,23 @@ const MonthlyCosts =() =>{
       }));
     return(
         <div className="monthly-cost">
-            <p>December Cost (Projected)</p>
-            <p className="heading-number"><strong>$34,545</strong></p>
+            <p>{month} Cost (Projected)</p>
+            <p className="heading-number"><strong>${monthlyData?.monthlyCost}</strong></p>
             <section id="inner-section">
                 <p>Month To Date</p>
-                <span className="span-heading"><strong>$45,600</strong></span>
-                <span className="span-heading float-span" style={{color: 'red'}}><ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />25%</span>
+                <span className="span-heading"><strong>${monthlyData?.mtdCost}</strong></span>
+                <span className="span-heading float-span" style={{color: monthlyData?.costStatus === 'up' ? 'red' : 'green'}}>{monthlyData?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{monthlyData?.costPercentage}</span>
 
                 <Box sx={{ flexGrow: 1 }}>
-                <BorderLinearProgress sx={{marginTop: '5px'}} variant="determinate" value={50} />
+                <BorderLinearProgress sx={{marginTop: '5px'}} variant="determinate" value={monthlyData?.mtdCostInPercentage} />
                 <BorderLinearProgress sx={{
                   '& .MuiLinearProgress-bar':{
                     backgroundColor: '#D3D3D3'
                   }
-                }} style={{marginTop: "10px", backgroundColor: 'black'}} variant="determinate" value={90} />
+                }} style={{marginTop: "10px", backgroundColor: 'black'}} variant="determinate" value={98} />
                 </Box>
                 <p className="footer-span">Last Month</p>
-                <p className="footer-span margin-left"><strong>$53,899</strong></p>
+                <p className="footer-span margin-left"><strong>${monthlyData?.costForLastMonth}</strong></p>
                 {/* <input className="range-input" type="range" value={50} disabled/> */}
             </section>
             

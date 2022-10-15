@@ -18,7 +18,12 @@
 .table-section{
     width: 100%;
     height: 70%;
-    overflow: hidden;
+    overflow-y: scroll;
+    padding-top: 15px;
+    scrollbar-width: none;
+}
+.table-section::-webkit-scrollbar{
+    display: none;
 }
 .cost-changing-table{
     width: 90%;
@@ -34,4 +39,7 @@
 
 .float-button:hover{
     color: white;
+}
+.text-td{
+    width: 80%;
 }

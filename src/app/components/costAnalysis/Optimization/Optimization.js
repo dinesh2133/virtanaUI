@@ -2,22 +2,24 @@ import React, { Component } from 'react'
 import ErrorIcon from '@mui/icons-material/Error';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
-import OptimizationStyle from './OptimizationStyle.css'
+import  './OptimizationStyle.css'
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
-
+import { getoptimization } from '../../../apis/costAnalysis.api';
 export default class Optimization extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-           apidata:''
+           apidata:[],
+    //        data:[{ id:1, type: 'Open', value: 2000, saving: '12,000' },
+    // { id:2, type: 'In-Progress', value: 100, saving: '25,000' },
+    // { id:3, type: 'Resolved', value: 2000, saving: 112 }]
         }
     }
     async componentDidMount(){
-        let url="";
-        let data = await fetch(url);
-        let parseddata=await data.json()
-        this.setState([{apidata:parseddata}])
+       let data=await getoptimization()
+       this.setState({apidata:data})
+
     }
     render() {
         return (
@@ -32,7 +34,7 @@ export default class Optimization extends Component {
                                 <thead>
                                     <tr >
 
-                                        {this.state.arr.map((value) => (
+                                        {this.state.apidata?.map((value) => (
 
                                             <td id='tabletitle' key={value.id}>{value.type}</td>
                                         ))}
@@ -40,7 +42,7 @@ export default class Optimization extends Component {
                                 </thead>
                                 <tbody className='tablebody'>
                                     <tr>
-                                        {this.state.arr.map((value) => (
+                                        {this.state.apidata.map((value) => (
 
                                             <td id='actualdata' key={value.id}>
                                                 {value.id===1 ?<ErrorIcon  id='warning'/>:null}
@@ -51,7 +53,7 @@ export default class Optimization extends Component {
                                         ))}
                                     </tr>
                                     <tr>
-                                        {this.state.arr.map((value) => (
+                                        {this.state.apidata.map((value) => (
 
                                             <td id='savingvalue' key={value.id}>${value.saving}</td>
 

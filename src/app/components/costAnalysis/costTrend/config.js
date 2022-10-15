@@ -27,6 +27,11 @@ annotationPlugin
 
 getCostTrendData();
 let barData = localStorage.getItem("costTrendData");
+barData = JSON.parse(barData);
+
+const date = new Date();
+let month = date.getMonth();
+
 
 
 var aws = new Image();
@@ -42,8 +47,6 @@ azure.src = 'https://i.imgur.com/MgK6hti.png';
 
 let averageCost = 900;
 let commaSeperatedValue = parseInt(averageCost).toLocaleString();
-
-// alert(commaSeperatedValue)
 
 
 function customYaxisLabel(value, index){
@@ -134,12 +137,12 @@ export const options = {
         }
     }
     
-    }
+}
 
 
 const customColor = (element) =>{
-    // let color;
-    if(element.index === 11){
+    
+    if(element.index === month){
         return "white";
     }
 }
@@ -151,49 +154,46 @@ const customBorder = {
     right: 1
 }
 
+const forecasetBorder = {
+    bottom: 0,
+    top: 1,
+    left: 1,
+    right: 1
+}
+
+const customColors = {
+    aws: '#B4CDE6',
+    azure: '#277BC0',
+    forecasteL: 'transparent',
+    onPremise: '#5F9DF7'
+}
+
 export const data = {
         type: "bar",
         color: "white",
         labels : ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets : [
-            {
-                barThickness: 16,
-                label: "On-Premise",
-                data: [522,342,542,142,352,546,120,192,323,374,125,123],
-                backgroundColor: "#5F9DF7",
-                pointStyle: 'rect',
-                borderWidth: element => element.index === 11 ? customBorder : 0,
-                borderColor: customColor,
-            },
-            {
-                label: "AWS",
-                data: [600,202,520,102,120,228,462,132,132,262,442,112],
-                backgroundColor: '#B4CDE6',
-                barThickness: 16,
-                borderWidth: element => element.index === 11 ? customBorder : 0,
-                borderColor: customColor,
-                // setLineDash: ([10, 10]),
-                pointStyle: aws
-            },
-            {
-                barThickness: 16,
-                label: "Azure",
-                data: [352,348,520,127,320,544,132,112,332,434,152,192],
-                backgroundColor: "#277BC0",
-                borderWidth: element => element.index === 11 ? customBorder : 0,
-                borderColor: customColor,
-                pointStyle: azure
-            },
-            {
-                barThickness: 16,
-                data: [0,0,0,0,0,0,0,0,0,0,0,673],
-                label: "Forecast for this month total",
-                borderWidth: 1,
-                borderColor: customColor,
-                borderDash: [2.5],
-                backgroundColor: 'transparent',
-                pointStyle: 'rect',
-            }
-        ],
+        datasets : [],
     }
 
+
+barData.dataSets.map((e)=>{
+    let pstyle;
+    if(e?.pointStyle !== 'rect'){
+        pstyle = e?.pointStyle === 'aws' ? aws : azure;
+    }
+    else{
+        pstyle= e?.pointStyle;
+    }
+    console.log('index', e, month);
+    data.datasets.push(
+        {
+            barThickness: 16,
+            data: e?.data,
+            label: e.label,
+            borderWidth: e?.monthlyForecast ? forecasetBorder : (element => element.index === month ? customBorder : 0),
+            borderColor: customColor,
+            backgroundColor: customColors[e?.name],
+            pointStyle: pstyle,
+        }
+    );
+})
