@@ -1,126 +1,204 @@
-
-.SavingOpp{
+.SavingOpp {
     background-color: #353536;
     color: white;
-    height:250px;
+    height: 250px;
     /* width: 350px; */
     font-size: 12px;
 }
-#savingicon{
+
+#savingicon {
     height: 60px;
     width: auto;
     transform: rotate(180deg);
     color: #3e844d;
     padding-left: 10px;
 }
-.savingdata{
+
+.savingdata {
     margin-top: -50px;
 }
-.totalamount{
+
+#totalamount {
     color: #3e844d;
     margin-bottom: 0px;
     margin-top: 25px;
     font-size: 30px;
 }
-#savingtable{
+
+#savingtable {
     margin-top: -20px;
     color: white;
 }
-#savingtable td{
-    padding:1px;
+
+#savingtable td {
+    padding: 1px;
     border-style: dotted;
 
 }
-#savingtable tr:last-child td{
+
+#savingtable tr:last-child td {
     border-bottom: none;
 }
-.savingtitle1{
+
+.savingtitle1 {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
 }
-.savingtitle2{
+
+.savingtitle2 {
     margin-top: -4px;
     margin-left: -10px;
     padding-bottom: 10px;
     font-size: 11.5px;
 }
-#savingchart{
-    height:90px;
+
+#savingchart {
+    height: 90px;
     width: 85%;
     margin-left: 6%;
 }
-#savingtable button{
-        border: none;
-        background-color: transparent;
-        color: #54aded;        
+
+#savingtable button {
+    border: none;
+    background-color: transparent;
+    color: #54aded;
+    padding: 0 1px;
+    ;
 }
-#savingtable button:hover{
+
+#savingtable button:hover {
     color: white;
 }
-#sugicon{
+
+#sugicon {
     transform: rotate(180deg);
     color: white;
     height: 15px;
     width: auto;
 }
-#savingtable button{
+
+#savingtable button {
     padding-right: 0px;
 }
+
 @media only screen and (max-width: 450px) {
-    #savingicon{
+    #savingicon {
         height: 45px;
         width: auto;
-        transform: rotate(180deg);
-        color: #3e844d;
         padding-left: 10px;
     }
-    .totalamount{
+
+    #totalamount {
         font-size: 25px;
     }
-    #savingtable{
+
+    #savingtable {
         margin-top: 2%;
     }
-    #savingtable td{
+
+    #savingtable td {
         padding: 0px;
         font-size: 10.5px;
     }
-    #sugicon{
-        height:10px;
+
+    #sugicon {
+        height: 10px;
         width: auto;
     }
-    #savingchart{
+
+    #savingchart {
         width: 90%;
     }
 }
-@media only screen and (max-width: 800px) {
-    #savingicon{
-        height: 50px;
+
+@media only screen and (max-width: 770px) {
+    .SavingOpp {
+        font-size: 10.5px;
+    }
+
+    .savingtitle2 {
+        font-size: 10.5px;
+    }
+
+    #savingicon {
+        height: 40px;
         width: auto;
         transform: rotate(180deg);
-        color: #3e844d;
         padding-left: 10px;
     }
-    .totalamount{
-        font-size: 30px;
+
+    #totalamount {
+        font-size: 20px;
     }
-    #savingtable{
-        margin-top: 1%;
+
+    .titleline {
+        width: 45%;
     }
-    #savingtable td{
+
+    #savingtable {
+        margin: 0px;
+        overflow: scroll;
+    }
+
+    #savingchart:-webkit-scrollbar {
+        display: none;
+        scroll-behavior: smooth;
+    }
+
+    #savingchart {
+        scrollbar-width: none;
+
+    }
+
+    #savingtable td {
         padding: 0px;
-        font-size: 10.2px;
+        font-size: 10px;
     }
-    #sugicon{
-        height:10.5px;
+
+    #sugicon {
+        height: 10px;
         width: auto;
     }
-    #savingchart{
+
+    #savingchart {
+        margin-top: -10px;
+        width: 90%;
+        height: 130px;
+        overflow: scroll;
+    }
+}
+
+@media only screen and ((min-width:770px) and  (max-width: 880px)  ) {
+    #savingicon {
+        height: 45px;
+        width: auto;
+        padding-left: 10px;
+    }
+
+    #totalamount {
+        font-size: 30px;
+    }
+
+    #savingtable {
+        margin-top: 1%;
+    }
+
+    #savingtable td {
+        font-size: 11.5px;
+    }
+
+    #sugicon {
+        height: 10px;
+        width: auto;
+    }
+
+    .titleline {
+        width: 40%;
+    }
+
+    #savingchart {
         width: 90%;
     }
 }
-/* 
-var no =input_no.toString().split(".");
-no[0]=no[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");
-var result = no.join("."); */
