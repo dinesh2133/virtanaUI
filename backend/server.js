@@ -22,15 +22,15 @@ app.get('/insights', (req, res)=>{
     res.send(insight_data)
 })
 app.get('/optimization', (req, res)=>{
-    let optimization_data=[{ id:1, type: 'Open', value: 2000, saving: '12,000' },
-    { id:2, type: 'In-Progress', value: 100, saving: '25,000' },
-    { id:3, type: 'Resolved', value: 2000, saving: 112 }]
+    let optimization_data=[{ id:1, type: 'Open', value: 2000, saving:12000 },
+    { id:2, type: 'In-Progress', value: 100, saving: 25000 },
+    { id:3, type: 'Resolved', value: 2000, saving: 1120000 }]
     res.send(optimization_data)
 })
 app.get('/savingopportunities', (req, res)=>{
-    let savingopportunities_data=[{ key: 1, name: "Idle cloud Resourses", amount: "8,000", suggestions: 5 },
-    { key: 2, name: " Cloud Resizing", amount:' 6,000', suggestions: 1 },
-    { key: 3, name: "Workload", amount: '7,300', suggestions: 1 },
+    let savingopportunities_data=[{ key: 1, name: "Idle cloud Resourses", amount:1000000, suggestions: 5 },
+    { key: 2, name: " Cloud Resizing", amount:6000, suggestions: 1 },
+    { key: 3, name: "Workload", amount: 80000, suggestions: 1 },
     { key: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
     res.send(savingopportunities_data)
 })
