@@ -1,7 +1,15 @@
 const express = require('express');
 const app = express();
-const port = 30001;
-const cors= require("cors");
+const port = 3001;
+const cors = require('cors');
+
+// Access-Control-Allow-Origin: *
+app.use(
+    cors({
+        origin: '*'
+    })
+)
+
 
 app.use(cors({
     origin:'*'
@@ -34,3 +42,126 @@ app.get('/savingopportunities', (req, res)=>{
     { key: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
     res.send(savingopportunities_data)
 })
+
+app.get('/costTrendData', (req, res)=>{
+    let temp = {
+        averageCost: 900,
+        datalbels: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        dataSets: [
+            {
+                label: "On-Premise",
+                data: [522,342,542,142,352,546,120,192,323,374,125,123],
+                name: 'onPremise',
+                pointStyle: 'rect',
+            },
+            {
+                label: "AWS",
+                data: [600,202,520,102,120,228,462,132,132,262,442,112],
+                name: 'aws',
+                pointStyle: 'aws'
+            },
+            {
+                label: "Azure",
+                data: [352,348,520,127,320,544,132,112,332,434,152,192],
+                name: 'azure',
+                pointStyle: 'azure',
+            },
+            {
+                data: [0,0,0,0,0,0,0,0,0,673,0,0],
+                label: "Forecast for this month total",
+                pointStyle: 'rect',
+                monthlyForecast: true,
+                name: 'forecaste'
+            }
+        ]
+    }
+    setTimeout(() => {
+        res.json(temp);    
+    }, 5000);
+    
+});
+
+app.get("/topTenCostChanges", (req, res)=>{
+    let temp= [
+        {
+            text: 'Truck Monitoring',
+            price: '28,233',
+            costStatus: 'up',
+            id: 0
+        },
+        {
+            text: 'Cargo Ship Monitoring',
+            price: '43,233',
+            costStatus: 'up',
+            id: 1
+        },
+        {
+            text: 'Logistics Operation',
+            price: '33,233',
+            costStatus: 'down',
+            id: 2
+        },
+        {
+            text: 'Warehouse Backup',
+            price: '15,233',
+            costStatus: 'down',
+            id: 3
+        },
+        {
+            text: 'HR Benefits Portal',
+            price: '10,233',
+            costStatus: 'down',
+            id: 4
+        },
+        {
+            text: 'Truck Monitoring',
+            price: '28,233',
+            costStatus: 'up',
+            id: 5
+        },
+        {
+            text: 'HR Benefits Portal',
+            price: '10,233',
+            costStatus: 'down',
+            id: 6
+        },
+        {
+            text: 'Truck Monitoring',
+            price: '28,233',
+            costStatus: 'up',
+            id: 7
+        },
+        {
+            text: 'Truck Monitoring',
+            price: '38,233',
+            costStatus: 'up',
+            id: 8
+        },
+        {
+            text: 'Truck Monitoring',
+            price: '48,233',
+            costStatus: 'up',
+            id: 9
+        },
+    ]
+    res.send(temp);
+});
+
+app.get("/montlyCost", (req, res) =>{
+    let temp = {
+        monthlyCost: 54699000,
+        mtdCost: 43499,
+        mtdCostInPercentage: 60,
+        costForLastMonth: 50000,
+        costStatus: 'up',
+        costPercentage: '25%'
+    }
+    setTimeout(() => {
+        
+    }, 3000);
+    res.json(temp);
+})
+
+
+
+

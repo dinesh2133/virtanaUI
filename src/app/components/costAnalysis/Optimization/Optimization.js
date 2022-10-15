@@ -5,6 +5,7 @@ import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import  './OptimizationStyle.css'
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { getoptimization } from '../../../apis/costAnalysis.api';
+import { Loader } from '../../../helpers/utils/loader';
 export default class Optimization extends Component {
     constructor(props) {
         super(props)
@@ -32,53 +33,64 @@ export default class Optimization extends Component {
     render() {
         return (
             <>
-                <section className='Optimization'>
-                    <div className='Optimiz'>
-                        <p className='Heading contentcenter'>Optimization Change Progress</p>
-                        <div className='optimiztable'>
-                        <span className='savingline'>Save</span>
+            <section className='Optimization'>
+            {
+                this.state.apidata.length > 0 ? 
+                (
+                    <>
+                            <div className='Optimiz'>
+                                <p className='Heading contentcenter'>Optimization Change Progress</p>
+                                <div className='optimiztable'>
+                                <span className='savingline'>Save</span>
 
-                            <table className="table tabledata table-borderless" id='tabledata'>
-                                <thead>
-                                    <tr >
+                                    <table className="table tabledata table-borderless" id='tabledata'>
+                                        <thead>
+                                            <tr >
 
-                                        {this.state.apidata?.map((value) => (
+                                                {this.state.apidata?.map((value) => (
 
-                                            <td id='tabletitle' key={value.id}>{value.type}</td>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody className='tablebody'>
-                                    <tr>
-                                        {this.state.apidata.map((value) => (
+                                                    <td id='tabletitle' key={value.id}>{value.type}</td>
+                                                ))}
+                                            </tr>
+                                        </thead>
+                                        <tbody className='tablebody'>
+                                            <tr>
+                                                {this.state.apidata.map((value) => (
 
-                                            <td id='actualdata' key={value.id}>
-                                                {value.id===1 ?<ErrorIcon  id='warning'/>:null}
-                                                {value.id===2 ?< WarningRoundedIcon id='error'/>:null }
-                                                {value.id===3 ?<CheckCircleRoundedIcon id='check'/>:null}
-                                                {value.value}</td>
+                                                    <td id='actualdata' key={value.id}>
+                                                        {value.id===1 ?<ErrorIcon  id='warning'/>:null}
+                                                        {value.id===2 ?< WarningRoundedIcon id='error'/>:null }
+                                                        {value.id===3 ?<CheckCircleRoundedIcon id='check'/>:null}
+                                                        {value.value}</td>
 
-                                        ))}
-                                    </tr>
-                                    <tr>
-                                        {this.state.apidata.map((value) => (
+                                                ))}
+                                            </tr>
+                                            <tr>
+                                                {this.state.apidata.map((value) => (
 
-                                            <td id='savingvalue' key={value.id}>${this.add_comma(value.saving)}</td>
+                                                    <td id='savingvalue' key={value.id}>${this.add_comma(value.saving)}</td>
 
-                                        ))}
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className='totalSaving contentcenter '>
-                            <TungstenSharpIcon id='Saving' />
-                            <span>$50,00,000</span> {/*add add_comma function in place of span value  */}
-                        </div>
-                        <div className='contentcenter footerline'>
-                            <p>YDT savings identified</p>
-                        </div>
-                    </div>
-                </section>
+                                                ))}
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div className='totalSaving contentcenter '>
+                                    <TungstenSharpIcon id='Saving' />
+                                    <span>$50,00,000</span> {/*add add_comma function in place of span value  */}
+                                </div>
+                                <div className='contentcenter footerline'>
+                                    <p>YDT savings identified</p>
+                                </div>
+                            </div>
+                    </>
+                ) : 
+                (
+                    <Loader />
+                    )
+                }
+            </section>        
+                
             </>
         )
     }
