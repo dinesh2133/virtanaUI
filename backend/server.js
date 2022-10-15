@@ -75,7 +75,10 @@ app.get('/costTrendData', (req, res)=>{
             }
         ]
     }
-    res.json(temp);
+    setTimeout(() => {
+        res.json(temp);    
+    }, 5000);
+    
 });
 
 app.get("/topTenCostChanges", (req, res)=>{
@@ -146,13 +149,16 @@ app.get("/topTenCostChanges", (req, res)=>{
 
 app.get("/montlyCost", (req, res) =>{
     let temp = {
-        monthlyCost: 54699,
+        monthlyCost: 54699000,
         mtdCost: 43499,
         mtdCostInPercentage: 60,
         costForLastMonth: 50000,
         costStatus: 'up',
         costPercentage: '25%'
     }
+    setTimeout(() => {
+        
+    }, 3000);
     res.json(temp);
 })
 

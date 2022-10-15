@@ -8,7 +8,9 @@ export const getCostTrendData = async () => {
 
 export const getMonthlyCost = async () => {
     const response = await get('http://localhost:3001/montlyCost');
+    // setTimeout(response, 3000);
     return response;
+
 }
 
 export const getTopTenCostChanges = async () => {

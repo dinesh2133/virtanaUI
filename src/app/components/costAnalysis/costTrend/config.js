@@ -24,7 +24,7 @@ Tooltip,
 Legend,
 annotationPlugin
 );
-
+export const bd =()=>{
 getCostTrendData();
 let barData = localStorage.getItem("costTrendData");
 barData = JSON.parse(barData);
@@ -69,7 +69,7 @@ function customYaxisLabel(value, index){
 }
 
 
-export const options = {
+const options = {
     responsive: true,
     maintainAspectRatio: false,
     // scaleFontColor: "white",
@@ -168,7 +168,7 @@ const customColors = {
     onPremise: '#5F9DF7'
 }
 
-export const data = {
+const data = {
         type: "bar",
         color: "white",
         labels : ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -176,7 +176,7 @@ export const data = {
     }
 
 
-barData.dataSets.map((e)=>{
+barData?.dataSets.map((e)=>{
     let pstyle;
     if(e?.pointStyle !== 'rect'){
         pstyle = e?.pointStyle === 'aws' ? aws : azure;
@@ -197,3 +197,5 @@ barData.dataSets.map((e)=>{
         }
     );
 })
+return {options, data};
+}

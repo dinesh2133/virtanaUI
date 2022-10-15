@@ -66,6 +66,11 @@ const App = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  
+
+  window.onbeforeunload = function (e) {
+    localStorage.clear();
+  };
 
   return (
     <div className='app-div'>

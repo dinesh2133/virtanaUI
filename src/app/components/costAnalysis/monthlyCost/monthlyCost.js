@@ -6,6 +6,9 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import {useState, useEffect} from 'react';
 import {getMonthlyCost} from '../.../../../../apis/costAnalysis.api';
+import CircularProgress from '@mui/material/CircularProgress';
+import { Loader } from "../../../helpers/utils/loader";
+
 
 const MonthlyCosts =() =>{
     const [monthlyData, setMonthlyData] = useState();
@@ -21,6 +24,14 @@ const MonthlyCosts =() =>{
     useEffect(()=>{
       console.log(monthlyData);
     }, [monthlyData])
+
+    const addComma =(num) =>{ 
+      let no = JSON.stringify(num).split(".");
+      no[0]=no[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");
+      let result = no.join(".");
+      return result;  
+    }
+
     const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         height: 20,
         // borderRadius: 0,
@@ -33,9 +44,13 @@ const MonthlyCosts =() =>{
         },
       }));
     return(
-        <div className="monthly-cost">
+    <div className="monthly-cost">
+      {
+        monthlyData ? 
+        (
+          <>
             <p>{month} Cost (Projected)</p>
-            <p className="heading-number"><strong>${monthlyData?.monthlyCost}</strong></p>
+            <p className="heading-number"><strong>${addComma(monthlyData?.monthlyCost)}</strong></p>
             <section id="inner-section">
                 <p>Month To Date</p>
                 <span className="span-heading"><strong>${monthlyData?.mtdCost}</strong></span>
@@ -53,6 +68,14 @@ const MonthlyCosts =() =>{
                 <p className="footer-span margin-left"><strong>${monthlyData?.costForLastMonth}</strong></p>
                 {/* <input className="range-input" type="range" value={50} disabled/> */}
             </section>
+          </>
+        ) :
+        
+          (
+            <Loader />
+        )
+      }
+            
             
         </div>
     )

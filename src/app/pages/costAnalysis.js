@@ -4,11 +4,12 @@ import CostTrendBar from "../components/costAnalysis/costTrend/costTrendBarChart
 import Insights from "../components/costAnalysis/Insights/Insights";
 import MonthlyCosts from "../components/costAnalysis/monthlyCost/monthlyCost";
 import Optimization from "../components/costAnalysis/Optimization/Optimization";
+import Skeleton from '@mui/material/Skeleton';
 import SavingOpportunities from "../components/costAnalysis/SavingOpportunities/SavingOpportunities";
 import './constAnalysis.css'
 
 const CostAnalysis = () =>{
-   
+   let timeout = false;
     return (
         <div id="costAnalysisDiv">
         <div className="container-xxl">
@@ -37,5 +38,6 @@ const CostAnalysis = () =>{
         </div>
     )
 }
+
 
 export default CostAnalysis;
