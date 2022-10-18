@@ -49,6 +49,13 @@ app.get('/costTrendData', (req, res)=>{
         datalbels: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
         dataSets: [
             {
+                data: [0,0,0,0,0,0,0,0,0,673,0,0],
+                label: "Forecast for this month total",
+                pointStyle: 'rect',
+                monthlyForecast: true,
+                name: 'forecaste'
+            },
+            {
                 label: "On-Premise",
                 data: [522,342,542,142,352,546,120,192,323,374,125,123],
                 name: 'onPremise',
@@ -65,13 +72,6 @@ app.get('/costTrendData', (req, res)=>{
                 data: [352,348,520,127,320,544,132,112,332,434,152,192],
                 name: 'azure',
                 pointStyle: 'azure',
-            },
-            {
-                data: [0,0,0,0,0,0,0,0,0,673,0,0],
-                label: "Forecast for this month total",
-                pointStyle: 'rect',
-                monthlyForecast: true,
-                name: 'forecaste'
             }
         ]
     }
