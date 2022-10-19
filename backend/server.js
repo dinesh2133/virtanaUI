@@ -28,7 +28,7 @@ app.get('/optimization', (req, res)=>{
     res.send(optimization_data)
 })
 app.get('/savingopportunities', (req, res)=>{
-    let savingopportunities_data=[{ key: 1, name: "Idle cloud Resourses", amount:1000000, suggestions: 5 },
+    let savingopportunities_data=[{ key: 1, name: "Idle cloud Resourses", amount:10000, suggestions: 5 },
     { key: 2, name: " Cloud Resizing", amount:6000, suggestions: 1 },
     { key: 3, name: "Workload", amount: 80000, suggestions: 1 },
     { key: 4, name: "On-Premise", amount: 800, suggestions: 2 }]

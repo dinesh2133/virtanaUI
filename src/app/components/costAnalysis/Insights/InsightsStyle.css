@@ -19,17 +19,12 @@
     height: 210px;
     overflow: scroll;
     margin-left:4%;
+    scrollbar-width: none;
 }
 .tablesection::-webkit-scrollbar{
     display: none;
     scroll-behavior:smooth;
-}
-
-.tablesection {
-    scrollbar-width: none;
-    
-  }
- 
+} 
 .datatable td:first-child {
     border-bottom: none;
 }

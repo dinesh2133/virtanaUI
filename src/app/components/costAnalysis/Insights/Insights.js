@@ -10,20 +10,8 @@ export default class Insights extends Component {
       super()
     
       this.state = {
-        // data:[{id:1, type:'In-progress',msg:"132 New E8C2 instances added costing $5459 per month of the last years"},
-        //  {id:2, type:'Open',msg:"132 New EC2 instances added costing $5459 per month "},
-        //  {id:3, type:'In-progress',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
-        //  {id:4, type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month "},
-        //  {id:5, type:'Open',msg:"132 New EC2 instances added costing $5459 per month "},
-        //  {id:6, type:'In-progress',msg:"132 New EC2 instances added costing $5459 per "},
-        //  {id:7, type:'Open',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
-        //  {id:8, type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month of the last years"}],
-         apidata:[]
+        apidata:[]
     }
-   // this.called()
-    // let temp=getinsights()
-    // console.log(temp);
-
 }
 async componentDidMount(){
     let temp= await getinsights()
@@ -32,7 +20,6 @@ async componentDidMount(){
 }
 
 render() {
-         
         return (
             <>
                 <section className='insights'>

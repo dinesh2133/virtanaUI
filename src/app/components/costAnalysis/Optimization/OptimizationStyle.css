@@ -129,26 +129,22 @@
         font-size: 25px;
     }
     #Saving{
-        color:#3e844d;
         transform: rotate(180deg);
         height: 45px;
         width: auto;
     }
     #warning{
         padding-right:2px;
-        color: #e63900;
         height:16px;
         width:auto;
     }
     #error{
         padding-right:2px;
-        color:#d6c100;
         height:16px;
         width:auto;
     }
     #check{
         padding-right:2px;
-        color: #51a95a;
         height:16px;
         width:auto;
     }
@@ -182,26 +178,22 @@
         font-size: 30px;
     }
     #Saving{
-        color:#3e844d;
         transform: rotate(180deg);
         height: 50px;
         width: auto;
     }
     #warning{
         padding-right:2px;
-        color: #e63900;
         height:16px;
         width:auto;
     }
     #error{
         padding-right:2px;
-        color:#d6c100;
         height:16px;
         width:auto;
     }
     #check{
         padding-right:2px;
-        color: #51a95a;
         height:16px;
         width:auto;
     }
