@@ -1,6 +1,13 @@
+
+@import "https://code.highcharts.com/css/highcharts.css";
+
 .bar-chart-component{
     height: 250px;
     /* margin: 15px 0 0; */
     background-color: #353536;
     padding: 10px 20px 0;
+}
+.highcharts-point{
+    fill: #90ed7d;
+    stroke: #90ed7d;
 }

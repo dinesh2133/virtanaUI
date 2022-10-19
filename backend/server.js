@@ -75,9 +75,9 @@ app.get('/costTrendData', (req, res)=>{
             }
         ]
     }
-    setTimeout(() => {
+    // setTimeout(() => {
         res.json(temp);    
-    }, 5000);
+    // }, 5000);
     
 });
 

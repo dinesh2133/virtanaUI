@@ -3,7 +3,8 @@ import { get,} from '../helpers/utils/apiMethods';
 export const getCostTrendData = async () => {
     const response = await get('http://localhost:3001/costTrendData');
     // let temp = [9, 7, 8];
-    localStorage.setItem('costTrendData', JSON.stringify(response));
+    // localStorage.setItem('costTrendData', JSON.stringify(response));
+    return response;
 }
 
 export const getMonthlyCost = async () => {
