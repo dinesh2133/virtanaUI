@@ -1,40 +1,28 @@
 import React from "react";
 import './monthlyCost.css';
-import { Box, LinearProgress, linearProgressClasses, ModalManager} from "@mui/material";
+import { Box, LinearProgress, linearProgressClasses} from "@mui/material";
 import { styled } from '@mui/material/styles';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import {useState, useEffect} from 'react';
 import {getMonthlyCost} from '../.../../../../apis/costAnalysis.api';
-import CircularProgress from '@mui/material/CircularProgress';
 import { Loader } from "../../../helpers/utils/loader";
+import {addComma, CurrentMonth} from "../../../helpers/utils/methods";
 
 
 const MonthlyCosts =() =>{
     const [monthlyData, setMonthlyData] = useState();
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const date = new Date();
-    let month = date.getMonth();
-    month = months[month];
+
     useEffect(()=>{
       getMonthlyCost().then((response)=>{
         setMonthlyData(response);
       })
     },[])
-    useEffect(()=>{
-      console.log(monthlyData);
-    }, [monthlyData])
 
-    const addComma =(num) =>{ 
-      let no = JSON.stringify(num).split(".");
-      no[0]=no[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");
-      let result = no.join(".");
-      return result;  
-    }
 
     const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         height: 20,
-        // borderRadius: 0,
+
         [`&.${linearProgressClasses.colorPrimary}`]: {
           backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
         },
@@ -49,11 +37,11 @@ const MonthlyCosts =() =>{
         monthlyData ? 
         (
           <>
-            <p>{month} Cost (Projected)</p>
+            <p>{CurrentMonth()} Cost (Projected)</p>
             <p className="heading-number"><strong>${addComma(monthlyData?.monthlyCost)}</strong></p>
             <section id="inner-section">
                 <p>Month To Date</p>
-                <span className="span-heading"><strong>${monthlyData?.mtdCost}</strong></span>
+                <span className="span-heading"><strong>${addComma(monthlyData?.mtdCost)}</strong></span>
                 <span className="span-heading float-span" style={{color: monthlyData?.costStatus === 'up' ? 'red' : 'green'}}>{monthlyData?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{monthlyData?.costPercentage}</span>
 
                 <Box sx={{ flexGrow: 1 }}>
@@ -65,7 +53,7 @@ const MonthlyCosts =() =>{
                 }} style={{marginTop: "10px", backgroundColor: 'black'}} variant="determinate" value={98} />
                 </Box>
                 <p className="footer-span">Last Month</p>
-                <p className="footer-span margin-left"><strong>${monthlyData?.costForLastMonth}</strong></p>
+                <p className="footer-span margin-left"><strong>${addComma(monthlyData?.costForLastMonth)}</strong></p>
                 {/* <input className="range-input" type="range" value={50} disabled/> */}
             </section>
           </>

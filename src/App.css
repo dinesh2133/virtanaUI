@@ -3,6 +3,7 @@
 }
 .loader{
   position: relative;
-  left: 40%;
+  left: 50%;
   top: 40%;
+  transform: translateX(-50%);
 }

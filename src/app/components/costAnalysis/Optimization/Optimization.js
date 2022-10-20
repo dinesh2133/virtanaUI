@@ -6,6 +6,7 @@ import  './OptimizationStyle.css'
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { getoptimization } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
+import { addComma } from '../../../helpers/utils/methods';
 export default class Optimization extends Component {
     constructor(props) {
         super(props)
@@ -16,7 +17,7 @@ export default class Optimization extends Component {
     // { id:2, type: 'In-Progress', value: 100, saving: '25,000' },
     // { id:3, type: 'Resolved', value: 2000, saving: 112 }]
         }
-        this.add_comma = this.add_comma.bind(this);
+     
 
     }
     async componentDidMount(){
@@ -24,12 +25,7 @@ export default class Optimization extends Component {
        this.setState({apidata:data})
 
     }
-    add_comma(num){ 
-        let no =num.toString().split(".");
-        no[0]=no[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");
-        let result = no.join(".");
-        return result;  
-    }
+   
     render() {
         return (
             <>
@@ -68,7 +64,7 @@ export default class Optimization extends Component {
                                             <tr>
                                                 {this.state.apidata.map((value) => (
 
-                                                    <td id='savingvalue' key={value.id}>${this.add_comma(value.saving)}</td>
+                                                    <td id='savingvalue' key={value.id}>${addComma(value.saving)}</td>
 
                                                 ))}
                                             </tr>

@@ -85,66 +85,68 @@ app.get("/topTenCostChanges", (req, res)=>{
     let temp= [
         {
             text: 'Truck Monitoring',
-            price: '28,233',
+            price: 28233,
             costStatus: 'up',
             id: 0
         },
         {
             text: 'Cargo Ship Monitoring',
-            price: '43,233',
+            price: 43233,
             costStatus: 'up',
             id: 1
         },
         {
             text: 'Logistics Operation',
-            price: '33,233',
+            price: 33233,
             costStatus: 'down',
             id: 2
         },
         {
             text: 'Warehouse Backup',
-            price: '15,233',
+            price: 15233,
             costStatus: 'down',
             id: 3
         },
         {
             text: 'HR Benefits Portal',
-            price: '10,233',
+            price: 10233,
             costStatus: 'down',
             id: 4
         },
         {
             text: 'Truck Monitoring',
-            price: '28,233',
+            price: 28233,
             costStatus: 'up',
             id: 5
         },
         {
             text: 'HR Benefits Portal',
-            price: '10,233',
+            price: 10233,
             costStatus: 'down',
             id: 6
         },
         {
             text: 'Truck Monitoring',
-            price: '28,233',
+            price: 28233,
             costStatus: 'up',
             id: 7
         },
         {
             text: 'Truck Monitoring',
-            price: '38,233',
+            price: 38233,
             costStatus: 'up',
             id: 8
         },
         {
             text: 'Truck Monitoring',
-            price: '48,233',
+            price: 48233,
             costStatus: 'up',
             id: 9
         },
     ]
-    res.send(temp);
+    // setTimeout(() => {
+        res.json(temp);    
+    // }, 5000);
 });
 
 app.get("/montlyCost", (req, res) =>{
@@ -156,10 +158,9 @@ app.get("/montlyCost", (req, res) =>{
         costStatus: 'up',
         costPercentage: '25%'
     }
-    setTimeout(() => {
-        
-    }, 3000);
-    res.json(temp);
+    // setTimeout(() => {
+        res.json(temp);    
+    // }, 5000);
 })
 
 
