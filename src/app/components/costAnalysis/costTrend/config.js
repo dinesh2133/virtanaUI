@@ -1,201 +1,115 @@
+import { addComma } from "../../../helpers/utils/methods";
 
-import { borderColor } from '@mui/system';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
+export const dataForBarChart = () =>{
 
-import annotationPlugin from 'chartjs-plugin-annotation';
-import { useState } from 'react';
-import {getCostTrendData} from "../../../apis/costAnalysis.api"
-
-
-ChartJS.register(
-CategoryScale,
-LinearScale,
-BarElement,
-Title,
-Tooltip,
-Legend,
-annotationPlugin
-);
-export const bd =()=>{
-getCostTrendData();
-let barData = localStorage.getItem("costTrendData");
+let barData = localStorage.getItem('costTrendData');
 barData = JSON.parse(barData);
+console.log('bar data in config is ', barData);
+let imgSrc = ['https://i.imgur.com/PB3zIxv.png', 'https://i.imgur.com/PB3zIxv.png', 'https://i.imgur.com/QPCNtc0.png', 'https://i.imgur.com/MgK6hti.png'];
 
-const date = new Date();
-let month = date.getMonth();
-
-
-
-var aws = new Image();
-aws.width = 18;
-aws.height = 20;
-aws.src = 'https://i.imgur.com/QPCNtc0.png';
-
-var azure = new Image();
-azure.width = 18;
-azure.height = 20;
-azure.src = 'https://i.imgur.com/MgK6hti.png';
-
-
-let averageCost = 900;
-let commaSeperatedValue = parseInt(averageCost).toLocaleString();
-
-
-function customYaxisLabel(value, index){
-    let temp = JSON.stringify(value);
-    if(value >= 1000 && value < 10000){
-        if(temp[1] != 0){
-            return temp.slice(0,1) + "." + temp[1] + "k ";
+const option = {
+        chart: {
+        backgroundColor: '#353536',
+        color: 'white',
+        height: 250,
+        type: "column",
+        
+        style: {
+            // stroke: '#dddddd'
+            textColor: 'white',
+            fontColor: 'white',
+            color: 'white'
+            // color: '#fff'
         }
-        return temp.slice(0,1) +"k ";
-    }
-    else if(value >= 10000 & value < 100000){
-        if(temp[2] != 0){
-            return temp.slice(0,2) + "." + temp[2] + "k ";
-        }
-        return temp.slice(0,2) +  "k "
-    }
-    else{
-        return value;
-    }
-}
-
-
-const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    // scaleFontColor: "white",
-    scales: {
-      x: {
-        grid:{
-            display: false,
-            borderColor: 'white',
- 
         },
-        ticks:{
-            color: "#FFFFFF"
+        title: {
+          text: 'Cost Trend',
+          style:{
+            color: 'white',
+            fontSize: '12px'
+          }
         },
-        stacked: true,
-      },
-      y: {
-        grid:{
-            // display: false,
-            drawTicks: false,
-            drawBorder: false,
-            borderDash: [2, 5],
-
-            // borderDashColor: "blue"
-            color: "white"
-        },
-        ticks:{
-            color: "#FFFFFF",
-            callback: customYaxisLabel,    
-        },
-        stacked: true
-      }
-    },
-    layout:{
-        padding: 5
-    },
-    plugins:{
-
-        annotation: {
-            //used to plot hr line on the chart
-            annotations: [{
-              
-              yMin: averageCost,
-              yMax: averageCost,
-              borderColor: 'white',
-              text: "average cost",
-              borderWidth: 1.5 }],
+          subtitle: {
+              text: `Avg cost: $${addComma(barData?.averageCost)} /month`,
+              style:{
+                color: 'white',
+                fontSize: '1.3rem'
+              }
           },
-        legend:{
-            position: 'bottom',
-            labels: {
-                color: "white",
-                usePointStyle: true,
+        legend: {
+            useHTML:true,
+            symbolWidth: 0,
+           symbolHeight: 0,
+            squareSymbol: false,
+            itemStyle: {
+              color: 'white',
+            },
+            labelFormatter: function() {
+                return '<span class="legenditem"><img style="marginRight= "20px" " src="'+ imgSrc[this.index] +'" width="15" height="15"></span>' + this.name ;    
             }
         },
-        
-        title: {
-            display: true,
-            text: ["Cost Trend", `Avg cost: $${commaSeperatedValue} / month`],
-            margin: 12,
-            font: {
-                padding: 12,
-                size: 12,
+        xAxis: {
+            categories: barData?.datalbels,
+            labels:{
+              style:{
+                color: 'white'
+              },
             },
-            color: 'white',
-        }
+            column: {
+              shared: true,
+              useHTML: true
+            }
+            
+          },
+          yAxis: {
+            plotLines: [{
+                color: 'white',
+                width: 2,
+                value: barData?.averageCost,
+                zIndex: 5
+            }],
+            gridLineDashStyle: 'shortdash',
+            min: 0,
+            labels:{
+              style:{
+                color: 'white'
+              },
+            },
+            title: {
+              enabled: false,
+            },
+        },
+        plotOptions: {    
+          series: {
+              pointWidth: 15,
+              stacking: 'normal'
+          }
+        },
+
+        series: []
+    };
+   
+    const customColors = {
+        aws: '#B4CDE6',
+        azure: '#277BC0',
+        forecaste: 'transparent',
+        onPremise: '#5F9DF7'
     }
-    
+   
+    if(barData?.dataSets){
+    barData?.dataSets.map((e)=>{
+    option?.series.push(
+                {
+                    size: 10,
+                    data: e?.data,
+                    name: e?.label,
+                    borderWidth: 2,
+                    color: customColors[e?.name],
+                    borderWidth: 1,
+                    dashStyle: e?.monthlyForecast ? 'dash' : 'solid'
+                }
+            );  
+    });
 }
-
-
-const customColor = (element) =>{
-    
-    if(element.index === month){
-        return "white";
-    }
-}
-
-const customBorder = {
-    bottom: 0,
-    top: 0,
-    left: 1,
-    right: 1
-}
-
-const forecasetBorder = {
-    bottom: 0,
-    top: 1,
-    left: 1,
-    right: 1
-}
-
-const customColors = {
-    aws: '#B4CDE6',
-    azure: '#277BC0',
-    forecasteL: 'transparent',
-    onPremise: '#5F9DF7'
-}
-
-const data = {
-        type: "bar",
-        color: "white",
-        labels : ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets : [],
-    }
-
-
-barData?.dataSets.map((e)=>{
-    let pstyle;
-    if(e?.pointStyle !== 'rect'){
-        pstyle = e?.pointStyle === 'aws' ? aws : azure;
-    }
-    else{
-        pstyle= e?.pointStyle;
-    }
-    console.log('index', e, month);
-    data.datasets.push(
-        {
-            barThickness: 16,
-            data: e?.data,
-            label: e.label,
-            borderWidth: e?.monthlyForecast ? forecasetBorder : (element => element.index === month ? customBorder : 0),
-            borderColor: customColor,
-            backgroundColor: customColors[e?.name],
-            pointStyle: pstyle,
-        }
-    );
-})
-return {options, data};
+return option;
 }

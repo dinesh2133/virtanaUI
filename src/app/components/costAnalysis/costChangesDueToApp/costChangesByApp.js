@@ -4,13 +4,10 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { getTopTenCostChanges } from "../../../apis/costAnalysis.api";
 import { Loader } from "../../../helpers/utils/loader";
+import { addComma, CurrentMonth } from "../../../helpers/utils/methods";
 
 const CostChanges = () =>{
         const [obj, setObj] = useState([]);
-        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        const date = new Date();
-        let month = date.getMonth();
-        month = months[month];
         useEffect(()=>{
             getTopTenCostChanges().then((response)=>{
                 setObj(response);
@@ -26,7 +23,7 @@ const CostChanges = () =>{
                 obj.length > 0 ? 
                 (
                     <>
-                        <p style={{paddingTop :'10px'}}>Top 10 Cost Changes By Application - {month}</p>
+                        <p style={{paddingTop :'10px'}}>Top 10 Cost Changes By Application - {CurrentMonth()}</p>
                         <button className="float-button">View All</button>
                         <section className="table-section">
                             <table className="cost-changing-table">
@@ -35,7 +32,7 @@ const CostChanges = () =>{
                                         obj.map((row)=>(
                                             <tr className="table-row">
                                                 <td className="text-td">{row?.text.length > 35 ? row.text.slice(0,35) + "....." : row.text}</td>
-                                                <td style={{textAlign: 'right'}}>${row?.price}</td>
+                                                <td style={{textAlign: 'right'}}>${addComma(row?.price)}</td>
                                                 <td>{row?.costStatus === 'up' ? <ArrowUpwardIcon  style={{color: 'red'}} sx={{fontSize: '17px'}} /> : <ArrowDownwardIcon style={{color:'green'}} sx={{fontSize: '17px'}} />}</td>
                                             </tr>
                                         ))

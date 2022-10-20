@@ -1,31 +1,23 @@
-import React, { useState, useEffect } from "react";
-import BarChart from "../../../helpers/charts/barChart";
-import { Loader } from "../../../helpers/utils/loader";
-// import {options, data} from './config';
-import { bd } from "./config";
-import './costTrend.css'
 
-const CostTrendBar = () =>{
-    const[temp ,setTemp] = useState([]);
-    let temp2 = bd();
-    if(!temp?.dataSets){
-        setInterval(() => {
-            setTemp(localStorage.getItem('costTrendData'));
-        }, 3000);
-    }
-    useEffect(()=>{
+import React, { useEffect, useState } from "react";
+import HighchartsReact from "highcharts-react-official";
+import HighCharts, { color } from "highcharts";
+import { dataForBarChart } from './config.js';
+import {getCostTrendData} from '../../../apis/costAnalysis.api';
+import './costTrend.css';
+const CostTrendBar = () => {
+  const [options, setOptions]= useState();
+  useEffect(()=>{
+    let config = dataForBarChart();
+    setOptions(config);
+  }, [])
+ 
 
-    }, [temp]);
-
-    console.log("temp", temp);
-    return(
-        <div className="bar-chart-component">
-              <BarChart options={temp2?.options} data={temp2?.data}  />
-              
-        </div>
-
-        
-    )
-}
+  return (
+    <div className="bar-chart-component">  
+          <HighchartsReact highcharts={HighCharts} options={options}  />
+    </div>
+  );
+};
 
 export default CostTrendBar;
