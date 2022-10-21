@@ -45,7 +45,7 @@ app.get('/savingopportunities', (req, res)=>{
 
 app.get('/costTrendData', (req, res)=>{
     let temp = {
-        averageCost: 900,
+        averageCost: 1200,
         datalbels: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
         dataSets: [
             {
