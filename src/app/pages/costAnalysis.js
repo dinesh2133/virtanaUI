@@ -31,7 +31,7 @@ const CostAnalysis = () =>{
         {
             localBarData?.dataSets ? 
             (
-                <div className="container-xxl">
+                <div className="container-fluid">
                     <div className="row">
                         <div className="col-sm-3" id="monthly-costs" >
                             <MonthlyCosts />
