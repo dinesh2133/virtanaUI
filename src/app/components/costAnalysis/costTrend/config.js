@@ -5,7 +5,7 @@ export const dataForBarChart = () =>{
 let barData = localStorage.getItem('costTrendData');
 barData = JSON.parse(barData);
 console.log('bar data in config is ', barData);
-let imgSrc = ['https://i.imgur.com/PB3zIxv.png', 'https://i.imgur.com/PB3zIxv.png', 'https://i.imgur.com/QPCNtc0.png', 'https://i.imgur.com/MgK6hti.png'];
+let imgSrc = ['https://i.imgur.com/v67Jqaa.png', 'https://i.imgur.com/PB3zIxv.png', 'https://i.imgur.com/QPCNtc0.png', 'https://i.imgur.com/MgK6hti.png'];
 
 const option = {
         chart: {
@@ -45,7 +45,7 @@ const option = {
               color: 'white',
             },
             labelFormatter: function() {
-                return '<span class="legenditem"><img style="marginRight= "20px" " src="'+ imgSrc[this.index] +'" width="15" height="15"></span>' + this.name ;    
+                return '<span class="legenditem"><img src="'+ imgSrc[this.index] +'" width="15" height="15" style="margin-right: 5px"></span>' + this.name ;    
             }
         },
         xAxis: {
