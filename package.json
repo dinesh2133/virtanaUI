@@ -19,6 +19,7 @@
     "highcharts": "^10.2.1",
     "highcharts-react-official": "^3.1.0",
     "react": "^18.2.0",
+    "react-bootstrap-storybook": "^1.5.1",
     "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",

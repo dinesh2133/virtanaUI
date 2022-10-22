@@ -7,8 +7,8 @@ import { getinsights } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 
 export default class Insights extends Component {
-    constructor () {
-      super()
+    constructor (props) {
+      super(props)
     
       this.state = {
         // data:[{id:1, type:'In-progress',msg:"132 New E8C2 instances added costing $5459 per month of the last years"},
@@ -24,18 +24,20 @@ export default class Insights extends Component {
    // this.called()
     // let temp=getinsights()
     // console.log(temp);
-
+    this.state.apidata=this.props.data
+    console.log("inside main",this.props.data);
 }
-async componentDidMount(){
-    let temp= await getinsights()
-    this.setState({apidata:temp})
-  //  console.log("apidata",this.state.apidata);
-}
+// async componentDidMount(){
+//     let temp= await getinsights()
+//     this.setState({apidata:temp})
+//   //  console.log("apidata",this.state.apidata);
+// }
 
 render() {
-         
-        return (
-            <>
+    
+   
+    return (
+        <>
             <section className='insights'>
             {
                 this.state.apidata.length > 0 ?
