@@ -1,7 +1,7 @@
 import Insights from "../app/components/costAnalysis/Insights/Insights";
 import React, {useEffect}from "react";
 import { getinsights } from '../app/apis/costAnalysis.api';
-import { Table } from 'react-bootstrap-storybook';
+// import { Table } from 'react-bootstrap-storybook';
 
 
  let apidata;

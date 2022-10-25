@@ -1,10 +1,15 @@
 import { addComma } from "../../../helpers/utils/methods";
 
-export const dataForBarChart = () =>{
+export const dataForBarChart = (data) =>{
 
 let barData = localStorage.getItem('costTrendData');
-barData = JSON.parse(barData);
-console.log('bar data in config is ', barData);
+if(barData){
+  barData = JSON.parse(barData);
+}else{
+  barData = data;
+}
+
+console.log('bar data in config is ', data);
 let imgSrc = ['https://i.imgur.com/v67Jqaa.png', 'https://i.imgur.com/PB3zIxv.png', 'https://i.imgur.com/QPCNtc0.png', 'https://i.imgur.com/MgK6hti.png'];
 
 const option = {
@@ -30,7 +35,7 @@ const option = {
           }
         },
           subtitle: {
-              text: `Avg cost: $${addComma(barData?.averageCost)} /month`,
+              text: `Avg cost: $${ barData ? addComma(barData?.averageCost) : "loading..."} /month`,
               style:{
                 color: 'white',
                 fontSize: '1.3rem'
