@@ -37,22 +37,23 @@ const MonthlyCosts =(props) =>{
         monthlyData ? 
         (
           <>
-            <p>{CurrentMonth()} Cost (Projected)</p>
+            <p style={{color: 'lightgrey'}}>{CurrentMonth()} Cost (Projected)</p>
             <p className="heading-number"><strong>${addComma(monthlyData?.monthlyCost)}</strong></p>
             <section id="inner-section">
-                <p>Month To Date</p>
-                <span className="span-heading"><strong>${addComma(monthlyData?.mtdCost)}</strong></span>
-                <span className="span-heading float-span" style={{color: monthlyData?.costStatus === 'up' ? 'red' : 'green'}}>{monthlyData?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{monthlyData?.costPercentage}</span>
+                <p style={{color: 'lightgrey'}}>Month To Date</p>
+                <span ><strong>${addComma(monthlyData?.mtdCost)}</strong></span>
+                <span className="float-span" style={{color: monthlyData?.costStatus === 'up' ? 'red' : 'green'}}>{monthlyData?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{monthlyData?.costPercentage}</span>
 
                 <Box sx={{ flexGrow: 1 }}>
-                <BorderLinearProgress sx={{marginTop: '5px'}} variant="determinate" value={monthlyData?.mtdCostInPercentage} />
+                <BorderLinearProgress sx={{marginTop: '5px', height: 25}} variant="determinate" value={monthlyData?.mtdCostInPercentage} />
                 <BorderLinearProgress sx={{
+                  height: 15,
                   '& .MuiLinearProgress-bar':{
                     backgroundColor: '#D3D3D3'
                   }
                 }} style={{marginTop: "10px", backgroundColor: 'black'}} variant="determinate" value={98} />
                 </Box>
-                <p className="footer-span">Last Month</p>
+                <p className="footer-span" style={{color: 'lightgrey'}}>Last Month</p>
                 <p className="footer-span margin-left"><strong>${addComma(monthlyData?.costForLastMonth)}</strong></p>
                 {/* <input className="range-input" type="range" value={50} disabled/> */}
             </section>

@@ -25,8 +25,8 @@ render() {
     
     return (
         <>
-            <section className={this.props.style}>
-                <div className='insights'>
+            <section id={this.props.style} className='insights'>
+                
                 {
                 this.state.apidata.length > 0 ?
                 (
@@ -60,7 +60,6 @@ render() {
                     <Loader />
                     )
                 }
-                </div>
             
             </section>
                 

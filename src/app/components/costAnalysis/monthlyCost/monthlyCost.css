@@ -10,6 +10,7 @@
 #inner-section{
     text-align: left;
     margin-top: 10px;
+    position: relative;
 }
 #inner-section p {
     margin-bottom: 0;
@@ -19,13 +20,18 @@
 
 }
 .float-span{
-    float: right;
+    /* float: right; */
+    position: absolute;
+    right: 0;
+    top: 5%;
+    font-size: 25px;
+    /* height: 50px; */
 }
 
 .footer-span{
    display: inline;
    margin-top: 10px;
-   font-size: 11px !important;
+   font-size: 13px ;
    /* display: inline-block; */
 }
 
@@ -34,13 +40,7 @@
 }
 /* .range-input: */
 .heading-number{
-    font-size: 20px !important;
+    font-size: 27px !important;
     margin-bottom: 0;
 }
 
-/* @media only screen and (max-widht: 400px){
-    .monthly-cost{
-        padding: 10px !important;
-        width: 20%;
-    }
-} */
