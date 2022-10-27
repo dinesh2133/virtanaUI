@@ -13,9 +13,6 @@ export default class Optimization extends Component {
 
         this.state = {
            apidata:[],
-    //        data:[{ id:1, type: 'Open', value: 2000, saving: '12,000' },
-    // { id:2, type: 'In-Progress', value: 100, saving: '25,000' },
-    // { id:3, type: 'Resolved', value: 2000, saving: 112 }]
         }
      
 
@@ -29,8 +26,9 @@ export default class Optimization extends Component {
     render() {
         return (
             <>
-            <section className='Optimization'>
-            {
+            <section className={this.props.Style}>
+                <div className='Optimization'>
+                {
                 this.state.apidata.length > 0 ? 
                 (
                     <>
@@ -85,6 +83,8 @@ export default class Optimization extends Component {
                     <Loader />
                     )
                 }
+                </div>
+            
             </section>        
                 
             </>

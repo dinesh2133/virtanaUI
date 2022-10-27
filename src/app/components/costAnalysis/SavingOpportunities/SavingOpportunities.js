@@ -11,11 +11,6 @@ export default class SavingOpportunities extends Component {
         this.state = {
             apidata:[],
             amountarr:[],
-
-    //         data:[{ key: 1, name: "Idle cloud Resourses", amount: "8,000", suggestions: 5 },
-    // { key: 2, name: " Cloud Resizing", amount:' 6,000', suggestions: 1 },
-    // { key: 3, name: "Workload", amount: '7,300', suggestions: 1 },
-    // { key: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
         }
 
 
@@ -31,8 +26,9 @@ export default class SavingOpportunities extends Component {
         
         return (
             <>
-            <section className='SavingOpp'>
-            {
+            <section className="SavingOpp" id={this.props.style}>
+                <div>
+                {
                 this.state.apidata.length > 0 ? 
                 (
                     <>
@@ -68,6 +64,8 @@ export default class SavingOpportunities extends Component {
                     <Loader />
                     )
                 }
+                </div>
+            
             </section>    
                 
             </>

@@ -1,5 +1,7 @@
 
-
+#customWidth {
+    width: 700px;
+}
 .bar-chart-component{
     height: 250px;
     /* margin: 15px 0 0; */

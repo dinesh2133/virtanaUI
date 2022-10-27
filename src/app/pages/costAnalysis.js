@@ -46,9 +46,9 @@ const CostAnalysis = () =>{
                         <div className="col-sm-4 mt-1" id="optimization">
                             <Optimization />
                         </div>
-                        {/* <div className="col-sm-4 mt-1" id="insights" >
+                        <div className="col-sm-4 mt-1" id="insights" >
                             <Insights />
-                        </div> */}
+                        </div>
                         <div className="col-sm-4 mt-1" id="cost-changes" >
                             <CostChanges />
                         </div>
