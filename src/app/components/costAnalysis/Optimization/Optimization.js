@@ -18,13 +18,14 @@ export default class Optimization extends Component {
     // { id:3, type: 'Resolved', value: 2000, saving: 112 }]
         }
      
-
+            this.state.apidata=this.props.data;
+            console.log("Optimization data",this.props.data)
     }
-    async componentDidMount(){
-       let data=await getoptimization()
-       this.setState({apidata:data})
+    // async componentDidMount(){
+    //    let data=await getoptimization()
+    //    this.setState({apidata:data})
 
-    }
+    // }
    
     render() {
         return (

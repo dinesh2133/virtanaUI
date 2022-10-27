@@ -10,7 +10,7 @@ import { Table } from 'react-bootstrap-storybook';
   getinsights().then((response)=>{
       //  setObj(response);
       apidata=response;
-        console.log("Inside the story",apidata);
+        console.log("Inside the story insights:",apidata);
     })
 
  
