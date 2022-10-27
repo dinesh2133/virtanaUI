@@ -14,4 +14,4 @@ getCostTrendData().then(response =>{
     console.log("response in storybook is", data);
 })
 
-export const CostTrendBarChart = () => (<CostTrendBar data={data} style="customWidth"/>)
+export const CostTrendBarChart = () => (<CostTrendBar data={data} style="customStyle"/>)

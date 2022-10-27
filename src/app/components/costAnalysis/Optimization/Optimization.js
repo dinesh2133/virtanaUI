@@ -15,20 +15,20 @@ export default class Optimization extends Component {
            apidata:[],
         }
      
-            this.state.apidata=this.props.data;
-            console.log("Optimization data",this.props.data)
+            // this.state.apidata=this.props.data;
+            // console.log("Optimization data",this.props.data)
     }
-    // async componentDidMount(){
-    //    let data=await getoptimization()
-    //    this.setState({apidata:data})
+    async componentDidMount(){
+       let data=await getoptimization()
+       this.setState({apidata:data})
 
-    // }
+    }
    
     render() {
         return (
             <>
-            <section className={this.props.Style}>
-                <div className='Optimization'>
+            <section id={this.props.Style} className='Optimization'>
+                
                 {
                 this.state.apidata.length > 0 ? 
                 (
@@ -84,7 +84,7 @@ export default class Optimization extends Component {
                     <Loader />
                     )
                 }
-                </div>
+
             
             </section>        
                 
