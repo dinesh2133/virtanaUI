@@ -11,35 +11,23 @@ export default class Insights extends Component {
       super(props)
     
       this.state = {
-        // data:[{id:1, type:'In-progress',msg:"132 New E8C2 instances added costing $5459 per month of the last years"},
-        //  {id:2, type:'Open',msg:"132 New EC2 instances added costing $5459 per month "},
-        //  {id:3, type:'In-progress',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
-        //  {id:4, type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month "},
-        //  {id:5, type:'Open',msg:"132 New EC2 instances added costing $5459 per month "},
-        //  {id:6, type:'In-progress',msg:"132 New EC2 instances added costing $5459 per "},
-        //  {id:7, type:'Open',msg:"132 New EC2 instances added costing $5459 per month of the last years"},
-        //  {id:8, type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month of the last years"}],
          apidata:[]
     }
-   // this.called()
-    // let temp=getinsights()
-    // console.log(temp);
-    this.state.apidata=this.props.data
-    console.log("inside main",this.props.data);
+
 }
-// async componentDidMount(){
-//     let temp= await getinsights()
-//     this.setState({apidata:temp})
-//   //  console.log("apidata",this.state.apidata);
-// }
+async componentDidMount(){
+    let temp= await getinsights()
+    this.setState({apidata:temp})
+  //  console.log("apidata",this.state.apidata);
+}
 
 render() {
     
-   
     return (
         <>
-            <section className='insights'>
-            {
+            <section className={this.props.style}>
+                <div className='insights'>
+                {
                 this.state.apidata.length > 0 ?
                 (
                     <>
@@ -72,6 +60,8 @@ render() {
                     <Loader />
                     )
                 }
+                </div>
+            
             </section>
                 
             </>

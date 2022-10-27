@@ -5,17 +5,18 @@ import HighCharts, { color } from "highcharts";
 import { dataForBarChart } from './config.js';
 import {getCostTrendData} from '../../../apis/costAnalysis.api';
 import './costTrend.css';
-const CostTrendBar = () => {
+
+const CostTrendBar = ({data,style} ) => {
   const [options, setOptions]= useState();
   useEffect(()=>{
-    let config = dataForBarChart();
+    let config = dataForBarChart(data);
     setOptions(config);
   }, [])
  
 
   return (
-    <div className="bar-chart-component">  
-          <HighchartsReact highcharts={HighCharts} options={options}  />
+    <div className="bar-chart-component" id={style}>  
+          <HighchartsReact highcharts={HighCharts} options={options} />
     </div>
   );
 };

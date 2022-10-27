@@ -66,5 +66,6 @@
 .datatable tr:last-child td{
     border-bottom: none;
 }
-
-
+.customWidth {
+    width: 400px;
+}
