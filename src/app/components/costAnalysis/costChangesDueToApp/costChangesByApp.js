@@ -6,7 +6,7 @@ import { getTopTenCostChanges } from "../../../apis/costAnalysis.api";
 import { Loader } from "../../../helpers/utils/loader";
 import { addComma, CurrentMonth } from "../../../helpers/utils/methods";
 
-const CostChanges = () =>{
+const CostChanges = (props) =>{
         const [obj, setObj] = useState([]);
         useEffect(()=>{
             getTopTenCostChanges().then((response)=>{
@@ -18,7 +18,7 @@ const CostChanges = () =>{
         }, [obj])
         // const [tableData, setTableData] = useState(obj);
         return(
-        <div className="cost-changes">
+        <div className="cost-changes" id={props.style}>
             {
                 obj.length > 0 ? 
                 (

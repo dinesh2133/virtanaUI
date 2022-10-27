@@ -10,7 +10,7 @@ import { Loader } from "../../../helpers/utils/loader";
 import {addComma, CurrentMonth} from "../../../helpers/utils/methods";
 
 
-const MonthlyCosts =() =>{
+const MonthlyCosts =(props) =>{
     const [monthlyData, setMonthlyData] = useState();
 
     useEffect(()=>{
@@ -32,7 +32,7 @@ const MonthlyCosts =() =>{
         },
       }));
     return(
-    <div className="monthly-cost">
+    <div className="monthly-cost" id={props.style}>
       {
         monthlyData ? 
         (

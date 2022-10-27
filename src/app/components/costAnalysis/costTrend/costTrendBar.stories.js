@@ -1,6 +1,7 @@
 import React from 'react';
 import { getCostTrendData } from '../../../apis/costAnalysis.api';
 import CostTrendBar from './costTrendBarChart';
+import "./costTrend.css"
 
 export default {
     title: 'Cost Trend Bar',
@@ -13,4 +14,4 @@ getCostTrendData().then(response =>{
     console.log("response in storybook is", data);
 })
 
-export const CostTrendBarChart = () => (<CostTrendBar data={data} />)
+export const CostTrendBarChart = () => (<CostTrendBar data={data} style="customWidth"/>)

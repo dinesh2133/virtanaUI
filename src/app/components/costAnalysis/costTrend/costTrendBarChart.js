@@ -6,7 +6,7 @@ import { dataForBarChart } from './config.js';
 import {getCostTrendData} from '../../../apis/costAnalysis.api';
 import './costTrend.css';
 
-const CostTrendBar = ({data}) => {
+const CostTrendBar = ({data,style} ) => {
   const [options, setOptions]= useState();
   useEffect(()=>{
     let config = dataForBarChart(data);
@@ -15,8 +15,8 @@ const CostTrendBar = ({data}) => {
  
 
   return (
-    <div className="bar-chart-component">  
-          <HighchartsReact highcharts={HighCharts} options={options}  />
+    <div className="bar-chart-component" id={style}>  
+          <HighchartsReact highcharts={HighCharts} options={options} />
     </div>
   );
 };

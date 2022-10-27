@@ -1,3 +1,8 @@
+#customWidth {
+    width: 400px;
+    color: white;
+}
+
 .cost-changes{
     height: 250px;
     text-align: center;
