@@ -16,7 +16,7 @@ const CostTrendBar = ({data,style} ) => {
 
   return (
     <div className="bar-chart-component" id={style}>  
-          <HighchartsReact highcharts={HighCharts} options={options} />
+          <HighchartsReact highcharts={HighCharts} options={options}  />
     </div>
   );
 };

@@ -16,14 +16,15 @@ const option = {
         chart: {
         backgroundColor: '#353536',
         color: 'white',
-        height: 250,
+        height: 270,
         type: "column",
         
         style: {
             // stroke: '#dddddd'
             textColor: 'white',
             fontColor: 'white',
-            color: 'white'
+            color: 'white',
+            marginTop: 10,
             // color: '#fff'
         }
         },
@@ -31,7 +32,7 @@ const option = {
           text: 'Cost Trend',
           style:{
             color: 'white',
-            fontSize: '12px'
+            fontSize: '14px'
           }
         },
           subtitle: {
