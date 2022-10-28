@@ -3,8 +3,9 @@
     width: 700px;
 }
 .bar-chart-component{
-    height: 250px;
+    height: 270px;
     /* margin: 15px 0 0; */
     background-color: #353536;
+    /* width: 10%; */
     /* padding: 10px 20px 0; */
 }

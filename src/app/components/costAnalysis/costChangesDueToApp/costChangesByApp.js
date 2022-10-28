@@ -23,7 +23,7 @@ const CostChanges = (props) =>{
                 obj.length > 0 ? 
                 (
                     <>
-                        <p style={{paddingTop :'10px'}}>Top 10 Cost Changes By Application - {CurrentMonth()}</p>
+                        <p style={{paddingTop :'10px', fontSize: '13px'}}>Top 10 Cost Changes By Application - {CurrentMonth()}</p>
                         <button className="float-button">View All</button>
                         <section className="table-section">
                             <table className="cost-changing-table">

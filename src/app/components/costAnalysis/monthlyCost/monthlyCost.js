@@ -37,10 +37,10 @@ const MonthlyCosts =(props) =>{
         monthlyData ? 
         (
           <>
-            <p style={{color: 'lightgrey'}}>{CurrentMonth()} Cost (Projected)</p>
+            <p className="heading">{CurrentMonth()} Cost (Projected)</p>
             <p className="heading-number"><strong>${addComma(monthlyData?.monthlyCost)}</strong></p>
             <section id="inner-section">
-                <p style={{color: 'lightgrey'}}>Month To Date</p>
+                <p className="sub-heading">Month To Date</p>
                 <span ><strong>${addComma(monthlyData?.mtdCost)}</strong></span>
                 <span className="float-span" style={{color: monthlyData?.costStatus === 'up' ? 'red' : 'green'}}>{monthlyData?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{monthlyData?.costPercentage}</span>
 
