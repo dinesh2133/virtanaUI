@@ -16,7 +16,7 @@ const option = {
         chart: {
         backgroundColor: '#353536',
         color: 'white',
-        height: 270,
+        height: 255,
         type: "column",
         
         style: {

@@ -2,10 +2,10 @@
     width: 400px;
 }
 .monthly-cost{
-    height: 270px;
+    height: 255px;
     text-align: center;
     background-color: #353536;
-    padding: 30px; 
+    padding: 15px  30px 30px; 
 }
 #inner-section{
     text-align: left;
@@ -28,13 +28,18 @@
     font-size: 13px;
 
 }
+.month-to-date-section{
+    position: relative;
+    /* height: 30px; */
+    /* width: 100%;
+    height: 50px; */
+}
+
 .float-span{
-    /* float: right; */
     position: absolute;
     right: 0;
-    top: 5%;
+    top: -10px;
     font-size: 25px;
-    /* height: 50px; */
 }
 
 .footer-span{
@@ -53,3 +58,34 @@
     margin-bottom: 0;
 }
 
+@media only screen and (min-width: 450px) and (max-width: 912px){
+    .float-span{
+        /* font-size: 17px; */
+        font-size: 14px;
+    }
+    .cost-for-month{
+        font-size: 12px;
+        /* position: absolute;
+        left: 0; */
+        /* color: red; */
+    }
+    .heading {
+        font-size: 11px;
+    }
+    
+    .footer-span{
+        font-size: 11px !important;
+    }
+    .heading-number{
+        font-size: 16px !important;
+    }
+    .current-month-progress-bar{
+        height: 10;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .float-span{
+        font-size: 20px;
+    }
+}
