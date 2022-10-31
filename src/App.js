@@ -1,23 +1,3 @@
-// import React from "react"
-// import CostAnalysis from "./app/pages/costAnalysis"
-// import {} from 'react-router-dom'
-
-// const App = () =>{
-//   return(
-//     <div style={{width: '100%', height: "100vh", display : 'grid', gridTemplateColumns: "80% 20%", backgroundColor: 'black'}}>
-//       <CostAnalysis />
-//       {/* <div style={{backgroundColor: 'blue', height: "100px"}}>
-//         <h1>testing</h1>
-//       </div> */}
-//     </div>
-//   )
-// }
-
-
-// export default App;
-
-
-
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -76,7 +56,7 @@ const App = () => {
     <div className='app-div'>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'black' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{'& button:focus' :{backgroundColor: 'black', borderColor: 'black'}}} >
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{'& button:focus' :{backgroundColor: 'black', borderColor: 'black'}}} variant="scrollable" >
         <Tab style={{color: 'white'}} label="Summary" {...a11yProps(0)} />
           <Tab style={{color: 'white'}} label="Cost Analysis" {...a11yProps(1)} />
           <Tab style={{color: 'white'}} label="Performance" {...a11yProps(2)} />
