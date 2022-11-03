@@ -10,17 +10,33 @@ import { Loader } from "../../../helpers/utils/loader";
 import {addComma, CurrentMonth} from "../../../helpers/utils/methods";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { red } from "@mui/material/colors";
+import { gql, useQuery } from "@apollo/client";
 
 
+const Get_Monthly_Data = gql`
+                        query MonthlyCosts {
+                          monthlycost{
+                          mtdCost
+                          monthlyCost
+                          mtdCostInPercentage
+                          costForLastMonth
+                          costStatus
+                          costPercentage
+                        }
+                      }`
 
 const MonthlyCosts =(props) =>{
-    const [monthlyData, setMonthlyData] = useState();
+    const {data, loading, error} = useQuery(Get_Monthly_Data);
 
-    useEffect(()=>{
-      getMonthlyCost().then((response)=>{
-        setMonthlyData(response);
-      })
-    },[])
+    if(loading){
+      console.log("loading in gql");
+    }
+    if(error){
+      console.log("error in gql", error);
+    }
+    if(data){
+      console.log("data for gql is", data);
+    }
 
 
     const CurrentMonthProgressBar = styled(LinearProgress)(({ theme }) => ({
@@ -71,26 +87,26 @@ const MonthlyCosts =(props) =>{
     return(
     <div className="monthly-cost" id={props.style}>
       {
-        monthlyData ? 
+        data?.monthlycost ? 
         (
           <>
             <p className="heading">{CurrentMonth()} Cost (Projected)</p>
-            <p className="heading-number"><strong>${addComma(monthlyData?.monthlyCost)}</strong></p>
+            <p className="heading-number"><strong>${addComma(data?.monthlycost?.monthlyCost)}</strong></p>
             <section id="inner-section">
             <p className="sub-heading">Month To Date</p>
                 <section className="month-to-date-section">
 
-                  <span className="cost-for-month"><strong>${addComma(monthlyData?.mtdCost)}</strong></span>
-                  <span className="float-span" style={{color: monthlyData?.costStatus === 'up' ? 'red' : 'green'}}>{monthlyData?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{monthlyData?.costPercentage}</span>
+                  <span className="cost-for-month"><strong>${addComma(data?.monthlycost?.mtdCost)}</strong></span>
+                  <span className="float-span" style={{color: data?.monthlycost?.costStatus === 'up' ? 'red' : 'green'}}>{data?.monthlycost?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{data?.monthlycost?.costPercentage}</span>
                 </section>
                 
                 <Box sx={{ flexGrow: 1 }}>
-                <CurrentMonthProgressBar className="current-month-progress-bar" sx={{marginTop: '5px'}} variant="determinate" value={monthlyData?.mtdCostInPercentage} />
+                <CurrentMonthProgressBar className="current-month-progress-bar" sx={{marginTop: '5px'}} variant="determinate" value={data?.monthlycost?.mtdCostInPercentage} />
                 <LastMonthProgressBar  variant="determinate" value={98} />
                 </Box>
                 <p className="footer-span" style={{color: 'lightgrey'}}>Last Month</p>
-                <p className="footer-span margin-left"><strong>${addComma(monthlyData?.costForLastMonth)}</strong></p>
-                {/* <input className="range-input" type="range" value={50} disabled/> */}
+                <p className="footer-span margin-left"><strong>${addComma(data?.monthlycost?.costForLastMonth)}</strong></p>
+
             </section>
           </>
         ) :

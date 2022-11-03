@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.7.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
@@ -14,6 +15,7 @@
     "@types/chart.js": "^2.9.37",
     "axios": "^1.1.2",
     "chartjs-plugin-annotation": "^2.0.1",
+    "graphql": "^16.6.0",
     "highcharts": "^10.2.1",
     "highcharts-react-official": "^3.1.0",
     "react": "^18.2.0",
@@ -73,12 +75,12 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
+    "@svgr/webpack": "^6.5.1",
     "babel-plugin-named-exports-order": "^0.0.2",
     "prop-types": "^15.8.1",
-    "webpack": "^5.74.0",
-    "@svgr/webpack":"^6.5.1"
+    "webpack": "^5.74.0"
   },
-  "overrides":{
+  "overrides": {
     "@svgr/webpack": "$@svgr/webpack"
   }
 }
