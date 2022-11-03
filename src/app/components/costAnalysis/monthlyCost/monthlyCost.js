@@ -29,14 +29,12 @@ const MonthlyCosts =(props) =>{
     const {data, loading, error} = useQuery(Get_Monthly_Data);
 
     if(loading){
-      console.log("loading in gql");
+      return <Loader />
     }
     if(error){
       console.log("error in gql", error);
     }
-    if(data){
-      console.log("data for gql is", data);
-    }
+    
 
 
     const CurrentMonthProgressBar = styled(LinearProgress)(({ theme }) => ({
