@@ -11,26 +11,9 @@ import { getCostTrendData } from "../apis/costAnalysis.api";
 import { Loader } from "../helpers/utils/loader";
 
 const CostAnalysis = () =>{
-    const [localBarData, setLocalBarData] = useState();
-    useEffect(()=>{
-        getCostTrendData().then((response)=>{
-            setLocalBarData(response);
-            response = JSON.stringify(response)
-            localStorage.setItem("costTrendData", response);
-        
-        }).catch((error)=>{
-            console.log('error');
-        });
-      }, []);
-
-    useEffect(()=>{
-        
-    }, [localBarData]);
     return (
         <div id="costAnalysisDiv">
         {
-            localBarData?.dataSets ? 
-            (
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-sm-3" id="monthly-costs" >
@@ -54,12 +37,7 @@ const CostAnalysis = () =>{
                         </div>
                     </div>
                 </div>
-            ) : 
-            (  
-                // <section style={{postion: 'absolute', top: "200px"}}>
-                    <Loader top="200px" textAlign='center' />
-                // </section>
-            )
+          
         }
         </div>
         

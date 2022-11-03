@@ -105,7 +105,7 @@ const option = {
         forecaste: 'transparent',
         onPremise: '#5F9DF7'
     }
-   
+
     if(barData?.dataSets){
     barData?.dataSets.map((e)=>{
     option?.series.push(
@@ -115,7 +115,7 @@ const option = {
                       return element.value
                     }),
                     name: e?.label,
-                    borderWidth: 2,
+                    // borderWidth: 2,
                     color: customColors[e?.name],
                     borderWidth: 1,
                     dashStyle: e?.monthlyForecast ? 'dash' : 'solid'

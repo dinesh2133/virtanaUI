@@ -15,6 +15,7 @@ const costTrendData = gql`query CostTrend {
       data{
         value
       }
+      monthlyForecast
     }
     datalabels {
       labels
