@@ -9,7 +9,12 @@ const {
     GraphQLInt,
     GraphQLScalarType
 } = require("graphql");
+const cors =  require("cors");
 const app = express();
+
+app.use(cors({
+    origin: "*"
+}))
 
 const topTenCostChanges= [
         {
