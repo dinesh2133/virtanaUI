@@ -154,8 +154,8 @@ const dataType = new GraphQLObjectType({
     name: "dataType",
     description: "list of data",
     fields: ()=>({
-        value: {type: GraphQLString,
-            resolve: (parent)=> parent
+        value: {type: new GraphQLNonNull(GraphQLInt),
+            resolve: (parent)=>{ return parent }
         }
     })
 })

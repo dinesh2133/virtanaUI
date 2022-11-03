@@ -2,14 +2,18 @@ import { addComma } from "../../../helpers/utils/methods";
 
 export const dataForBarChart = (data) =>{
 
-let barData = localStorage.getItem('costTrendData');
-if(barData){
-  barData = JSON.parse(barData);
-}else{
-  barData = data;
-}
+let barData = data;
+// if(barData){
+//   barData = JSON.parse(barData);
+// }else{
+//   barData = data;
+// }
+let DataLabels = [];
+DataLabels = barData?.datalabels?.map((e)=>{
+  return e.labels;
+})
 
-console.log('bar data in config is ', data);
+console.log('bar data in config is ', DataLabels);
 let imgSrc = ['https://i.imgur.com/v67Jqaa.png', 'https://i.imgur.com/PB3zIxv.png', 'https://i.imgur.com/QPCNtc0.png', 'https://i.imgur.com/MgK6hti.png'];
 
 const option = {
@@ -55,7 +59,7 @@ const option = {
             }
         },
         xAxis: {
-            categories: barData?.datalbels,
+            categories: DataLabels,
             labels:{
               style:{
                 color: 'white'
@@ -107,7 +111,9 @@ const option = {
     option?.series.push(
                 {
                     size: 10,
-                    data: e?.data,
+                    data: e?.data?.map((element)=>{
+                      return element.value
+                    }),
                     name: e?.label,
                     borderWidth: 2,
                     color: customColors[e?.name],
