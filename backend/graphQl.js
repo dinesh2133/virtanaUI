@@ -212,10 +212,10 @@ const optimizationdatatype = new GraphQLObjectType({
     name:'optimization',
     description:'data of objects',
     fields: () =>({
+        id:{type:new GraphQLNonNull(GraphQLInt) },
         type:{type:GraphQLString},
         value:{type:new GraphQLNonNull(GraphQLInt) },
         saving:{type:new GraphQLNonNull(GraphQLInt) },
-        id:{type:new GraphQLNonNull(GraphQLInt) }
     })
 })
 
@@ -223,9 +223,9 @@ const Insigthstype= new GraphQLObjectType({
     name:'Insigths',
     description:'data of objects',
     fields: () =>({
+        id:{type:new GraphQLNonNull(GraphQLInt) },
         type:{type:GraphQLString},
         msg:{type:GraphQLString},
-        id:{type:new GraphQLNonNull(GraphQLInt) }
     })
 })
 
@@ -233,9 +233,9 @@ const savingopportunitiestype= new GraphQLObjectType({
     name:'savingopportunities',
     description:'data of objects',
     fields: () =>({
+        id:{type:new GraphQLNonNull(GraphQLInt) },
         suggestions:{type:GraphQLString},
         name:{type:GraphQLString},
-        id:{type:new GraphQLNonNull(GraphQLInt) },
         amount:{type:new GraphQLNonNull(GraphQLInt) }
     })
 })
