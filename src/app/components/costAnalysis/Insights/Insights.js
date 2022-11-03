@@ -5,30 +5,41 @@ import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { getinsights } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
+import {useState ,useEffect} from 'react'
+import { gql, useQuery } from "@apollo/client";
 
-export default class Insights extends Component {
-    constructor (props) {
-      super(props)
-    
-      this.state = {
-         apidata:[]
+const Get_Insights_Data = gql`
+                        query Insigths {
+                            insightData{
+                                id
+                                msg
+                                type
+                            }
+                      }`
+export default function Insights(props) {
+    // const [obj, setObj] = useState([]);
+    //     useEffect(()=>{
+    //         getinsights().then((response)=>{
+    //             setObj(response);
+    //         })
+    //     }, []);
+        const {data, loading, error} = useQuery(Get_Insights_Data);
+
+    if(loading){
+      console.log("loading in gql");
     }
-
-}
-async componentDidMount(){
-    let temp= await getinsights()
-    this.setState({apidata:temp})
-  //  console.log("apidata",this.state.apidata);
-}
-
-render() {
-    
-    return (
-        <>
-            <section id={this.props.style} className='insights'>
+    if(error){
+      console.log("error in gql", error);
+    }
+    if(data){
+      console.log("data for gql is", data);
+    }
+  return (
+    <>
+            <section id={props.style} className='insights'>
                 
                 {
-                this.state.apidata.length > 0 ?
+                data?.insightData ?
                 (
                     <>
                         
@@ -39,7 +50,7 @@ render() {
 
                             <table className="table datatable">
                                 <tbody>
-                                {this.state.apidata?.map((value)=>(
+                                {data?.insightData?.map((value)=>(
                                         <tr key={value.id}>
                                         <td id='msgicon'>{value.type==='In-progress'?<WarningRoundedIcon id='inprogress'/>:null}
                                             {value.type==='Open'?<ErrorIcon id='open'/>:null}
@@ -64,6 +75,7 @@ render() {
             </section>
                 
             </>
-        )
-    }
-}
+  )
+            }
+
+

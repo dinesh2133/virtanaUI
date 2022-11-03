@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component ,useEffect ,useState} from 'react'
 import ErrorIcon from '@mui/icons-material/Error';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
@@ -7,88 +7,97 @@ import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { getoptimization } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
-export default class Optimization extends Component {
-    constructor(props) {
-        super(props)
+import { gql, useQuery } from "@apollo/client";
 
-        this.state = {
-           apidata:[],
-        }
-     
-            // this.state.apidata=this.props.data;
-            // console.log("Optimization data",this.props.data)
-    }
-    async componentDidMount(){
-       let data=await getoptimization()
-       this.setState({apidata:data})
+const Get_Optimization_Data = gql`
+                        query optimization {
+                            optimizationData{
+                                id
+                                value
+                                saving
+                                type
+                            }
+                      }`
+export default function Optimization(props) {
+    // const [obj, setObj] = useState([]);
+    //     useEffect(()=>{
+    //         getoptimization().then((response)=>{
+    //             setObj(response);
+    //         })
+    //     }, []);
+    const {data, loading, error} = useQuery(Get_Optimization_Data);
 
+    if(loading){
+      console.log("loading in gql");
     }
-   
-    render() {
-        return (
+    if(error){
+      console.log("error in gql", error);
+    }
+    if(data){
+      console.log("data for gql is", data);
+    }
+  return (
+    <>
+    <section id={props.Style} className='Optimization'>
+        
+        {
+        data?.optimizationData ? 
+        (
             <>
-            <section id={this.props.Style} className='Optimization'>
-                
-                {
-                this.state.apidata.length > 0 ? 
-                (
-                    <>
-                            <div className='Optimiz'>
-                                <p className='Heading contentcenter'>Optimization Change Progress</p>
-                                <div className='optimiztable'>
-                                <span className='savingline'>Save</span>
+                    <div className='Optimiz'>
+                        <p className='Heading contentcenter'>Optimization Change Progress</p>
+                        <div className='optimiztable'>
+                        <span className='savingline'>Save</span>
 
-                                    <table className="table tabledata table-borderless" id='tabledata'>
-                                        <thead>
-                                            <tr >
+                            <table className="table tabledata table-borderless" id='tabledata'>
+                                <thead>
+                                    <tr >
 
-                                                {this.state.apidata?.map((value) => (
+                                        {data?.optimizationData ?.map((value) => (
 
-                                                    <td id='tabletitle' key={value.id}>{value.type}</td>
-                                                ))}
-                                            </tr>
-                                        </thead>
-                                        <tbody className='tablebody'>
-                                            <tr>
-                                                {this.state.apidata.map((value) => (
+                                            <td id='tabletitle' key={value.id}>{value.type}</td>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody className='tablebody'>
+                                    <tr>
+                                        {data?.optimizationData ?.map((value) => (
 
-                                                    <td id='actualdata' key={value.id}>
-                                                        {value.id===1 ?<ErrorIcon  id='warning'/>:null}
-                                                        {value.id===2 ?< WarningRoundedIcon id='error'/>:null }
-                                                        {value.id===3 ?<CheckCircleRoundedIcon id='check'/>:null}
-                                                        {value.value}</td>
+                                            <td id='actualdata' key={value.id}>
+                                                {value.id===1 ?<ErrorIcon  id='warning'/>:null}
+                                                {value.id===2 ?< WarningRoundedIcon id='error'/>:null }
+                                                {value.id===3 ?<CheckCircleRoundedIcon id='check'/>:null}
+                                                {value.value}</td>
 
-                                                ))}
-                                            </tr>
-                                            <tr>
-                                                {this.state.apidata.map((value) => (
+                                        ))}
+                                    </tr>
+                                    <tr>
+                                        {data?.optimizationData ?.map((value) => (
 
-                                                    <td id='savingvalue' key={value.id}>${addComma(value.saving)}</td>
+                                            <td id='savingvalue' key={value.id}>${addComma(value.saving)}</td>
 
-                                                ))}
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div className='totalSaving contentcenter '>
-                                    <TungstenSharpIcon id='Saving' />
-                                    <span>$50,00,000</span> {/*add add_comma function in place of span value  */}
-                                </div>
-                                <div className='contentcenter footerline'>
-                                    <p>YDT savings identified</p>
-                                </div>
-                            </div>
-                    </>
-                ) : 
-                (
-                    <Loader />
-                    )
-                }
-
-            
-            </section>        
-                
+                                        ))}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className='totalSaving contentcenter '>
+                            <TungstenSharpIcon id='Saving' />
+                            <span>$50,00,000</span> {/*add add_comma function in place of span value  */}
+                        </div>
+                        <div className='contentcenter footerline'>
+                            <p>YDT savings identified</p>
+                        </div>
+                    </div>
             </>
-        )
-    }
+        ) : 
+        (
+            <Loader />
+            )
+        }
+
+    
+    </section>        
+        
+    </>  )
 }
