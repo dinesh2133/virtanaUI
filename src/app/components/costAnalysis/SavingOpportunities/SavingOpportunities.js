@@ -1,35 +1,48 @@
-import React, { Component } from 'react'
+import React, { Component,useEffect,useState} from 'react'
 import  './SavingOpportunitiesStyle.css'
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { getsavingopportunities } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
-export default class SavingOpportunities extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            apidata:[],
-            amountarr:[],
-        }
 
 
+import { gql, useQuery } from "@apollo/client";
+
+const Get_SavingOpp_Data = gql`
+                        query savingopportunities {
+                            savingopportunitiesData{
+                                id
+                                name
+                                amount
+                                suggestions
+                            }
+                      }`
+
+
+export default function Insights(props) {
+    //  const [obj, setObj] = useState([]);
+    //     useEffect(()=>{
+    //         getsavingopportunities().then((response)=>{
+    //             setObj(response);
+    //         })
+    //     }, []);
+        const {data, loading, error} = useQuery(Get_SavingOpp_Data);
+
+    if(loading){
+      console.log("loading in gql");
     }
-    async componentDidMount(){
-            let data=await getsavingopportunities()
-            this.setState({apidata:data})
-            this.state.apidata.map ((event)=>(this.state.amountarr.push(event.amount)))
-            
-               
-        }
-    render() {
-        
-        return (
-            <>
-            <section className="SavingOpp" id={this.props.style}>
+    if(error){
+      console.log("error in gql", error);
+    }
+    if(data){
+      console.log("data for gql is", data);
+    }
+  return (
+    <>
+            <section className="SavingOpp" id={props.style}>
                 <div>
                 {
-                this.state.apidata.length > 0 ? 
+                data?.savingopportunitiesData ? 
                 (
                     <>
                             <div>
@@ -46,7 +59,7 @@ export default class SavingOpportunities extends Component {
                             <div id='savingchart'>
                                 <table className="table" id='savingtable'>
                                     <tbody>
-                                        {this.state.apidata?.map((value) => (
+                                        {data?.savingopportunitiesData ?.map((value) => (
                                             <tr key={value.key}>
                                                 <td className='titleline'>{value.name}</td>
                                                 <td>${addComma(value.amount)}</td>
@@ -69,6 +82,5 @@ export default class SavingOpportunities extends Component {
             </section>    
                 
             </>
-        )
-    }
+  )
 }
