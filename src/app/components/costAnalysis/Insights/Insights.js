@@ -6,7 +6,7 @@ import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { getinsights } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import {useState ,useEffect} from 'react'
-import { gql, useQuery } from "@apollo/client";
+import { request, gql } from 'graphql-request'
 
 const Get_Insights_Data = gql`
                         query Insigths {
@@ -23,17 +23,9 @@ export default function Insights(props) {
     //             setObj(response);
     //         })
     //     }, []);
-        const {data, loading, error} = useQuery(Get_Insights_Data);
-
-    if(loading){
-      console.log("loading in gql");
-    }
-    if(error){
-      console.log("error in gql", error);
-    }
-    if(data){
-      console.log("data for gql is", data);
-    }
+    const [data, setData]= useState([]);
+    request("http://localhost:5000/graphql", Get_Insights_Data).then((data)=> setData(data));
+   
   return (
     <>
             <section id={props.style} className='insights'>

@@ -4,9 +4,7 @@ import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { getsavingopportunities } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
-
-
-import { gql, useQuery } from "@apollo/client";
+import { request, gql } from 'graphql-request'
 
 const Get_SavingOpp_Data = gql`
                         query savingopportunities {
@@ -26,17 +24,8 @@ export default function Insights(props) {
     //             setObj(response);
     //         })
     //     }, []);
-        const {data, loading, error} = useQuery(Get_SavingOpp_Data);
-
-    if(loading){
-      console.log("loading in gql");
-    }
-    if(error){
-      console.log("error in gql", error);
-    }
-    if(data){
-      console.log("data for gql is", data);
-    }
+    const [data, setData]= useState([]);
+    request("http://localhost:5000/graphql", Get_SavingOpp_Data).then((data)=> setData(data));
   return (
     <>
             <section className="SavingOpp" id={props.style}>
