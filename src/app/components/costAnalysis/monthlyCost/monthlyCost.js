@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import {useState, useEffect} from 'react';
-import {getMonthlyCost} from '../.../../../../apis/costAnalysis.api';
+import {GetData, getMonthlyCost} from '../.../../../../apis/costAnalysis.api';
 import { Loader } from "../../../helpers/utils/loader";
 import {addComma, CurrentMonth} from "../../../helpers/utils/methods";
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -26,18 +26,18 @@ export const Get_Monthly_Data = gql`
                         }
                       }`
 
-const MonthlyCosts =(props) =>{
-    // const {data, loading, error} = useQuery(Get_Monthly_Data);
+const MonthlyCosts = (props) =>{
 
-    // if(loading){
-    //   return <Loader />
-    // }
-    // if(error){
-    //   console.log("error in gql", error);
-    // }
     const [data, setData]= useState({});
-    request("http://localhost:5000/graphql", Get_Monthly_Data).then((data)=> setData(data));
-
+    if(Object.keys(data).length <= 0 ){
+      GetData(Get_Monthly_Data).then((response)=>{
+        setData(response);
+      })
+    }
+    // log
+    useEffect(()=>{
+      console.log("testing", data)
+    }, [data])
 
     const CurrentMonthProgressBar = styled(LinearProgress)(({ theme }) => ({
         // height: 20,
@@ -102,7 +102,7 @@ const MonthlyCosts =(props) =>{
                 
                 <Box sx={{ flexGrow: 1 }}>
                 <CurrentMonthProgressBar className="current-month-progress-bar" sx={{marginTop: '5px'}} variant="determinate" value={data?.monthlycost?.mtdCostInPercentage} />
-                <LastMonthProgressBar  variant="determinate" value={98} />
+                <LastMonthProgressBar  variant="determinate" value={data?.monthlyCost?.lastMonthCostPercent  || 90 } />
                 </Box>
                 <p className="footer-span" style={{color: 'lightgrey'}}>Last Month</p>
                 <p className="footer-span margin-left"><strong>${addComma(data?.monthlycost?.costForLastMonth)}</strong></p>
