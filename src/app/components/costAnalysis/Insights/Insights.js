@@ -3,7 +3,7 @@ import  './InsightsStyle.css'
 import ErrorIcon from '@mui/icons-material/Error';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
-import { getinsights } from '../../../apis/costAnalysis.api';
+import { getinsights,GetData } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import {useState ,useEffect} from 'react'
 import { request, gql } from 'graphql-request'
@@ -17,6 +17,7 @@ const Get_Insights_Data = gql`
                             }
                       }`
 export default function Insights(props) {
+    console.log("llll");
     // const [obj, setObj] = useState([]);
     //     useEffect(()=>{
     //         getinsights().then((response)=>{
@@ -24,8 +25,12 @@ export default function Insights(props) {
     //         })
     //     }, []);
     const [data, setData]= useState([]);
-    request("http://localhost:5000/graphql", Get_Insights_Data).then((data)=> setData(data));
-   
+    
+    if(Object.keys(data).length <= 0 ){
+        GetData(Get_Insights_Data).then((response)=>{
+          setData(response);
+        })
+      }
   return (
     <>
             <section id={props.style} className='insights'>

@@ -1,7 +1,7 @@
 import React, { Component,useEffect,useState} from 'react'
 import  './SavingOpportunitiesStyle.css'
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
-import { getsavingopportunities } from '../../../apis/costAnalysis.api';
+import { getsavingopportunities,GetData } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
 import { request, gql } from 'graphql-request'
@@ -25,7 +25,11 @@ export default function Insights(props) {
     //         })
     //     }, []);
     const [data, setData]= useState([]);
-    request("http://localhost:5000/graphql", Get_SavingOpp_Data).then((data)=> setData(data));
+    if(Object.keys(data).length <= 0 ){
+        GetData(Get_SavingOpp_Data).then((response)=>{
+          setData(response);
+        })
+      }
   return (
     <>
             <section className="SavingOpp" id={props.style}>
