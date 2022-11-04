@@ -34,10 +34,6 @@ const MonthlyCosts = (props) =>{
         setData(response);
       })
     }
-    // log
-    useEffect(()=>{
-      console.log("testing", data)
-    }, [data])
 
     const CurrentMonthProgressBar = styled(LinearProgress)(({ theme }) => ({
         // height: 20,

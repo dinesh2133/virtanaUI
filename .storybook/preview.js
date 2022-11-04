@@ -7,9 +7,5 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-    apolloClient: {
-      MockedProvider,
-      // any props you want to pass to MockedProvider on every story
-    }
   },
 }
