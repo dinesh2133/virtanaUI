@@ -5,7 +5,8 @@ import HighCharts, { color, setOptions } from "highcharts";
 import { dataForBarChart } from './config.js';
 import {getCostTrendData} from '../../../apis/costAnalysis.api';
 import './costTrend.css';
-import { gql, useQuery } from "@apollo/client";
+import {gql, request} from "graphql-request";
+import { Loader } from "../../../helpers/utils/loader.js";
 
 const costTrendData = gql`query CostTrend {
   barchartdata{
@@ -28,23 +29,12 @@ const costTrendData = gql`query CostTrend {
 
 const CostTrendBar = ({style} ) => {
   const [options, setOptions]= useState();
-  const {data , loading, error} = useQuery(costTrendData);
-  let temp;
-  // useEffect(()=>{
-  //   setOptions(temp);
-  //   console.log("temp pad", temp);
-  // }, [temp])
+  const [data, setData] = useState();
+  request("http://localhost:5000/graphql", costTrendData).then((response)=> setData(response)).catch((err) => console.log("err"));
   if(!options?.chart){
-    if(loading){
-      return <p>loading....</p>
-    }
-    if(error){
-      console.log("error in gql");
-      return
-    }
-    if(data){
+    if(data?.barchartdata){
       console.log("data is", data.barchartdata);
-      temp = dataForBarChart(data.barchartdata);
+      let temp = dataForBarChart(data.barchartdata);
       setOptions(temp);
       // console.log('bar data ', temp);
       
@@ -52,12 +42,17 @@ const CostTrendBar = ({style} ) => {
   }
   
   
- 
-
   return (
-    <div className="bar-chart-component" id={style}>  
+    
+      options?.chart ? 
+      (
+        <div className="bar-chart-component" id={style}>  
           <HighchartsReact highcharts={HighCharts} options={options}  />
-    </div>
+        </div>    
+      ) : 
+      (
+        <Loader />
+      )
   );
 };
 
