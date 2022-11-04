@@ -4,7 +4,7 @@ import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import  './OptimizationStyle.css'
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
-import { getoptimization } from '../../../apis/costAnalysis.api';
+import { getoptimization ,GetData } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
 import { request, gql } from 'graphql-request'
@@ -26,8 +26,12 @@ export default function Optimization(props) {
     //         })
     //     }, []);
     const [data, setData]= useState([]);
-    request("http://localhost:5000/graphql", Get_Optimization_Data).then((data)=> setData(data));
-   
+
+    if(Object.keys(data).length <= 0 ){
+        GetData(Get_Optimization_Data).then((response)=>{
+          setData(response);
+        })
+      }   
   return (
     <>
     <section id={props.Style} className='Optimization'>
