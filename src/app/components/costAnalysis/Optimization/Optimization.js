@@ -7,7 +7,7 @@ import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { getoptimization } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
-import { gql, useQuery } from "@apollo/client";
+import { request, gql } from 'graphql-request'
 
 const Get_Optimization_Data = gql`
                         query optimization {
@@ -25,17 +25,9 @@ export default function Optimization(props) {
     //             setObj(response);
     //         })
     //     }, []);
-    const {data, loading, error} = useQuery(Get_Optimization_Data);
-
-    if(loading){
-      console.log("loading in gql");
-    }
-    if(error){
-      console.log("error in gql", error);
-    }
-    if(data){
-      console.log("data for gql is", data);
-    }
+    const [data, setData]= useState([]);
+    request("http://localhost:5000/graphql", Get_Optimization_Data).then((data)=> setData(data));
+   
   return (
     <>
     <section id={props.Style} className='Optimization'>
