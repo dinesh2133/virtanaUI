@@ -10,10 +10,11 @@ import { Loader } from "../../../helpers/utils/loader";
 import {addComma, CurrentMonth} from "../../../helpers/utils/methods";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { red } from "@mui/material/colors";
-import { gql, useQuery } from "@apollo/client";
+// import { gql, useQuery } from "@apollo/client";
+import { request, gql } from "graphql-request";
 
 
-const Get_Monthly_Data = gql`
+export const Get_Monthly_Data = gql`
                         query MonthlyCosts {
                           monthlycost{
                           mtdCost
@@ -26,15 +27,16 @@ const Get_Monthly_Data = gql`
                       }`
 
 const MonthlyCosts =(props) =>{
-    const {data, loading, error} = useQuery(Get_Monthly_Data);
+    // const {data, loading, error} = useQuery(Get_Monthly_Data);
 
-    if(loading){
-      return <Loader />
-    }
-    if(error){
-      console.log("error in gql", error);
-    }
-    
+    // if(loading){
+    //   return <Loader />
+    // }
+    // if(error){
+    //   console.log("error in gql", error);
+    // }
+    const [data, setData]= useState({});
+    request("http://localhost:5000/graphql", Get_Monthly_Data).then((data)=> setData(data));
 
 
     const CurrentMonthProgressBar = styled(LinearProgress)(({ theme }) => ({

@@ -1,6 +1,8 @@
 import React from 'react';
-import MonthlyCosts from './monthlyCost';
+import MonthlyCosts, { Get_Monthly_Data } from './monthlyCost';
 import "./monthlyCost.css"
+// import DashboardPage, { DashboardPageQuery } from '.';
+
 
 export default {
     title: 'monthly cost',
