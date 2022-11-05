@@ -1,7 +1,7 @@
 import { addComma } from "../../../helpers/utils/methods";
 
 export const dataForBarChart = (data) =>{
-
+console.log("sdflksjoielskdjfskj", data);
 let barData = data;
 // if(barData){
 //   barData = JSON.parse(barData);

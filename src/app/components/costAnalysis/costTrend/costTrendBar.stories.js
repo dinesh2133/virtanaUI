@@ -8,10 +8,4 @@ export default {
     component: CostTrendBar
 }
 
-let data;
-getCostTrendData().then(response =>{
-    data = response;
-    console.log("response in storybook is", data);
-})
-
-export const CostTrendBarChart = () => (<CostTrendBar data={data} style="customStyle"/>)
+export const CostTrendBarChart = () => (<CostTrendBar style="customStyle"/>)

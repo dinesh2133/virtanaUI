@@ -6,6 +6,7 @@ import { getTopTenCostChanges } from "../../../apis/costAnalysis.api";
 import { Loader } from "../../../helpers/utils/loader";
 import { addComma, CurrentMonth } from "../../../helpers/utils/methods";
 import {gql, request} from "graphql-request";
+import { GetData } from "../../../apis/costAnalysis.api";
 
 const top10changes =  gql`query TopTenCostChanges{
     toptenconstchanges{
@@ -17,7 +18,11 @@ const top10changes =  gql`query TopTenCostChanges{
 
 const CostChanges = (props) =>{
     const [data, setData]= useState([]);
-    request("http://localhost:5000/graphql", top10changes).then((data)=> setData(data)).catch((err)=>{console.log("err")});
+    if(Object.keys(data).length <= 0 ){
+        GetData(top10changes).then((response)=>{
+          setData(response);
+        })
+      }
         return(
         <div className="cost-changes" id={props.style}>
             {
