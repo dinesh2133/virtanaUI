@@ -114,7 +114,8 @@ const topTenCostChanges= [
         mtdCostInPercentage: 60,
         costForLastMonth: 50000,
         costStatus: 'up',
-        costPercentage: '25%'
+        costPercentage: '25%',
+        lastMonthCostInPercentage: 95
     }
 
     let optimization_data=[{ id:1, type: 'Open', value: 2000, saving:12000 },
@@ -193,7 +194,8 @@ const monthlyCostType = new GraphQLObjectType({
         mtdCostInPercentage: { type : new GraphQLNonNull(GraphQLInt) },
         costForLastMonth: { type : new GraphQLNonNull(GraphQLInt) },
         costStatus: { type : GraphQLString },
-        costPercentage: { type : GraphQLString }
+        costPercentage: { type : GraphQLString },
+        lastMonthCostInPercentage : { type : new GraphQLNonNull(GraphQLInt) }
     })
 })
 

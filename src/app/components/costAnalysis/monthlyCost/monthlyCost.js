@@ -1,17 +1,13 @@
 import React from "react";
 import './monthlyCost.css';
-import { Box, LinearProgress, linearProgressClasses} from "@mui/material";
-import { styled } from '@mui/material/styles';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import {useState, useEffect} from 'react';
 import {GetData, getMonthlyCost} from '../.../../../../apis/costAnalysis.api';
 import { Loader } from "../../../helpers/utils/loader";
 import {addComma, CurrentMonth} from "../../../helpers/utils/methods";
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { red } from "@mui/material/colors";
-// import { gql, useQuery } from "@apollo/client";
 import { request, gql } from "graphql-request";
+import ProgressBar from "../../../helpers/charts/ConstProgressBar";
 
 
 export const Get_Monthly_Data = gql`
@@ -23,6 +19,7 @@ export const Get_Monthly_Data = gql`
                           costForLastMonth
                           costStatus
                           costPercentage
+                          lastMonthCostInPercentage
                         }
                       }`
 
@@ -35,51 +32,20 @@ const MonthlyCosts = (props) =>{
       })
     }
 
-    const CurrentMonthProgressBar = styled(LinearProgress)(({ theme }) => ({
-        // height: 20,
-        marginTop: '7px',
-        [theme.breakpoints.up('sm')]: {
-          height : 15
-        },
-        [theme.breakpoints.up('xs')]: {
-          height : 15
-        },
-        [theme.breakpoints.up('md')]: {
-          height : 23
-        },
-        [`&.${linearProgressClasses.colorPrimary}`]: {
-          backgroundColor: theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800]
-        },
-        [`& .${linearProgressClasses.bar}`]: {
-          // borderRadius: 5,
-          backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
-        },
-      }));
+    const CurrentMonthStyle = {
+      defaultBarHeight: 20,
+      marginTop : "10px",
+      primaryColor: "white",
+      barHeightForSmallScreen : 15
+    }
 
-      const LastMonthProgressBar = styled(LinearProgress)(({ theme }) => ({
-        // height: 20,
-        marginTop: '7px',
-        [theme.breakpoints.up('sm')]: {
-          height : 10
-        },
-        [theme.breakpoints.up('xs')]: {
-          height : 10
-        },
-        [theme.breakpoints.up('md')]: {
-          height : 15
-        },
-        [`&.${linearProgressClasses.colorPrimary}`]: {
-          backgroundColor: 'black',
-          borderWidht: "2px",
-          borderColor: red
-        },
-        [`& .${linearProgressClasses.bar}`]: {
-          // borderRadius: 5,
-          backgroundColor: theme.palette.mode === 'light' ? '#D3D3D3' : '#D3D3D3',
-        },
-      }));
-
-
+    const LastMonthStyle = {
+      defaultBarHeight: 15,
+      marginTop : "10px",
+      barColor: "lightgrey",
+      primaryColor: "black",
+      barHeightForSmallScreen : 10
+    }
     return(
     <div className="monthly-cost" id={props.style}>
       {
@@ -95,11 +61,8 @@ const MonthlyCosts = (props) =>{
                   <span className="cost-for-month"><strong>${addComma(data?.monthlycost?.mtdCost)}</strong></span>
                   <span className="float-span" style={{color: data?.monthlycost?.costStatus === 'up' ? 'red' : 'green'}}>{data?.monthlycost?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{data?.monthlycost?.costPercentage}</span>
                 </section>
-                
-                <Box sx={{ flexGrow: 1 }}>
-                <CurrentMonthProgressBar className="current-month-progress-bar" sx={{marginTop: '5px'}} variant="determinate" value={data?.monthlycost?.mtdCostInPercentage} />
-                <LastMonthProgressBar  variant="determinate" value={data?.monthlyCost?.lastMonthCostPercent  || 90 } />
-                </Box>
+                <ProgressBar mtdCostInPercentage={data?.monthlycost.mtdCostInPercentage} style={CurrentMonthStyle}/>
+                <ProgressBar mtdCostInPercentage={data?.monthlycost.lastMonthCostInPercentage} style={LastMonthStyle} />
                 <p className="footer-span" style={{color: 'lightgrey'}}>Last Month</p>
                 <p className="footer-span margin-left"><strong>${addComma(data?.monthlycost?.costForLastMonth)}</strong></p>
 
