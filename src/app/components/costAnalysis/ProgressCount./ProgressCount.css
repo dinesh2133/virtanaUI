@@ -1,0 +1,24 @@
+
+.maindiv{
+background-color:none;
+color: #ffffff;
+font-size: 12px;
+width: 132px;
+text-align: center
+}
+.table{
+    color: #ffffff;
+}
+.count_data{
+    font-size: 16px;
+
+}
+#boreder{
+    border-right: #ffffff 1.5px solid;
+}
+#icon{
+    padding-right:2px;
+    color:#d6c100;
+    height:25px;
+    width:auto;
+}
