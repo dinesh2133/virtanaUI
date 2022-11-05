@@ -7,4 +7,4 @@ export default {
     component: ProgressCount
 }
 
-export const ProgressCount = () => (<ProgressCount style="customWidth"/>)
+export const ProgressComp = () => (<ProgressCount />)

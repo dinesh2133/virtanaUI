@@ -117,7 +117,8 @@ const topTenCostChanges= [
         costPercentage: '25%'
     }
 
-    let optimization_data=[{ id:1, type: 'Open', value: 2000, saving:12000 },
+    let optimization_data=[
+        { id:1, type: 'Open', value: 2000, saving:12000 },
     { id:2, type: 'In-Progress', value: 100, saving: 25000 },
     { id:3, type: 'Resolved', value: 2000, saving: 1120000 }]
 
