@@ -1,0 +1,19 @@
+.Savingdata{
+    color: #3e844d;
+    display:flex ;
+    font-size: 20px;
+    justify-content:center;
+}
+#Savingicon{
+    color:#3e844d;
+    transform: rotate(180deg);
+    height: 65px;
+    width: auto;
+    margin-top: -5px;
+}
+
+.footerline{
+    color: azure;
+    font-size: 11px;
+    margin-top:-9px 0 0 -.5px;
+}

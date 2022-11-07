@@ -139,12 +139,17 @@ const topTenCostChanges= [
     { id: 3, name: "Workload", amount: 80000, suggestions: 1 },
     { id: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
     
+    let Costbyacc_data=[
+        {id:1,name: 'Port Opration',y: 36},
+        {id:2,name: 'Warehouse',y: 27},  
+        {id:3,name: 'Shipping',y: 20},
+        {id:4,name: 'CRM & HR',y: 17}]
     const cost_by_sites_data = {
         datalabels: ["Azure West Europe","Azure Southeast Asia","San Jose DC","AWS us-west-2","AWS us-east-1","Azure Australia East", "Chicago DR DC"],
         dataSets: [
             {
                 label: "Azure West Europe",
-                data: [350000, 350000, 350000, 350000, 350000, 350000, 350000],
+                data: [350000, 200000, 100000, 250000, 350000, 350000, 50000],
                 name: "test"
             }
             // {
@@ -326,7 +331,15 @@ const savingopportunitiestype= new GraphQLObjectType({
         amount:{type:new GraphQLNonNull(GraphQLInt) }
     })
 })
-
+const costbyacctype= new GraphQLObjectType({
+    name:'costbyacc',
+    description:'data of cost of accounts',
+    fields: () =>({
+        id:{type:new GraphQLNonNull(GraphQLInt) },
+        name:{type:GraphQLString},
+        y:{type:new GraphQLNonNull(GraphQLInt) }
+    })
+})
 const RootQuery = new GraphQLObjectType({
     name : "CostAnalysis",
     description: "Data For Cost Analysis",
@@ -358,11 +371,16 @@ const RootQuery = new GraphQLObjectType({
             costbysites : {
                 type: costBySiteType,
                 resolve: (person)=> cost_by_sites_data
+            },
+            costbyaccdata:{
+                type: new GraphQLList(costbyacctype),
+                resolve: () => Costbyacc_data
             }
 
-
     })
+
 })
+
 
 const schema = new GraphQLSchema({
     query: RootQuery
