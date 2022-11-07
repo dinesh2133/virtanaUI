@@ -9,6 +9,7 @@ import SavingOpportunities from "../components/costAnalysis/SavingOpportunities/
 import './constAnalysis.css';
 import { getCostTrendData } from "../apis/costAnalysis.api";
 import { Loader } from "../helpers/utils/loader";
+import CostBySites from "../components/costAnalysis/costBySites/costBySites";
 
 const CostAnalysis = () =>{
     return (
@@ -35,6 +36,10 @@ const CostAnalysis = () =>{
                         <div className="col-sm-4 mt-1" id="cost-changes" >
                             <CostChanges />
                         </div>
+                        <div className="col-sm-4 mt-1" id="cost-by-site">
+                            <CostBySites />
+                        </div>
+                       
                     </div>
                 </div>
           
