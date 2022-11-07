@@ -37,7 +37,7 @@ const CostAnalysis = () =>{
                         <div className="col-sm-4 mt-1" id="cost-changes" >
                             <CostChanges />
                         </div>
-                        <div className="col-sm-4 mt-1" id="cost-by-site">
+                        <div className="col-sm-4 mt-1" id="cost-by-acc">
                             <Costbyacc />
                         </div>
                         <div className="col-sm-4 mt-1" id="cost-by-site">

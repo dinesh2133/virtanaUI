@@ -1,4 +1,5 @@
 import { grid } from "@mui/system";
+import { CurrentMonth } from "../../../helpers/utils/methods";
 
 export const dataForBarChart = (data) =>{
 let barData = data;
@@ -16,6 +17,7 @@ const option = {
         type: "column",
         // margin: [ 50, 50, 100, 80]
     },
+    
     plotOptions: {
         column: {
             colorByPoint: true
@@ -31,7 +33,11 @@ const option = {
         'rgba(30, 139, 255, 0.5)'
     ],
     title: {
-        text: 'World\'s largest cities per 2008'
+        text: `Cost By Sites - ${CurrentMonth()}`,
+        style:{
+            color: "white",
+            fontSize: "14px"
+        }
     },
     xAxis: {
         categories: DataLabels,
@@ -50,7 +56,6 @@ const option = {
         min: 0,
         title: {
             enabled: false,
-            text: 'Population (millions)'
         },
         gridLineDashStyle: 'shortdash',
     },
