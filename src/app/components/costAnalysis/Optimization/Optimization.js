@@ -9,6 +9,7 @@ import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
 import { request, gql } from 'graphql-request'
 import ProgressCount from '../ProgressCount./ProgressCount';
+import  SavingH1 from '../SavingH1/SavingH1';
 
 const Get_Optimization_Data = gql`
                         query optimization {
@@ -51,13 +52,10 @@ export default function Optimization(props) {
                                 <ProgressCount data={value} index={index}/>
                         ))}
                         </div>
-                        <div className='totalSaving contentcenter '>
-                            <TungstenSharpIcon id='Saving' />
-                            <span>$50,00,000</span> {/*add add_comma function in place of span value  */}
+                        <div>
+                        <SavingH1/>
                         </div>
-                        <div className='contentcenter footerline'>
-                            <p>YDT savings identified</p>
-                        </div>
+                        
                     </div>
             </>
         ) : 

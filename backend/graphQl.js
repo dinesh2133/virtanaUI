@@ -138,6 +138,12 @@ const topTenCostChanges= [
     { id: 2, name: " Cloud Resizing", amount:6000, suggestions: 1 },
     { id: 3, name: "Workload", amount: 80000, suggestions: 1 },
     { id: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
+
+    let Costbyacc_data=[
+        {id:1,name: 'Port Opration',y: 36},
+        {id:2,name: 'Warehouse',y: 27},  
+        {id:3,name: 'Shipping',y: 20},
+        {id:4,name: 'CRM & HR',y: 17}]
     ///////// custom objects 
 
 
@@ -243,7 +249,15 @@ const savingopportunitiestype= new GraphQLObjectType({
         amount:{type:new GraphQLNonNull(GraphQLInt) }
     })
 })
-
+const costbyacctype= new GraphQLObjectType({
+    name:'costbyacc',
+    description:'data of cost of accounts',
+    fields: () =>({
+        id:{type:new GraphQLNonNull(GraphQLInt) },
+        name:{type:GraphQLString},
+        y:{type:new GraphQLNonNull(GraphQLInt) }
+    })
+})
 const RootQuery = new GraphQLObjectType({
     name : "CostAnalysis",
     description: "Data For Cost Analysis",
@@ -271,11 +285,16 @@ const RootQuery = new GraphQLObjectType({
             savingopportunitiesData : {
                 type: new GraphQLList(savingopportunitiestype),
                 resolve: () => savingopportunities_data
+            },
+            costbyaccdata:{
+                type: new GraphQLList(costbyacctype),
+                resolve: () => Costbyacc_data
             }
 
 
     })
 })
+
 
 const schema = new GraphQLSchema({
     query: RootQuery

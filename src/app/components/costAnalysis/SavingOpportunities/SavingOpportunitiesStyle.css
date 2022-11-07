@@ -1,6 +1,9 @@
 #customWidth {
     width: 400px;
 }
+.savingamount{
+    margin-top: -20px;
+}
 .SavingOpp {
     background-color: #353536;
     color: white;
@@ -29,7 +32,7 @@
 }
 
 #savingtable {
-    margin-top: -20px;
+    margin-top: 10px;
     color: white;
 }
 
