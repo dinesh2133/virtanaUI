@@ -8,6 +8,7 @@ import { getoptimization ,GetData } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
 import { request, gql } from 'graphql-request'
+import ProgressCount from '../ProgressCount./ProgressCount';
 
 const Get_Optimization_Data = gql`
                         query optimization {
@@ -32,6 +33,7 @@ export default function Optimization(props) {
           setData(response);
         })
       }   
+      console.log("opr",data)
   return (
     <>
     <section id={props.Style} className='Optimization'>
@@ -44,38 +46,10 @@ export default function Optimization(props) {
                         <p className='Heading contentcenter'>Optimization Change Progress</p>
                         <div className='optimiztable'>
                         <span className='savingline'>Save</span>
-
-                            <table className="table tabledata table-borderless" id='tabledata'>
-                                <thead>
-                                    <tr >
-
-                                        {data?.optimizationData ?.map((value) => (
-
-                                            <td id='tabletitle' key={value.id}>{value.type}</td>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                <tbody className='tablebody'>
-                                    <tr>
-                                        {data?.optimizationData ?.map((value) => (
-
-                                            <td id='actualdata' key={value.id}>
-                                                {value.id===1 ?<ErrorIcon  id='warning'/>:null}
-                                                {value.id===2 ?< WarningRoundedIcon id='error'/>:null }
-                                                {value.id===3 ?<CheckCircleRoundedIcon id='check'/>:null}
-                                                {value.value}</td>
-
-                                        ))}
-                                    </tr>
-                                    <tr>
-                                        {data?.optimizationData ?.map((value) => (
-
-                                            <td id='savingvalue' key={value.id}>${addComma(value.saving)}</td>
-
-                                        ))}
-                                    </tr>
-                                </tbody>
-                            </table>
+                        {data?.optimizationData?.map((value,index) =>(
+                           
+                                <ProgressCount data={value} index={index}/>
+                        ))}
                         </div>
                         <div className='totalSaving contentcenter '>
                             <TungstenSharpIcon id='Saving' />
