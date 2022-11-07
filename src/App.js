@@ -67,7 +67,7 @@ const App = () => {
         Summary
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <section style={{display: "grid", gridTemplateColumns: "80% 10%"}}>
+        <section >
         <h2>Cost Overview</h2>
         </section>
         <CostAnalysis />
