@@ -137,6 +137,49 @@ const topTenCostChanges= [
     { id: 2, name: " Cloud Resizing", amount:6000, suggestions: 1 },
     { id: 3, name: "Workload", amount: 80000, suggestions: 1 },
     { id: 4, name: "On-Premise", amount: 800, suggestions: 2 }]
+    
+    const cost_by_sites_data = {
+        datalabels: ["Azure West Europe","Azure Southeast Asia","San Jose DC","AWS us-west-2","AWS us-east-1","Azure Australia East", "Chicago DR DC"],
+        dataSets: [
+            {
+                label: "Azure West Europe",
+                data: [350000, 350000, 350000, 350000, 350000, 350000, 350000],
+                name: "test"
+            }
+            // {
+            //     label: "Azure Southeast Asia",
+            //     data: [305000],
+            //     name: "test"
+            // },
+            // {
+            //     label: "San Jose DC",
+            //     data: [280000],
+            //     name: "test"
+            // },
+            // {
+            //     label: "AWS us-west-2",
+            //     data: [100000],
+            //     name: "test"
+            // },
+            // {
+            //     label: "AWS us-east-1",
+            //     data: [100000],
+            //     name: "test"
+            // },
+            // {
+            //     label: "Azure Australia East",
+            //     data: [90000],
+            //     name: "test"
+            // },
+            // {
+            //     label: "Chicago DR DC",
+            //     data: [70000],
+            //     name: "test"
+            // }
+        ]
+    }
+    
+    
     ///////// custom objects 
 
 
@@ -211,6 +254,46 @@ const costTrendType = new GraphQLObjectType({
     })
 })
 
+const DataTypeOfCostBySite = new GraphQLObjectType({
+    name: "dataforcostbysite",
+    description: "data fields for cost by site data sets",
+    fields: ()=>({
+        value: {type: new GraphQLNonNull(GraphQLInt),
+            resolve: (parent)=>{ return parent }
+        }
+    })
+})
+
+const costBySiteDataSetsType = new GraphQLObjectType({
+    name: "costbysitedataset",
+    description: "data for cost by site data sets",
+    fields: ()=>({
+        name: { type: GraphQLString},
+        data: { type : new GraphQLNonNull(GraphQLList(DataTypeOfCostBySite))},
+        label: { type: GraphQLString},
+    })
+})
+
+const costBySiteDatalabelsType = new GraphQLObjectType({
+    name: "costBySiteDataLabels",
+    description: "data labels for cost by site ",
+    fields: () =>({
+        value: {
+            type : GraphQLString,
+            resolve:(parent) => parent
+        }
+    })
+})
+
+const costBySiteType = new GraphQLObjectType({
+    name: "costbysite",
+    description: "data for cost by sites",
+    fields: ()=>({
+        dataSets: { type: new GraphQLList(costBySiteDataSetsType)},
+        datalabels : { type : new GraphQLList(costBySiteDatalabelsType)}
+    })
+})
+
 const optimizationdatatype = new GraphQLObjectType({
     name:'optimization',
     description:'data of objects',
@@ -270,6 +353,10 @@ const RootQuery = new GraphQLObjectType({
             savingopportunitiesData : {
                 type: new GraphQLList(savingopportunitiestype),
                 resolve: () => savingopportunities_data
+            },
+            costbysites : {
+                type: costBySiteType,
+                resolve: (person)=> cost_by_sites_data
             }
 
 

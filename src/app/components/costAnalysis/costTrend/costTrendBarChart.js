@@ -7,6 +7,7 @@ import {getCostTrendData, GetData} from '../../../apis/costAnalysis.api';
 import './costTrend.css';
 import {gql, request} from "graphql-request";
 import { Loader } from "../../../helpers/utils/loader.js";
+import StackedBarChart from "../../../helpers/charts/barCharts/stackedBarChart/stackedBarChart.js";
 
 const costTrendData = gql`query CostTrend {
   barchartdata{
@@ -25,36 +26,25 @@ const costTrendData = gql`query CostTrend {
   }
 }`
 
-
-
-const CostTrendBar = ({style} ) => {
-  const [options, setOptions]= useState();
+const CostTrendBar = ({style}) =>{
+    
+  const [options, setOptions]= useState({});
   const [data, setData] = useState({});
-  if(Object.keys(data).length <= 0){
+  if(Object.keys(options).length <= 0){
     GetData(costTrendData).then((response)=>{
-      setData(response);
+      let temp = dataForBarChart(response?.barchartdata);
+      console.log("temp", temp);
+      setOptions(temp);
     })
   }
 
-  useEffect(()=>{
-    console.log("data", data);
-    let temp = dataForBarChart(data?.barchartdata);
-    setOptions(temp);
-  }, [data])
-  
-  
   return (
+    <div className="bar-chart-component" id={style}>
+      <StackedBarChart style={style} config={options}/>
+    </div>
     
-      options?.chart ? 
-      (
-        <div className="bar-chart-component" id={style}>  
-          <HighchartsReact highcharts={HighCharts} options={options}  />
-        </div>    
-      ) : 
-      (
-        <Loader />
-      )
-  );
-};
+  )
+}
+
 
 export default CostTrendBar;

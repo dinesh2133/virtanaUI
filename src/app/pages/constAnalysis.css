@@ -1,6 +1,8 @@
 #costAnalysisDiv{
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    height: auto;
+    padding-bottom: 30px;
     background-color: black;
 }
 
@@ -17,7 +19,7 @@
 #saving-opportunities{
     padding: 10px 10px 0 5px;
 }
-#optimization{
+#optimization, #cost-by-site{
     padding: 5px 0 0 10px;
 }
 #insights{
@@ -26,6 +28,7 @@
 #cost-changes{
     padding: 5px 10px 0 5px;
 }
+
 @media only screen and (max-width: 450px){
     #monthly-costs{
         padding: 10px 0 0 3%;
