@@ -19,10 +19,10 @@
 #saving-opportunities{
     padding: 10px 10px 0 5px;
 }
-#optimization, #cost-by-site{
+#optimization, #cost-by-acc{
     padding: 5px 0 0 10px;
 }
-#insights{
+#insights, #cost-by-site{
     padding: 5px 0 0 5px;
 }
 #cost-changes{

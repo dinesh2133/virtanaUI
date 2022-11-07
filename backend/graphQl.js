@@ -196,7 +196,7 @@ const topTenType = new GraphQLObjectType({
     fields: ()=>({
         text: { type : GraphQLString},
         price: { type : new GraphQLNonNull(GraphQLInt)},
-        constStatus: { type : GraphQLString},
+        costStatus: { type : GraphQLString},
         id : { type : new GraphQLNonNull(GraphQLInt)}
     })
 })

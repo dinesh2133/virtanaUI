@@ -12,7 +12,7 @@ const top10changes =  gql`query TopTenCostChanges{
     toptenconstchanges{
         text
         price
-        constStatus
+        costStatus
     }
 }`
 
