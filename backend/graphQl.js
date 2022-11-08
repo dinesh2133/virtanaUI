@@ -149,7 +149,7 @@ const topTenCostChanges= [
         dataSets: [
             {
                 label: "Azure West Europe",
-                data: [350000, 200000, 100000, 250000, 350000, 350000, 50000],
+                data: [400000, 320000, 200000, 130000, 130000, 100000, 50000],
                 name: "test"
             }
             // {

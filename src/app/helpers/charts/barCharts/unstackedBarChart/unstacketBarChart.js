@@ -19,7 +19,7 @@ const UnstackedBarChart = (props ) => {
     
       config?.chart ? 
       (
-        <div>  
+        <div >  
           <HighchartsReact highcharts={HighCharts} options={config}  />
         </div>    
       ) : 

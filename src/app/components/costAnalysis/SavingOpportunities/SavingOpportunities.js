@@ -45,7 +45,7 @@ export default function Insights(props) {
                                             <p>Cost Saving Opportunities</p>
                                          </div>
                                         <div className='contentcenter savingamount' >
-                                            <SavingH1 />
+                                            <SavingH1 saving={343999} title="monthly saving available" />
                                         </div>
                                             <div id='savingchart'>
                                              <table className="table" id='savingtable'>
