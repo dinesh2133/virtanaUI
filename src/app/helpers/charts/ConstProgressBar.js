@@ -18,16 +18,23 @@ const ProgressBar = (props)=>{
           height : style?.defaultBarHeight
         },
         [`&.${linearProgressClasses.colorPrimary}`]: {
+            borderWidth: "20px",
             backgroundColor: theme.palette.mode === 'light' ? style?.primaryColor : 800
         },
         [`& .${linearProgressClasses.bar}`]: {
           // borderRadius: 5,
           backgroundColor: theme.palette.mode === 'light' ? style?.barColor : "#308fe8",
         },
+        // [`& .${linearProgressClasses.MuiLinearProgress-dashed}`] : {
+        //   color: 'red'
+        // }
       }));
     return(
         <Box sx={{ flexGrow: 1 }}>
-            <ConstProgressBar className="current-month-progress-bar"  variant="determinate" value={mtdCostInPercentage} />
+            <ConstProgressBar className="current-month-progress-bar" sx={{
+              // borderTop: .1,
+              color: "red"
+            }} variant="determinate" value={mtdCostInPercentage} />
         </Box>
     )
 }

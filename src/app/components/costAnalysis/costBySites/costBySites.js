@@ -24,7 +24,7 @@ const costBySiteQuery = gql`
       }`
 
 
-const CostBySites = () =>{
+const CostBySites = (props) =>{
   const [options, setOptions]= useState();
   const [data, setData] = useState({});
   if(Object.keys(data).length <= 0){
@@ -43,7 +43,7 @@ const CostBySites = () =>{
 
 
     return(
-        <div className="cost-by-site-div" >
+        <div className="cost-by-site-div" id={props.style} >
             <UnstackedBarChart config={options}/>
         </div>
     )

@@ -53,7 +53,7 @@ export default function Optimization(props) {
                         ))}
                         </div>
                         <div>
-                        <SavingH1/>
+                        <SavingH1 saving={586799} title="YDT savings identified"/>
                         </div>
                         
                     </div>

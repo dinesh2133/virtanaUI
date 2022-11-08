@@ -4,7 +4,8 @@ import { getinsights,GetData } from '../../../apis/costAnalysis.api';
 import {useState ,useEffect} from 'react'
 import { request, gql } from 'graphql-request'
 import  {cofigpi} from './config'
-export default function Costbyacc() {
+import { PropaneSharp } from '@mui/icons-material';
+export default function Costbyacc(props) {
     const Get_costbyacc_Data = gql`
     query costbyacc{
         costbyaccdata{
@@ -23,7 +24,7 @@ export default function Costbyacc() {
         })
       }
       console.log(data.costbyaccdata)
-  return(<div style={{height:'270'}}>
+  return(<div style={{height:'270'}} id={props.style}>
 
 <PieChart data={data}/>
     </div>)  
