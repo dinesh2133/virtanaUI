@@ -134,6 +134,19 @@ const topTenCostChanges= [
          {id:8, type:'suggestions',msg:"132 New EC2 instances added costing $5459 per month of the last years"}]
 
 
+    let Costaccount_data=[
+    {name:'AWS-021902',cost:31900,grdata:"30,20,50,10" ,resourcecount:6881},
+    {name:'GCP-021902',cost:39900,grdata:"30,20,50,10" ,resourcecount:5681},
+    {name:'Azure-021902',cost:21900,grdata:"30,20,50,10" ,resourcecount:9881},
+    {name:'AWS-021902',cost:1900,grdata:"30,20,50,10" ,resourcecount:1081},
+    {name:'AWS-021902',cost:91900,grdata:"30,20,50,10" ,resourcecount:2381},
+    {name:'Azur-021902',cost:31900,grdata:"30,20,50,10" ,resourcecount:4181},
+    {name:'AWS-021902',cost:21100,grdata:"30,20,50,10" ,resourcecount:7981},
+    {name:'GCP-021902',cost:31540,grdata:"30,20,50,10" ,resourcecount:6281},
+    {name:'AWS-021902',cost:22200,grdata:"30,20,50,10" ,resourcecount:9781},
+    {name:'GCP-021902',cost:32100,grdata:"30,20,50,10" ,resourcecount:3081}
+]
+
     let savingopportunities_data=[{ id: 1, name: "Idle cloud Resourses", amount:1000000, suggestions: 5 },
     { id: 2, name: " Cloud Resizing", amount:6000, suggestions: 1 },
     { id: 3, name: "Workload", amount: 80000, suggestions: 1 },
@@ -340,6 +353,19 @@ const costbyacctype= new GraphQLObjectType({
         y:{type:new GraphQLNonNull(GraphQLInt) }
     })
 })
+
+const costaccounttype = new GraphQLObjectType({
+    name: "CostAccount",
+    description: "return top ten expensive account ",
+    fields: ()=>({
+        name: { type : GraphQLString},
+        cost: { type : new GraphQLNonNull(GraphQLInt)},
+        grdata: { type : GraphQLString},
+        resourcecount: { type : new GraphQLNonNull(GraphQLInt)}
+    })
+})
+
+
 const RootQuery = new GraphQLObjectType({
     name : "CostAnalysis",
     description: "Data For Cost Analysis",
@@ -375,7 +401,11 @@ const RootQuery = new GraphQLObjectType({
             costbyaccdata:{
                 type: new GraphQLList(costbyacctype),
                 resolve: () => Costbyacc_data
-            }
+            },
+            costaccount:{
+                type: new GraphQLList(costaccounttype),
+                resolve: () => Costaccount_data
+            },
 
     })
 
