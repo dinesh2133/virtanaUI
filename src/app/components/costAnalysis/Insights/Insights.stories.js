@@ -9,4 +9,4 @@ export default {
   component: Insights,
 };
 
-export const newone = ()=> <Insights  style ="customWidth"/>
+export const insight = ()=> <Insights  style ="customWidth"/>

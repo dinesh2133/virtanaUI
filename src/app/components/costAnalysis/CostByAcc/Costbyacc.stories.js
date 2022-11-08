@@ -5,4 +5,4 @@ export default {
   component: Costbyacc,
 };
 
-export const newone = ()=> <Costbyacc  style ="customWidth"/>
+export const costbyaccount = ()=> <Costbyacc  style ="customWidth"/>
