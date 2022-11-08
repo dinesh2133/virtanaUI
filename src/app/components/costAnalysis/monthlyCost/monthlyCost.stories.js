@@ -17,6 +17,6 @@ const CurrentMonthStyle = {
   }
 
 
-export const newtow = () => (<MonthlyCosts style="customWidth"/>)
+export const monthlycost = () => (<MonthlyCosts style="customWidth"/>)
 
 export const progressbar = () => <ProgressBar mtdCostInPercentage={90} style={CurrentMonthStyle}  />
