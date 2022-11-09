@@ -12,15 +12,28 @@ import { Loader } from "../helpers/utils/loader";
 import CostBySites from "../components/costAnalysis/costBySites/costBySites";
 import Costbyacc from "../components/costAnalysis/CostByAcc/Costbyacc";
 import CostByCloud from "../components/costAnalysis/costByCloud/costByCloud";
+import { gql } from "graphql-request";
+import { GetData } from "../apis/costAnalysis.api";
+import { constQuery } from "./cosntQuery";
+
+export const Get_Monthly_Data = gql `${constQuery}`
+
 
 const CostAnalysis = () =>{
+    const[data, setData] = useState({});
+    if(Object.keys(data).length <= 0 ){
+        GetData(Get_Monthly_Data).then((response)=>{
+            console.log("response data ", response);
+          setData(response);
+        })
+      }
     return (
         <div id="costAnalysisDiv">
         {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-sm-3" id="monthly-costs" >
-                            <MonthlyCosts />
+                            <MonthlyCosts data={data.monthlycost} />
                         </div>
                         <div className="col-sm-5" id="cost-trend" >
                             <CostTrendBar />
@@ -44,9 +57,9 @@ const CostAnalysis = () =>{
                         <div className="col-sm-4 mt-1" id="cost-by-site">
                             <CostBySites />
                         </div>
-                        <div className="col-sm-4 mt-1" id="cost-by-site">
+                        {/* <div className="col-sm-4 mt-1" id="cost-by-site">
                             <CostByCloud />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
           

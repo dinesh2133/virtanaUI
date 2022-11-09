@@ -17,6 +17,29 @@ const CurrentMonthStyle = {
   }
 
 
-export const monthlycost = () => (<MonthlyCosts style="customWidth"/>)
+const Template2 = (args) => (<MonthlyCosts {...args} style="customWidth"/>)
 
-export const progressbar = () => <ProgressBar mtdCostInPercentage={90} style={CurrentMonthStyle}  />
+const Template = args => (<ProgressBar  {...args}  />)
+
+
+export const progressbar = Template.bind({});
+
+progressbar.args={
+  style: CurrentMonthStyle,
+  mtdCostInPercentage: 90
+}
+
+export const monthlycost = Template2.bind({});
+monthlycost.args={
+  data: {
+   
+      monthlyCost : 344,
+      mtdCost : 7676,
+      mtdCostInPercentage : 90,
+      lastMonthCostInPercentage: 100,
+      costStatus: "up",
+      costPercentage: "30%",
+      costForLastMonth : 8989
+    
+  }
+}
