@@ -26,18 +26,20 @@ const costTrendData = gql`query CostTrend {
   }
 }`
 
-const CostTrendBar = ({style}) =>{
+const CostTrendBar = (props) =>{
     
-  const [options, setOptions]= useState({});
-  const [data, setData] = useState({});
-  if(Object.keys(options).length <= 0){
-    GetData(costTrendData).then((response)=>{
-      let temp = dataForBarChart(response?.barchartdata);
-      console.log("temp", temp);
-      setOptions(temp);
-    })
-  }
-
+  // const [options, setOptions]= useState({});
+  // const [data, setData] = useState({});
+  // if(Object.keys(options).length <= 0){
+  //   GetData(costTrendData).then((response)=>{
+  //     let temp = dataForBarChart(response?.barchartdata);
+  //     console.log("temp", temp);
+  //     setOptions(temp);
+  //   })
+  // }
+  const {data, style} = props;
+  let options = dataForBarChart(data)
+  console.log("props", props);
   return (
     <div className="bar-chart-component" id={style}>
       <StackedBarChart style={style} config={options}/>

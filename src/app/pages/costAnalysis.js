@@ -15,6 +15,7 @@ import CostByCloud from "../components/costAnalysis/costByCloud/costByCloud";
 import { gql } from "graphql-request";
 import { GetData } from "../apis/costAnalysis.api";
 import { constQuery } from "./cosntQuery";
+import { PropaneSharp } from "@mui/icons-material";
 
 export const Get_Monthly_Data = gql `${constQuery}`
 
@@ -36,7 +37,7 @@ const CostAnalysis = () =>{
                             <MonthlyCosts data={data.monthlycost} />
                         </div>
                         <div className="col-sm-5" id="cost-trend" >
-                            <CostTrendBar />
+                            <CostTrendBar data={data.barchartdata} />
                         </div>
                         <div className="col-sm-4" id="saving-opportunities">
                             
