@@ -5,4 +5,4 @@ export default{
     component: CostByCloud
 }
 
-export const costbycloud = ()=>(<CostByCloud />)
+// export const costbycloud = ()=>(<CostByCloud />)

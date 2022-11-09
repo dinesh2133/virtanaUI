@@ -10,27 +10,29 @@ import { request, gql } from "graphql-request";
 import ProgressBar from "../../../helpers/charts/ConstProgressBar";
 
 
-export const Get_Monthly_Data = gql`
-                        query MonthlyCosts {
-                          monthlycost{
-                          mtdCost
-                          monthlyCost
-                          mtdCostInPercentage
-                          costForLastMonth
-                          costStatus
-                          costPercentage
-                          lastMonthCostInPercentage
-                        }
-                      }`
+// export const Get_Monthly_Data = gql`
+//                         query MonthlyCosts {
+//                           monthlycost{
+//                           mtdCost
+//                           monthlyCost
+//                           mtdCostInPercentage
+//                           costForLastMonth
+//                           costStatus
+//                           costPercentage
+//                           lastMonthCostInPercentage
+//                         }
+//                       }`
 
 const MonthlyCosts = (props) =>{
 
-    const [data, setData]= useState({});
-    if(Object.keys(data).length <= 0 ){
-      GetData(Get_Monthly_Data).then((response)=>{
-        setData(response);
-      })
-    }
+    // const [data, setData]= useState({});
+    // if(Object.keys(data).length <= 0 ){
+    //   GetData(Get_Monthly_Data).then((response)=>{
+    //     setData(response);
+    //   })
+    // }
+    const {data} = props;
+    console.log("data in pros is", data);
 
     const CurrentMonthStyle = {
       defaultBarHeight: 20,
@@ -49,22 +51,22 @@ const MonthlyCosts = (props) =>{
     return(
     <div className="monthly-cost" id={props.style}>
       {
-        data?.monthlycost ? 
+        data ? 
         (
           <>
             <p className="heading">{CurrentMonth()} Cost (Projected)</p>
-            <p className="heading-number"><strong>${addComma(data?.monthlycost?.monthlyCost)}</strong></p>
+            <p className="heading-number"><strong>${addComma(data?.monthlyCost)}</strong></p>
             <section id="inner-section">
             <p className="sub-heading">Month To Date</p>
                 <section className="month-to-date-section">
 
-                  <span className="cost-for-month"><strong>${addComma(data?.monthlycost?.mtdCost)}</strong></span>
-                  <span className="float-span" style={{color: data?.monthlycost?.costStatus === 'up' ? 'red' : 'green'}}>{data?.monthlycost?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{data?.monthlycost?.costPercentage}</span>
+                  <span className="cost-for-month"><strong>${addComma(data?.mtdCost)}</strong></span>
+                  <span className="float-span" style={{color: data?.costStatus === 'up' ? 'red' : 'green'}}>{data?.costStatus === 'up' ? (<ArrowUpwardIcon  sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}} />) : (<ArrowDownwardIcon sx={{fontSize: '13px', height: '20px', paddingBottom:'5px'}}  />)}{data?.costPercentage}</span>
                 </section>
-                <ProgressBar mtdCostInPercentage={data?.monthlycost.mtdCostInPercentage} style={CurrentMonthStyle}/>
-                <ProgressBar mtdCostInPercentage={data?.monthlycost.lastMonthCostInPercentage} style={LastMonthStyle} />
+                <ProgressBar mtdCostInPercentage={data?.mtdCostInPercentage} style={CurrentMonthStyle}/>
+                <ProgressBar mtdCostInPercentage={data?.lastMonthCostInPercentage} style={LastMonthStyle} />
                 <p className="footer-span" style={{color: 'lightgrey'}}>Last Month</p>
-                <p className="footer-span margin-left"><strong>${addComma(data?.monthlycost?.costForLastMonth)}</strong></p>
+                <p className="footer-span margin-left"><strong>${addComma(data?.costForLastMonth)}</strong></p>
 
             </section>
           </>
