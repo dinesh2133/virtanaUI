@@ -7,16 +7,17 @@ import { addComma } from '../../../helpers/utils/methods';
 import "./ProgressCount.css";
 export default function ProgressCount(props) {
     console.log("in props", props)
+    let {style ,color,Tcolor} =props
     return (
         <>
-            <div className='maindiv' id={props.style}>
-                <table class="table table-borderless">
+            <div className='maindiv' >
+                <table class="table table-borderless" style={{color:color}}>
                     <tbody>
                         <tr>
-                            <td >{props.data.type}</td>
+                            <td className=''>{props.data.type}</td>
                         </tr>
-                        <tr>
-                            <td className='count_data boreder' id={props.index===2 ?'':'boreder'} style={{ padding: "0" }} >
+                        <tr id='actualdata'>
+                            <td className='count_data ' id={props.index===2 ?'':'boreder'} style={{ padding: "0" }} >
                                 {props.data.type === "Open" ? <ErrorIcon id='warning' /> : null}
                                 {props.data.type === "In-Progress" ? < WarningRoundedIcon id='error' /> : null}
                                 {props.data.type === "Resolved" ? <CheckCircleRoundedIcon id='check' /> : null}

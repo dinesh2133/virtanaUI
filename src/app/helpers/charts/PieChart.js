@@ -4,7 +4,7 @@ import HighchartsReact from 'highcharts-react-official'
 
 export default function PieChart(props) {
     console.log(props.data)
-    
+    console.log("in piechart:",props.data)
        
   return (
     <div style={{height:'270'}}>
