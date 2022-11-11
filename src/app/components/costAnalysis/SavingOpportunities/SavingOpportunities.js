@@ -8,15 +8,15 @@ import { request, gql } from 'graphql-request'
 import SavingH1 from '../SavingH1/SavingH1';
 
 
-const Get_SavingOpp_Data = gql`
-                        query savingopportunities {
-                            savingopportunitiesData{
-                                id
-                                name
-                                amount
-                                suggestions
-                            }
-                      }`
+// const Get_SavingOpp_Data = gql`
+//                         query savingopportunities {
+//                             savingopportunitiesData{
+//                                 id
+//                                 name
+//                                 amount
+//                                 suggestions
+//                             }
+//                       }`
 
 
 export default function Insights(props) {
@@ -26,18 +26,19 @@ export default function Insights(props) {
     //             setObj(response);
     //         })
     //     }, []);
-    const [data, setData] = useState([]);
-    if (Object.keys(data).length <= 0) {
-        GetData(Get_SavingOpp_Data).then((response) => {
-            setData(response);
-        })
-    }
+    // const [data, setData] = useState([]);
+    // if (Object.keys(data).length <= 0) {
+    //     GetData(Get_SavingOpp_Data).then((response) => {
+    //         setData(response);
+    //     })
+    // }
+    let {data}=props;
     return (
         <>
             <section className="SavingOpp" id={props.style}>
                 <div>
                     {
-                        data?.savingopportunitiesData ?
+                        data ?
                             (
                                 <>
                                     <div>
@@ -50,7 +51,7 @@ export default function Insights(props) {
                                             <div id='savingchart'>
                                              <table className="table" id='savingtable'>
                                                 <tbody>
-                                                    {data?.savingopportunitiesData?.map((value) => (
+                                                    {data?.map((value) => (
                                                         <tr key={value.key}>
                                                             <td className='titleline'>{value.name}</td>
                                                             <td>${addComma(value.amount)}</td>

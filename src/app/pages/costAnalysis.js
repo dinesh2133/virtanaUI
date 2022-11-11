@@ -41,10 +41,10 @@ const CostAnalysis = () =>{
                         </div>
                         <div className="col-sm-4" id="saving-opportunities">
                             
-                            <SavingOpportunities />
+                            <SavingOpportunities data={data.savingopportunitiesData}/>
                         </div>
                         <div className="col-sm-4 mt-1" id="optimization">
-                            <Optimization />
+                            <Optimization  data={data.optimizationData}/>
                         </div>
                         <div className="col-sm-4 mt-1" id="insights" >
                             <Insights />
@@ -53,7 +53,7 @@ const CostAnalysis = () =>{
                             <CostChanges />
                         </div>
                         <div className="col-sm-4 mt-1" id="cost-by-acc">
-                            <Costbyacc />
+                            <Costbyacc data={data.costbyaccdata}/>
                         </div>
                         <div className="col-sm-4 mt-1" id="cost-by-site">
                             <CostBySites />
