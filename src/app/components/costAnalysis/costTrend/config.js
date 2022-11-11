@@ -105,8 +105,8 @@ const option = {
         onPremise: '#5F9DF7'
     }
 
-    if(props?.customStyle.customColors){
-      customColors = customStyle.customColors;
+    if(props?.customStyle?.customColors){
+      customColors = props.customStyle.customColors;
     }
     // if(customStyle.barType){
     //   plotOptions.series.stacking = customStyle.barType;
