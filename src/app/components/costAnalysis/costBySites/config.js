@@ -1,9 +1,10 @@
 import { grid } from "@mui/system";
 import { CurrentMonth } from "../../../helpers/utils/methods";
 
-export const dataForBarChart = (data) =>{
-let barData = data;
+export const dataForBarChart = (props) =>{
 
+let barData = props.data;
+console.log("bar data dataSets", barData);
 let DataLabels = [];
 DataLabels = barData?.datalabels?.map((e)=>{
   return e.value;
@@ -82,6 +83,10 @@ const option = {
                 }
             );  
     });
+}
+
+if(props?.customStyle){
+    option.colors = props.customStyle.barColors;
 }
 return option;
 }

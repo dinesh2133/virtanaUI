@@ -13,7 +13,7 @@ import { Loader } from "../../../utils/loader";
 
 const UnstackedBarChart = (props ) => {
   const {config} = props;
-
+  console.log("testing, ", config);
   
   return (
     

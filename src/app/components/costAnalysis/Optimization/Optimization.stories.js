@@ -9,7 +9,7 @@ export default {
     component: Optimization,
 }
 let Text_color="White";
-let Backgroundcolor="#6a6a6a"
+let Backgroundcolor="#353536"
 let data = 
     [{ id:1, type: 'Open', value: 2000, saving:12000 },
     { id:2, type: 'In-Progress', value: 100, saving: 25000 },
