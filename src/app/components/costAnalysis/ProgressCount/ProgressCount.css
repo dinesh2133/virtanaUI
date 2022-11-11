@@ -1,0 +1,20 @@
+
+.maindiv{
+background-color:none;
+font-size: 12px;
+width: 132px;
+text-align: center
+}
+.table{
+    color: #ffffff;
+}
+
+#boreder{
+    border-right: #ffffff 1.5px solid;
+}
+#customBackground{
+    background-color: #3d3d3d;
+    margin-right: 50px;
+    padding-top: 10px;
+    width: 300px;
+}
