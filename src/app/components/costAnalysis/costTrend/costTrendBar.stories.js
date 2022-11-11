@@ -238,19 +238,28 @@ barChart.args={
         onPremise: '#5F9DF7'
       },
       stacked: true,
-      chartType: "bar",
-      height: 550,
+      chartType: "column",
+      height: 255,
       backgroundColor: "#353536",
       color: "white",
       titlePosition: {
-        align: 'left',
-          x: 80,
-          y: 80,
+        align: 'center',
+          x: 0,
+          y: 0,
       },
       subtitlePosition: {
-        align: 'left',
-          x: 80,
-          y: 80,
+        align: 'center',
+        x: 0,
+        y: 35,
+      },
+      legendStyle: {
+            floating: false,
+            width: "",
+            height:  "",
+            align: "center",
+            y: 0,
+            x: 0,
+            backgroundColor: "#353536",
       }
     }
     

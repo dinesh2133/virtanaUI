@@ -30,6 +30,9 @@ const option = {
         },
         title: {
           text: 'Cost Trend',
+          aligh : props?.customStyle ? props?.customStyle?.titlePosition?.align : "center",
+          x: props?.customStyle ? props.customStyle.titlePosition.x : -20,
+            y: props?.customStyle ? props.customStyle.titlePosition.y : 5,
           style:{
             color: props?.customStyle ? customStyle.color : 'white',
             fontSize: '14px'
@@ -37,9 +40,9 @@ const option = {
         },
           subtitle: {
               text: `Avg cost: $${ barData ? addComma(barData?.averageCost) : "loading..."} /month`,
-              align: 'left',
-              x: 80,
-              y: 102,
+              align: props?.customStyle ? props.customStyle.subtitlePosition.align : "center",
+              x: props?.customStyle ? props.customStyle.subtitlePosition.x : -20,
+              y: props?.customStyle ? props.customStyle.subtitlePosition.y : 35,
               style:{
                 color: 'white',
                 fontSize: '1.3rem'
@@ -48,8 +51,15 @@ const option = {
         legend: {
             useHTML:true,
             symbolWidth: 0,
-           symbolHeight: 0,
+            symbolHeight: 0,
             squareSymbol: false,
+            floating: props?.customStyle ? props?.customStyle?.legendStyle?.floating : false,
+            width: props?.customStyle ? props?.customStyle?.legendStyle?.width : "",
+            height: props?.customStyle ? props?.customStyle?.legendStyle?.height :  "",
+            align: props?.customStyle ? props?.customStyle?.legendStyle?.align : "center",
+            y: props?.customStyle ? props?.customStyle?.legendStyle?.y : 0,
+            x: props?.customStyle ? props?.customStyle?.legendStyle?.x : 0,
+            backgroundColor: props?.customStyle ? props?.customStyle?.legendStyle?.backgroundColor : "#353536",
             itemStyle: {
               color: 'white',
             },
