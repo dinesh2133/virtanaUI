@@ -15,7 +15,7 @@ let data = {
     saving: 32323,
     type: "In-Progress"
 }
-    const Temp= args => (<ProgressCount {...args} />)
+    //const Temp= args => (<ProgressCount {...args} />)
 export const progressCount = Temp.bind({});
 
 progressCount.args={
