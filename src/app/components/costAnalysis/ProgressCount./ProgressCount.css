@@ -1,7 +1,6 @@
 
 .maindiv{
 background-color:none;
-color: #ffffff;
 font-size: 12px;
 width: 132px;
 text-align: center
@@ -9,10 +8,7 @@ text-align: center
 .table{
     color: #ffffff;
 }
-.count_data{
-    font-size: 20px;
 
-}
 #boreder{
     border-right: #ffffff 1.5px solid;
 }
