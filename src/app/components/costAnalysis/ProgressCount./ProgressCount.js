@@ -10,11 +10,11 @@ export default function ProgressCount(props) {
     let {style ,color,Tcolor} =props
     return (
         <>
-            <div className='maindiv' >
-                <table class="table table-borderless" style={{color:color}}>
+            <div className='maindiv contentcenter' >
+                <table class="table table-borderless " style={{color:color}}>
                     <tbody>
                         <tr>
-                            <td className=''>{props.data.type}</td>
+                            <td className='titels'>{props.data.type}</td>
                         </tr>
                         <tr id='actualdata'>
                             <td className='count_data ' id={props.index===2 ?'':'boreder'} style={{ padding: "0" }} >
@@ -25,7 +25,7 @@ export default function ProgressCount(props) {
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td id='savingamt'>
                            {addComma(props.data.saving)} 
                             </td>
                         </tr>

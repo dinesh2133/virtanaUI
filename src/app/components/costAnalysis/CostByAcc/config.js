@@ -25,7 +25,7 @@ export const cofigpi=(data,color)=>{
 
             },
           }
-        },
+        }, 
         series: [{
             name: 'Percentage',
             colorByPoint: true,
