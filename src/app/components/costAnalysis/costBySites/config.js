@@ -14,9 +14,10 @@ const option = {
     chart: {
         backgroundColor: '#353536',
         color: 'white',
-        height: 255,
-        type: "column",
-        // margin: [ 50, 50, 100, 80]
+        height: props?.customStyle ? props.customStyle?.height : 255,
+        width: props?.customStyle ? props.customStyle?.width : null,
+        type: props?.customStyle ? props.customStyle?.barType : "column",
+
     },
     
     plotOptions: {
@@ -35,6 +36,9 @@ const option = {
     ],
     title: {
         text: `Cost By Sites - ${CurrentMonth()}`,
+        align: props?.customStyle ? props.customStyle?.titlePosition.align : "center",
+        x : props?.customStyle ? props.customStyle?.titlePosition.x : 0,
+        y : props?.customStyle ? props.customStyle?.titlePosition.y : 10,
         style:{
             color: "white",
             fontSize: "14px"

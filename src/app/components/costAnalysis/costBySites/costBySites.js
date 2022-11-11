@@ -15,7 +15,7 @@ const CostBySites = (props) =>{
     console.log("test", options);
 
     return(
-        <div className="cost-by-site-div" id={props.style} >
+        <div className="cost-by-site-div" >
             <UnstackedBarChart config={options}/>
         </div>
     )

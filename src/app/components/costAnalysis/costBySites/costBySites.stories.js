@@ -79,6 +79,14 @@ costBySitesColumnChart.args={
         datalabels: datalables
     },
     customStyle: {
-        barColors: colors
+        barType : "column",
+        height: 255,
+        width: 400,
+        barColors: colors,
+        titlePosition: {
+            align: 'center',
+            x: 0,
+            y: 0,
+        } 
     }
 }
