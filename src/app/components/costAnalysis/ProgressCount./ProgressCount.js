@@ -5,13 +5,14 @@ import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 import TungstenSharpIcon from '@mui/icons-material/TungstenSharp';
 import { addComma } from '../../../helpers/utils/methods';
 import "./ProgressCount.css";
+import { borderRadius } from '@mui/system';
 export default function ProgressCount(props) {
     console.log("in props", props)
-    let {style ,color,Tcolor} =props
+    let {Background_color,Text_color,radius} =props
     return (
         <>
             <div className='maindiv contentcenter' >
-                <table class="table table-borderless " style={{color:color}}>
+                <table class="table table-borderless " style={{backgroundColor:Background_color,color:Text_color ,borderRadius:radius}}>
                     <tbody>
                         <tr>
                             <td className='titels'>{props.data.type}</td>

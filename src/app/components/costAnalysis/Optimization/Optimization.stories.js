@@ -21,6 +21,7 @@ let data =
         saving: 32323,
         type: "In-Progress"
     }
+    let radius =0
 
 const temp = args => (<Optimization Style ="customWidth" {...args}/> )
 
@@ -38,6 +39,9 @@ export const progressCount = temp2.bind({})
 
 progressCount.args={
     data:progressdata,
+    Background_color:Backgroundcolor,
+    Text_color:Text_color,
+    radius:radius
 }
 
 
