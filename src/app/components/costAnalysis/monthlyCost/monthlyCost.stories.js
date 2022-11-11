@@ -11,10 +11,19 @@ export default {
 
 const CurrentMonthStyle = {
     defaultBarHeight: 20,
-    marginTop : "10px",
-    primaryColor: "white",
+    // marginTop : "10px",
+    margin: "10px 0 10px 0",
+    primaryColor: "red",
     barHeightForSmallScreen : 15
   }
+
+const LastMonthStyle = {
+  defaultBarHeight: 15,
+  marginTop : "10px",
+  barColor: "lightgrey",
+  primaryColor: "black",
+  barHeightForSmallScreen : 10
+}
 
 
 const Template2 = (args) => (<MonthlyCosts {...args} style="customWidth"/>)
@@ -39,7 +48,9 @@ monthlycost.args={
       lastMonthCostInPercentage: 100,
       costStatus: "up",
       costPercentage: "30%",
-      costForLastMonth : 8989
-    
-  }
+      costForLastMonth : 8989,
+      
+  },
+  progressbarstyle1: CurrentMonthStyle,
+  progressbarstyle2: LastMonthStyle
 }

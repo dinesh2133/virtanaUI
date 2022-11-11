@@ -25,31 +25,30 @@ import ProgressBar from "../../../helpers/charts/ConstProgressBar";
 
 const MonthlyCosts = (props) =>{
 
-    // const [data, setData]= useState({});
-    // if(Object.keys(data).length <= 0 ){
-    //   GetData(Get_Monthly_Data).then((response)=>{
-    //     setData(response);
-    //   })
-    // }
-    const {data} = props;
-    console.log("data in pros is", data);
+    const {data, progressbarstyle1, progressbarstyle2, style} = props;
+    console.log("data in pros is", style);
 
-    const CurrentMonthStyle = {
+    let CurrentMonthStyle = {
       defaultBarHeight: 20,
       marginTop : "10px",
       primaryColor: "white",
       barHeightForSmallScreen : 15
     }
 
-    const LastMonthStyle = {
+    let LastMonthStyle = {
       defaultBarHeight: 15,
       marginTop : "10px",
       barColor: "lightgrey",
       primaryColor: "black",
       barHeightForSmallScreen : 10
     }
+    if(progressbarstyle1){
+      CurrentMonthStyle = progressbarstyle1;
+      LastMonthStyle = progressbarstyle2;
+    }
+    
     return(
-    <div className="monthly-cost" id={props.style}>
+    <div className="monthly-cost" id={style}>
       {
         data ? 
         (
