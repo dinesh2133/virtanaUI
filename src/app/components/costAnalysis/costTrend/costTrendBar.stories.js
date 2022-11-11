@@ -237,7 +237,21 @@ barChart.args={
         forecaste: 'transparent',
         onPremise: '#5F9DF7'
       },
-      stacked: true
+      stacked: true,
+      chartType: "bar",
+      height: 550,
+      backgroundColor: "#353536",
+      color: "white",
+      titlePosition: {
+        align: 'left',
+          x: 80,
+          y: 80,
+      },
+      subtitlePosition: {
+        align: 'left',
+          x: 80,
+          y: 80,
+      }
     }
     
 }

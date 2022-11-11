@@ -1,7 +1,8 @@
 import { addComma } from "../../../helpers/utils/methods";
 
-export const dataForBarChart = (data, customStyle) =>{
-console.log("sdflksjoielskdjfskj", data);
+export const dataForBarChart = (props) =>{
+  const {data, style, customStyle} = props;
+// console.log("sdflksjoielskdjfskj", data);
 let barData = data;
 // if(barData){
 //   barData = JSON.parse(barData);
@@ -18,29 +19,27 @@ let imgSrc = ['https://i.imgur.com/v67Jqaa.png', 'https://i.imgur.com/PB3zIxv.pn
 
 const option = {
         chart: {
-        backgroundColor: '#353536',
-        color: 'white',
-        height: 255,
-        type: "column",
+        backgroundColor: props?.customStyle ? customStyle.backgroundColor : '#353536',
+        
+        height:  props?.customStyle ? customStyle.height : 255,
+        type: props?.customStyle ? customStyle.chartType : "column",
         
         style: {
-            // stroke: '#dddddd'
-            textColor: 'white',
-            fontColor: 'white',
-            color: 'white',
             marginTop: 10,
-            // color: '#fff'
         }
         },
         title: {
           text: 'Cost Trend',
           style:{
-            color: 'white',
+            color: props?.customStyle ? customStyle.color : 'white',
             fontSize: '14px'
           }
         },
           subtitle: {
               text: `Avg cost: $${ barData ? addComma(barData?.averageCost) : "loading..."} /month`,
+              align: 'left',
+              x: 80,
+              y: 102,
               style:{
                 color: 'white',
                 fontSize: '1.3rem'
@@ -92,7 +91,7 @@ const option = {
         plotOptions: {    
           series: {
               pointWidth: 15,
-              stacking: customStyle ? customStyle.stacked : true
+              stacking: props?.customStyle ? customStyle.stacked : true
           }
         },
 
@@ -106,7 +105,7 @@ const option = {
         onPremise: '#5F9DF7'
     }
 
-    if(customStyle.customColors){
+    if(props?.customStyle.customColors){
       customColors = customStyle.customColors;
     }
     // if(customStyle.barType){
@@ -130,5 +129,10 @@ const option = {
             );  
     });
 }
+
+// if(customStyle){
+//   option.title
+// }
+
 return option;
 }
