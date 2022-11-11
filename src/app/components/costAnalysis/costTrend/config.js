@@ -1,6 +1,6 @@
 import { addComma } from "../../../helpers/utils/methods";
 
-export const dataForBarChart = (data) =>{
+export const dataForBarChart = (data, customStyle) =>{
 console.log("sdflksjoielskdjfskj", data);
 let barData = data;
 // if(barData){
@@ -92,19 +92,26 @@ const option = {
         plotOptions: {    
           series: {
               pointWidth: 15,
-              stacking: 'normal'
+              stacking: customStyle ? customStyle.stacked : true
           }
         },
 
         series: []
     };
    
-    const customColors = {
+    let customColors = {
         aws: '#B4CDE6',
         azure: '#277BC0',
         forecaste: 'transparent',
         onPremise: '#5F9DF7'
     }
+
+    if(customStyle.customColors){
+      customColors = customStyle.customColors;
+    }
+    // if(customStyle.barType){
+    //   plotOptions.series.stacking = customStyle.barType;
+    // }
 
     if(barData?.dataSets){
     barData?.dataSets.map((e)=>{

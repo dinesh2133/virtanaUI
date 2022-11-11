@@ -37,8 +37,8 @@ const CostTrendBar = (props) =>{
   //     setOptions(temp);
   //   })
   // }
-  const {data, style} = props;
-  let options = dataForBarChart(data)
+  const {data, style, customStyle} = props;
+  let options = dataForBarChart(data, customStyle)
   console.log("props", props);
   return (
     <div className="bar-chart-component" id={style}>

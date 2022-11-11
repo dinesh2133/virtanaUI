@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getCostTrendData } from '../../../apis/costAnalysis.api';
 import CostTrendBar from './costTrendBarChart';
 import "./costTrend.css"
@@ -229,5 +229,15 @@ const CostTrendBarChart = (args) => (<CostTrendBar {...args} style="customStyle"
 
 export const barChart = CostTrendBarChart.bind({});
 barChart.args={
-    data: chartData
+    data: chartData,
+    customStyle: {
+      customColors: {
+        aws: '#B4CDE6',
+        azure: '#277BC0',
+        forecaste: 'transparent',
+        onPremise: '#5F9DF7'
+      },
+      stacked: true
+    }
+    
 }
