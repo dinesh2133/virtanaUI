@@ -1,6 +1,6 @@
 import React from "react";
 import Optimization from "./Optimization";
-import ProgressCount from "../ProgressCount./ProgressCount.js";
+import ProgressCount from "../ProgressCount/ProgressCount";
 import "./OptimizationStyle.css"
 import SavingH1 from "../SavingH1/SavingH1";
 

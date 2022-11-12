@@ -10,7 +10,7 @@ export default function SavingH1(props) {
     <div className='Savingdata' style={{backgroundColor:color, color:textcolor}} id={style}>
     <TungstenSharpIcon  id='Savingicon'/>
     <div>
-    <h2>{addComma(saving)}</h2> {/*add add_comma function in place of span value  */}
+    <h2>${addComma(saving)}</h2> {/*add add_comma function in place of span value  */}
     <div className='footerline'>
     <span style={{width: '300px'}} >{title}</span>
     </div>
