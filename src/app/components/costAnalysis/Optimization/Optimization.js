@@ -8,7 +8,7 @@ import { getoptimization, GetData } from '../../../apis/costAnalysis.api';
 import { Loader } from '../../../helpers/utils/loader';
 import { addComma } from '../../../helpers/utils/methods';
 import { request, gql } from 'graphql-request'
-import ProgressCount from '../ProgressCount./ProgressCount';
+import ProgressCount from '../ProgressCount/ProgressCount';
 import SavingH1 from '../SavingH1/SavingH1';
 
 // const Get_Optimization_Data = gql`
@@ -63,9 +63,6 @@ export default function Optimization(props) {
                             <Loader />
                         )
                 }
-
-
-            </section>
-
+                 </section>
         </>)
 }

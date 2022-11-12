@@ -35,8 +35,7 @@ export default function Insights(props) {
     let {data}=props;
     return (
         <>
-            <section className="SavingOpp" id={props.style}>
-                <div>
+            <section className="SavingOpp" id={props.style}>     
                     {
                         data ?
                             (
@@ -69,10 +68,7 @@ export default function Insights(props) {
                                 <Loader />
                             )
                     }
-                </div>
-
             </section>
-
         </>
     )
 }

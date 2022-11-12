@@ -15,19 +15,14 @@ let data = {
     saving: 32323,
     type: "In-Progress"
 }
-    //const Temp= args => (<ProgressCount {...args} />)
+
+
+
+const Temp= args => (<ProgressCount {...args} />)
+    
 export const progressCount = Temp.bind({});
 
 progressCount.args={
     Tcolor:Text_color,
     data:data,
 }
-// const Template = args => (<ProgressBar  {...args}  />)
-
-
-// export const progressbar = Template.bind({});
-
-// progressbar.args={
-//   style: CurrentMonthStyle,
-//   mtdCostInPercentage: 90
-// }
