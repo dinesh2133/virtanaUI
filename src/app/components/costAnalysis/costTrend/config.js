@@ -2,19 +2,12 @@ import { addComma } from "../../../helpers/utils/methods";
 
 export const dataForBarChart = (props) =>{
   const {data, style, customStyle} = props;
-// console.log("sdflksjoielskdjfskj", data);
 let barData = data;
-// if(barData){
-//   barData = JSON.parse(barData);
-// }else{
-//   barData = data;
-// }
 let DataLabels = [];
 DataLabels = barData?.datalabels?.map((e)=>{
   return e.labels;
 })
 
-console.log('bar data in config is ', DataLabels);
 let imgSrc = ['https://i.imgur.com/v67Jqaa.png', 'https://i.imgur.com/PB3zIxv.png', 'https://i.imgur.com/QPCNtc0.png', 'https://i.imgur.com/MgK6hti.png'];
 
 const option = {
@@ -118,9 +111,6 @@ const option = {
     if(props?.customStyle?.customColors){
       customColors = props.customStyle.customColors;
     }
-    // if(customStyle.barType){
-    //   plotOptions.series.stacking = customStyle.barType;
-    // }
 
     if(barData?.dataSets){
     barData?.dataSets.map((e)=>{
@@ -139,10 +129,6 @@ const option = {
             );  
     });
 }
-
-// if(customStyle){
-//   option.title
-// }
 
 return option;
 }

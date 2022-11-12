@@ -8,43 +8,9 @@ import {getCostTrendData, GetData} from '../../../../apis/costAnalysis.api';
 import {gql, request} from "graphql-request";
 import { Loader } from "../../../utils/loader";
 
-// const costTrendData = gql`query CostTrend {
-//   barchartdata{
-//     dataSets {
-//       name
-//       label
-//       data{
-//         value
-//       }
-//       monthlyForecast
-//     }
-//     datalabels {
-//       labels
-//     }
-//     averageCost
-//   }
-// }`
-
-
 
 const StackedBarChart = (props ) => {
   const {config} = props;
-    
-    
-  // const [options, setOptions]= useState();
-  // const [data, setData] = useState({});
-  // if(Object.keys(data).length <= 0){
-  //   GetData(barQuery).then((response)=>{
-  //     setData(response);
-  //   })
-  // }
-
-  // useEffect(()=>{
-  //   console.log("data", data);
-  //   let temp = dataForBarChart(data[innerObject]);
-  //   setOptions(temp);
-  //   console.log("temp", temp);
-  // }, [data])
   
   
   return (

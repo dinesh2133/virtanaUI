@@ -10,24 +10,9 @@ import { request, gql } from "graphql-request";
 import ProgressBar from "../../../helpers/charts/ConstProgressBar";
 
 
-// export const Get_Monthly_Data = gql`
-//                         query MonthlyCosts {
-//                           monthlycost{
-//                           mtdCost
-//                           monthlyCost
-//                           mtdCostInPercentage
-//                           costForLastMonth
-//                           costStatus
-//                           costPercentage
-//                           lastMonthCostInPercentage
-//                         }
-//                       }`
-
 const MonthlyCosts = (props) =>{
 
     const {data, progressbarstyle1, progressbarstyle2, style} = props;
-    console.log("data in pros is", style);
-
     let CurrentMonthStyle = {
       defaultBarHeight: 20,
       marginTop : "10px",

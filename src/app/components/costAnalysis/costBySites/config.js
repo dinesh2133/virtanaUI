@@ -4,7 +4,6 @@ import { CurrentMonth } from "../../../helpers/utils/methods";
 export const dataForBarChart = (props) =>{
 
 let barData = props.data;
-console.log("bar data dataSets", barData);
 let DataLabels = [];
 DataLabels = barData?.datalabels?.map((e)=>{
   return e.value;
