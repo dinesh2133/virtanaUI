@@ -12,7 +12,7 @@ export default function ProgressCount(props) {
     return (
         <>
             <div className='maindiv contentcenter' >
-                <table class="table table-borderless " style={{backgroundColor:Background_color,color:Text_color ,borderRadius:radius}}>
+                <table className="table table-borderless " style={{backgroundColor:Background_color,color:Text_color ,borderRadius:radius}}>
                     <tbody>
                         <tr>
                             <td className='titels'>{props.data.type}</td>
