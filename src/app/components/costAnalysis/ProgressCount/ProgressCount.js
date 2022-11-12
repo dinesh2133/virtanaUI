@@ -7,12 +7,11 @@ import { addComma } from '../../../helpers/utils/methods';
 import "./ProgressCount.css";
 import { borderRadius } from '@mui/system';
 export default function ProgressCount(props) {
-    console.log("in props", props)
     let {Background_color,Text_color,radius} =props
     return (
         <>
             <div className='maindiv contentcenter' >
-                <table class="table table-borderless " style={{backgroundColor:Background_color,color:Text_color ,borderRadius:radius}}>
+                <table className="table table-borderless " style={{backgroundColor:Background_color,color:Text_color ,borderRadius:radius}}>
                     <tbody>
                         <tr>
                             <td className='titels'>{props.data.type}</td>

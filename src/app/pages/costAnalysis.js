@@ -17,14 +17,13 @@ import { GetData } from "../apis/costAnalysis.api";
 import { constQuery } from "./cosntQuery";
 import { PropaneSharp } from "@mui/icons-material";
 
-export const Get_Monthly_Data = gql `${constQuery}`
+export const Get_Cost_Analysis_Data = gql `${constQuery}`
 
 
 const CostAnalysis = () =>{
     const[data, setData] = useState({});
     if(Object.keys(data).length <= 0 ){
-        GetData(Get_Monthly_Data).then((response)=>{
-            console.log("response data ", response);
+        GetData(Get_Cost_Analysis_Data).then((response)=>{
           setData(response);
         })
       }
@@ -56,7 +55,7 @@ const CostAnalysis = () =>{
                             <Costbyacc data={data.costbyaccdata}/>
                         </div>
                         <div className="col-sm-4 mt-1" id="cost-by-site">
-                            <CostBySites />
+                            <CostBySites data={data.costbysites} />
                         </div>
                         {/* <div className="col-sm-4 mt-1" id="cost-by-site">
                             <CostByCloud />

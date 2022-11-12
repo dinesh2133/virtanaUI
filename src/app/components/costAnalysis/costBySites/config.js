@@ -1,9 +1,9 @@
 import { grid } from "@mui/system";
 import { CurrentMonth } from "../../../helpers/utils/methods";
 
-export const dataForBarChart = (data) =>{
-let barData = data;
+export const dataForBarChart = (props) =>{
 
+let barData = props.data;
 let DataLabels = [];
 DataLabels = barData?.datalabels?.map((e)=>{
   return e.value;
@@ -13,9 +13,10 @@ const option = {
     chart: {
         backgroundColor: '#353536',
         color: 'white',
-        height: 255,
-        type: "column",
-        // margin: [ 50, 50, 100, 80]
+        height: props?.customStyle ? props.customStyle?.height : 255,
+        width: props?.customStyle ? props.customStyle?.width : null,
+        type: props?.customStyle ? props.customStyle?.barType : "column",
+
     },
     
     plotOptions: {
@@ -34,6 +35,9 @@ const option = {
     ],
     title: {
         text: `Cost By Sites - ${CurrentMonth()}`,
+        align: props?.customStyle ? props.customStyle?.titlePosition.align : "center",
+        x : props?.customStyle ? props.customStyle?.titlePosition.x : 0,
+        y : props?.customStyle ? props.customStyle?.titlePosition.y : 10,
         style:{
             color: "white",
             fontSize: "14px"
@@ -82,6 +86,10 @@ const option = {
                 }
             );  
     });
+}
+
+if(props?.customStyle){
+    option.colors = props.customStyle.barColors;
 }
 return option;
 }

@@ -27,7 +27,7 @@ export default function Costbyacc(props) {
 
     const { data,color } = props;
 const temp= cofigpi(data,color)
-    console.log("Costbyacc data:",data)
+
     return (
         data ?
         (<div style={{ height: '270' }} id={props.style}>

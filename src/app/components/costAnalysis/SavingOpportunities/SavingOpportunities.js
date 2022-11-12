@@ -50,8 +50,8 @@ export default function Insights(props) {
                                             <div id='savingchart'>
                                              <table className="table" id='savingtable'>
                                                 <tbody>
-                                                    {data?.map((value) => (
-                                                        <tr key={value.key}>
+                                                    {data?.map((value, index) => (
+                                                        <tr key={index}>
                                                             <td className='titleline'>{value.name}</td>
                                                             <td>${addComma(value.amount)}</td>
                                                             <td><TungstenSharpIcon id='sugicon' /> {value.suggestions}</td>

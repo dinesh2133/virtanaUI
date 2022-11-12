@@ -13,7 +13,8 @@ const CurrentMonthStyle = {
     defaultBarHeight: 20,
     // marginTop : "10px",
     margin: "10px 0 10px 0",
-    primaryColor: "red",
+    primaryColor: "white",
+    barColor: "",
     barHeightForSmallScreen : 15
   }
 

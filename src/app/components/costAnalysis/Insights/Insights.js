@@ -17,13 +17,7 @@ const Get_Insights_Data = gql`
                             }
                       }`
 export default function Insights(props) {
-    console.log("llll");
-    // const [obj, setObj] = useState([]);
-    //     useEffect(()=>{
-    //         getinsights().then((response)=>{
-    //             setObj(response);
-    //         })
-    //     }, []);
+
     const [data, setData]= useState([]);
     
     if(Object.keys(data).length <= 0 ){

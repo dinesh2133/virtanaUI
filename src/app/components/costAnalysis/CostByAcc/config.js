@@ -1,6 +1,5 @@
 import {CurrentMonth} from '../../../helpers/utils/methods'
 export const cofigpi=(data,color)=>{
-    console.log('Config data:',data)
     const options={ colors: ['#3d80cb','#923dbd','#6aa41e' ,'#889acc'],
         chart: {
           type: 'pie',
