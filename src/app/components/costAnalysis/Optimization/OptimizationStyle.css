@@ -1,4 +1,4 @@
-/* #customWidth {
+    /* #customWidth {
     width: 800px;
 } */
 .Optimization{
@@ -7,6 +7,10 @@
     color: #ffffff;
     font-size: 12px;
 }
+.opti{
+    height: 270;
+    width:100%
+ }
 .contentcenter{
     display: flex;
     align-items: center;
@@ -20,8 +24,14 @@
  }
  .savingline{
     margin-top: 75px;
-    margin-left: 5px;
-    position: absolute;
+    margin-left: 10px;
+
+ }
+
+ .divflex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
  }
 #savingamt{
     padding-left: 20px;
@@ -85,7 +95,7 @@
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 560px) {
     .totalSaving{
         font-size: 25px;
     }
@@ -96,17 +106,18 @@
         height:25px;
     }
     .count_data{
-        font-size: 16px;
+        font-size: 14px;
     }
     .savingline{
         margin-top: 70px;
         font-size: 10px;
+        position: absolute;
     }
     .Savingdata{
         font-size: 50px;
     }
   }
-  @media only screen and (max-width: 780px) and (min-width:450px) {
+  @media only screen and (max-width: 780px) and (min-width:560px) {
     .totalSaving{
         font-size: 25px;
     }
@@ -129,7 +140,7 @@
         margin-bottom: 5px;
     }
     .Optimization{
-        font-size: 9px;
+        font-size: 10px;
     }
     .titels{
         font-size: 9px;

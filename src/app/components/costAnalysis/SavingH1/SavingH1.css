@@ -13,8 +13,21 @@
 }
 
 .footerline{
-    color: azure;
+    color: #ffffff;
     font-size: 11px;
     margin:-9px 0 0 -.5px;
     width: 150px;
+}
+@media only screen and (max-width: 770px){
+    #Savingicon{
+        height:50px ;
+    }
+    .Savingdata{
+     font-size: 15px;
+    }
+}
+@media only screen and (max-width: 610px){
+    .Savingdata{
+     font-size: 20px;
+    }
 }

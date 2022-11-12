@@ -1,9 +1,6 @@
 
 .title{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 0px;
+    text-align: center;
     padding-bottom: 5px
 }
 .insights{
@@ -19,16 +16,14 @@
     height: 210px;
     overflow: scroll;
     margin-left:4%;
+    scrollbar-width: none;
+
 }
 .tablesection::-webkit-scrollbar{
     display: none;
     scroll-behavior:smooth;
 }
 
-.tablesection {
-    scrollbar-width: none;
-    
-  }
  
 .datatable td:first-child {
     border-bottom: none;
