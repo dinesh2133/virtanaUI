@@ -37,7 +37,7 @@ const MonthlyCosts = (props) =>{
       {
         data ? 
         (
-          <>
+          <div>
             <p className="heading">{CurrentMonth()} Cost (Projected)</p>
             <p className="heading-number"><strong>${addComma(data?.monthlyCost)}</strong></p>
             <section id="inner-section">
@@ -53,7 +53,7 @@ const MonthlyCosts = (props) =>{
                 <p className="footer-span margin-left"><strong>${addComma(data?.costForLastMonth)}</strong></p>
 
             </section>
-          </>
+          </div>
         ) :
         
           (
