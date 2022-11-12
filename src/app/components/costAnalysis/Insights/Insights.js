@@ -17,13 +17,7 @@ const Get_Insights_Data = gql`
                             }
                       }`
 export default function Insights(props) {
-    console.log("llll");
-    // const [obj, setObj] = useState([]);
-    //     useEffect(()=>{
-    //         getinsights().then((response)=>{
-    //             setObj(response);
-    //         })
-    //     }, []);
+
     const [data, setData]= useState([]);
     
     if(Object.keys(data).length <= 0 ){
@@ -49,11 +43,11 @@ export default function Insights(props) {
                                 <tbody>
                                 {data?.insightData?.map((value)=>(
                                         <tr key={value.id}>
-                                        <td id='msgicon'>{value.type==='In-progress'?<WarningRoundedIcon id='inprogress' />:null}
+                                        <td key={value.id} id='msgicon'>{value.type==='In-progress'?<WarningRoundedIcon id='inprogress' />:null}
                                             {value.type==='Open'?<ErrorIcon id='open' />:null}
                                             {value.type==='suggestions'?<TungstenSharpIcon id='suggestions'/>:null}
                                         </td>
-                                        <td id='msgdata'>{value.msg}</td>
+                                        <td key={value.id} id='msgdata'>{value.msg}</td>
                             
                                     </tr>
                                 ))}
