@@ -7,7 +7,6 @@ import { addComma } from '../../../helpers/utils/methods';
 import "./ProgressCount.css";
 import { borderRadius } from '@mui/system';
 export default function ProgressCount(props) {
-    console.log("in props", props)
     let {Background_color,Text_color,radius} =props
     return (
         <>

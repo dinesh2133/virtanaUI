@@ -35,8 +35,8 @@ const CostChanges = (props) =>{
                             <table className="cost-changing-table">
                                 <tbody>
                                     {
-                                        data?.toptenconstchanges?.map((row)=>(
-                                            <tr className="table-row">
+                                        data?.toptenconstchanges?.map((row, index)=>(
+                                            <tr key={index} className="table-row">
                                                 <td className="text-td">{row?.text.length > 35 ? row.text.slice(0,35) + "....." : row.text}</td>
                                                 <td style={{textAlign: 'right'}}>${addComma(row?.price)}</td>
                                                 <td>{row?.costStatus === 'up' ? <ArrowUpwardIcon  style={{color: 'red'}} sx={{fontSize: '17px'}} /> : <ArrowDownwardIcon style={{color:'green'}} sx={{fontSize: '17px'}} />}</td>

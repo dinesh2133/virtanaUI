@@ -4,7 +4,7 @@ import {action ,actions} from '@storybook/addon-actions'
 export default function Button(props) {
     let {title}=props
     function clicked(){
-        console.log(clicked)
+
     }
   return (
     <div>

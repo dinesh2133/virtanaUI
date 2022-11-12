@@ -18,17 +18,12 @@ const CostByCloud = () =>{
     const[value, setValue] = useState([]);
     if(value.length <= 0){
         GetData(sparklinedata).then((response)=>{
-            console.log("data for spark line is", response);
             setValue(response.costaccount);
         }).catch((err)=>{
-            console.log("error in spark line", err);
+            console.log(err);
         })
     }
     
-
-    useEffect(()=>{
-        console.log('value is', value);
-    },[value])
 
     return (
         <div>

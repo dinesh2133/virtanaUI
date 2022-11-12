@@ -43,11 +43,11 @@ export default function Insights(props) {
                                 <tbody>
                                 {data?.insightData?.map((value)=>(
                                         <tr key={value.id}>
-                                        <td key={value.id} id='msgicon'>{value.type==='In-progress'?<WarningRoundedIcon id='inprogress' />:null}
+                                        <td id='msgicon'>{value.type==='In-progress'?<WarningRoundedIcon id='inprogress' />:null}
                                             {value.type==='Open'?<ErrorIcon id='open' />:null}
                                             {value.type==='suggestions'?<TungstenSharpIcon id='suggestions'/>:null}
                                         </td>
-                                        <td key={value.id} id='msgdata'>{value.msg}</td>
+                                        <td id='msgdata'>{value.msg}</td>
                             
                                     </tr>
                                 ))}

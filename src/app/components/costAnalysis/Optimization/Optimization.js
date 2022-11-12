@@ -11,32 +11,10 @@ import { request, gql } from 'graphql-request'
 import ProgressCount from '../ProgressCount/ProgressCount';
 import SavingH1 from '../SavingH1/SavingH1';
 
-// const Get_Optimization_Data = gql`
-//                         query optimization {
-//                             optimizationData{
-//                                 id
-//                                 value
-//                                 saving
-//                                 type
-//                             }
-//                       }`
 export default function Optimization(props) {
-    // const [obj, setObj] = useState([]);
-    //     useEffect(()=>{
-    //         getoptimization().then((response)=>{
-    //             setObj(response);
-    //         })
-    //     }, []);
+    
     let { data, Text_color, Background_Color } = props
 
-    // const [data, setData]= useState([]);
-
-    // if(Object.keys(data).length <= 0 ){
-    //     GetData(Get_Optimization_Data).then((response)=>{
-    //       setData(response);
-    //     })
-    //   }   
-    console.log("opr", data)
     return (
         <>
             <section id={props.Style} className='Optimization' style={{ backgroundColor: Background_Color, color: Text_color }}>
@@ -49,7 +27,7 @@ export default function Optimization(props) {
                                 <div className='optimiztable '>
                                     <span className='savingline'>Save</span>
                                     {data?.map((value, index) => (
-                                        <ProgressCount data={value} index={index} textcolor={Text_color} />
+                                        <ProgressCount data={value} index={index} key={index} textcolor={Text_color} />
                                     ))}
                                 </div>
                                 <div className='Savingcomp'>
