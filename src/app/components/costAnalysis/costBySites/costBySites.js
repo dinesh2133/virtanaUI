@@ -12,8 +12,6 @@ const CostBySites = (props) =>{
 
     let options = dataForBarChart(props);
 
-    console.log("test", options);
-
     return(
         <div className="cost-by-site-div" >
             <UnstackedBarChart config={options}/>
