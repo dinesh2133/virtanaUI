@@ -30,7 +30,7 @@ const option = {
         },
         title: {
           text: 'Cost Trend',
-          aligh : props?.customStyle ? props?.customStyle?.titlePosition?.align : "center",
+          align : props?.customStyle ? props?.customStyle?.titlePosition?.align : "center",
           x: props?.customStyle ? props.customStyle.titlePosition.x : -20,
             y: props?.customStyle ? props.customStyle.titlePosition.y : 5,
           style:{
