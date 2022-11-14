@@ -34,7 +34,7 @@
     justify-content: center;
  }
 #savingamt{
-    padding-left: 20px;
+    padding-left: 25px;
 }
  
 #warning{
@@ -56,7 +56,7 @@
     width:auto;
 }
 .count_data{
-    font-size: 25px;
+    font-size: 20px;
 }
 
 @media only screen and (max-width: 950px) and (min-width:825px) {
@@ -66,7 +66,7 @@
     #warning,#check,#error{
         height: 20px;
     }
-    .Optimization{
+    .tdata{
         font-size: 11px;
     }
     .savingline{
@@ -85,9 +85,9 @@
     .Optimization{
         font-size: 10px;
     }
-    .titels{
-        font-size: 10px;
-    }
+   .tdata{
+    font-size: 10px;
+   }
     .savingline{
         font-size: 9px;
         margin-top: 65px;
@@ -110,6 +110,7 @@
     }
     .savingline{
         margin-top: 70px;
+        margin-left: 1px;
         font-size: 10px;
         position: absolute;
     }
@@ -117,24 +118,34 @@
         font-size: 50px;
     }
   }
-  @media only screen and (max-width: 780px) and (min-width:560px) {
+  @media only screen and (max-width: 750px) and (min-width:560px) {
     .totalSaving{
         font-size: 25px;
     }
+    #savingamt{
+        padding-left: 10px;
+    }
     #Saving{
-        color:#3e844d;
-        transform: rotate(180deg);
         height: 45px;
     }
     #warning,#check,#error{
-        height:18px;
+        height:16px;
     }
+    .tdata td{
+        font-size: 9.5px;
+        margin-left: 6px;
+        padding-left: 2px;
+        margin-left: -5px;
+    }
+    
     .count_data{
-        font-size: 10px;
+        font-size: 14px !important; 
     }
     .savingline{
         margin-top: 70px;
         font-size: 9px;
+        /* position: absolute; */
+        margin-left: 1px;
     }
     .Heading{
         margin-bottom: 5px;
@@ -142,7 +153,8 @@
     .Optimization{
         font-size: 10px;
     }
-    .titels{
-        font-size: 9px;
+    .Savingcomp{
+        margin-left: 30px;
     }
+    
   }

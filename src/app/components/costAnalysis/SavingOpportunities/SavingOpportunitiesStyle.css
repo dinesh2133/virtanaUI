@@ -82,7 +82,9 @@
     .SavingOpp {
         font-size: 10.5px;
     }
-
+    .savingamount{
+        margin-left: 30px;
+    }
     #totalamount {
         font-size: 20px;
     }
